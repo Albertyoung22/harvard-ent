@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>{{ page_meta.title if page_meta else '賀華實業股份有限公司 | HARVARD ENTERPRISES INC. - 全方位鋁合金材料供應鏈與精密加工整合首選' }}</title>
+    <meta name="description" content="{{ page_meta.desc if page_meta else '賀華實業股份有限公司創立於1973年，深耕台灣逾50年。專營日本UACJ 5052貼膜鋁板、7075航太鋁、6061、5083船用鋁板、各式鋁擠型現貨規格與CNC精密加工一站式服務。' }}">
+
+    <!-- Open Graph / LINE / Facebook / Slack Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="賀華實業股份有限公司 | HARVARD ENTERPRISES INC.">
+    <meta property="og:title" content="{{ page_meta.title if page_meta else '賀華實業股份有限公司 | HARVARD ENTERPRISES INC. - 全方位鋁合金材料供應鏈與精密加工整合首選' }}">
+    <meta property="og:description" content="{{ page_meta.desc if page_meta else '賀華實業股份有限公司創立於1973年，深耕台灣逾50年。專營日本UACJ 5052貼膜鋁板、7075航太鋁、6061、5083船用鋁板、3,081項現貨與模具規格及CNC精密加工一站式服務。' }}">
+    <meta property="og:image" content="{{ url_for('static', filename='img_crawled/fapo_logo_hd.png', v='10.0') }}">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page_meta.title if page_meta else '賀華實業股份有限公司 | HARVARD ENTERPRISES INC.' }}">
+    <meta name="twitter:description" content="{{ page_meta.desc if page_meta else '專營日本UACJ 5052貼膜鋁板、7075航太鋁、3,081項現貨規格及CNC精密加工一站式服務。' }}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='img_crawled/fapo_logo_hd.png', v='10.0') }}">
+
+    <!-- PWA Web App Manifest & Mobile App Meta -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00e5ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="賀華實業">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img_crawled/favicon.png', v='11.0') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img_crawled/fapo_logo.png', v='11.0') }}">
+
+    <!-- Structured Data (JSON-LD Organization & Multi-Branch Business) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.harvard-ent.com.tw/#organization",
+          "name": "賀華實業股份有限公司",
+          "alternateName": "HARVARD ENTERPRISES INC.",
+          "foundingDate": "1973-04-25",
+          "url": "https://www.harvard-ent.com.tw",
+          "logo": "https://www.harvard-ent.com.tw/images/logo_brand.png",
+          "description": "創立於1973年4月25日，深耕台灣逾50年，專營日本UACJ/住友鋁捲板、A-70雙面貼膜鋁板、韓國4N高純度超平板、600mm特厚鋁合金固溶板、鍛造鋁及高速雙面铣床加工。"
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "賀華實業股份有限公司 台北廠 (八里倉庫)",
+          "parentOrganization": {"@id": "https://www.harvard-ent.com.tw/#organization"},
+          "telephone": "+886-2-2618-2817",
+          "faxNumber": "+886-2-2618-2923",
+          "email": "harvard.tpe@msa.hinet.net",
+          "address": {"@type": "PostalAddress", "streetAddress": "八里區忠孝路399號", "addressLocality": "新北市", "addressCountry": "TW"}
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "賀華實業股份有限公司 新竹廠 (永旭材料)",
+          "parentOrganization": {"@id": "https://www.harvard-ent.com.tw/#organization"},
+          "telephone": "+886-3-539-6766",
+          "faxNumber": "+886-3-530-9899",
+          "email": "ys5396766@gmail.com",
+          "address": {"@type": "PostalAddress", "streetAddress": "香山區牛埔南路221號", "addressLocality": "新竹市", "addressCountry": "TW"}
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "賀華實業股份有限公司 台中一廠",
+          "parentOrganization": {"@id": "https://www.harvard-ent.com.tw/#organization"},
+          "telephone": "+886-4-2561-1017",
+          "faxNumber": "+886-4-2562-9758",
+          "email": "harvard.tcg@msa.hinet.net",
+          "address": {"@type": "PostalAddress", "streetAddress": "神岡區中山路360巷10-5號", "addressLocality": "台中市", "addressCountry": "TW"}
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "賀華實業股份有限公司 台中二廠",
+          "parentOrganization": {"@id": "https://www.harvard-ent.com.tw/#organization"},
+          "telephone": "+886-4-2561-0277",
+          "faxNumber": "+886-4-2562-9758",
+          "email": "harvard.tcg@msa.hinet.net",
+          "address": {"@type": "PostalAddress", "streetAddress": "神岡區神洲路848巷39號", "addressLocality": "台中市", "addressCountry": "TW"}
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "賀華實業股份有限公司 台南廠",
+          "parentOrganization": {"@id": "https://www.harvard-ent.com.tw/#organization"},
+          "telephone": "+886-6-232-9156",
+          "faxNumber": "+886-6-233-4651",
+          "email": "harvard.tnn@msa.hinet.net",
+          "address": {"@type": "PostalAddress", "streetAddress": "永康區中正南路404巷15號", "addressLocality": "台南市", "addressCountry": "TW"}
+        }
+      ]
+    }
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img_crawled/favicon.png', v='10.0') }}">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='27.0') }}">
+</head>
+<body>
+    <!-- WCAG 2.1 AA: Skip to Main Content Link (無障礙快速跳至主要內容區) -->
+    <a href="#mainContent" class="skip-link"><span data-i18n="skip_link">跳至主要內容區 (Skip to Main Content)</span></a>
+
+    <!-- Dynamic Reading & Scroll Progress Indicator -->
+    <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+    <!-- Ink-Wash Mountain Mist & Golden Bodhi Light Canvas -->
+    <canvas id="latticeCanvas" aria-hidden="true"></canvas>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar" role="banner">
+        <div class="container">
+            <a href="/" data-nav-page="hero" class="logo-group" aria-label="賀華實業股份有限公司 首頁">
+                <span class="logo-emblem-fx">
+                    <span class="logo-halo-ring" aria-hidden="true"></span>
+                    <span class="logo-shine-mask">
+                        <img src="{{ url_for('static', filename='img_crawled/fapo_logo.png', v='10.0') }}" alt="賀華實業股份有限公司企業標誌 LOGO" class="logo-img">
+                    </span>
+                    <span class="logo-glint-star" aria-hidden="true">✦</span>
+                </span>
+                <div class="logo-text">
+                    <h1 data-i18n="brand.name">賀華實業股份有限公司</h1>
+                    <p data-i18n="brand.sub">HARVARD ENTERPRISES INC. · 創立於 1973</p>
+                </div>
+            </a>
+            <nav role="navigation" aria-label="全站主要導覽選單">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/" data-nav-page="hero" class="nav-item {% if (active_page or 'hero') == 'hero' %}active{% endif %}" data-i18n="nav.home">首頁</a></li>
+                    <li><a href="/about" data-nav-page="about" class="nav-item {% if active_page == 'about' %}active{% endif %}" data-i18n="nav.about">關於我們</a></li>
+                    <li><a href="/network" data-nav-page="network" class="nav-item {% if active_page == 'network' %}active{% endif %}" data-i18n="nav.network">服務網絡</a></li>
+                    <li><a href="/products" data-nav-page="products" class="nav-item {% if active_page == 'products' %}active{% endif %}" data-i18n="nav.products">旗艦材料</a></li>
+                    <li><a href="/specs" data-nav-page="specs" class="nav-item {% if active_page == 'specs' %}active{% endif %}" data-i18n="nav.specs">現貨規格</a></li>
+                    <li><a href="/machining" data-nav-page="machining" class="nav-item {% if active_page == 'machining' %}active{% endif %}" data-i18n="nav.machining">精密加工</a></li>
+                    <li><a href="/cases" data-nav-page="cases" class="nav-item {% if active_page == 'cases' %}active{% endif %}" data-i18n="nav.cases">代表實績</a></li>
+                    <li><a href="/tech" data-nav-page="tech" class="nav-item {% if active_page == 'tech' %}active{% endif %}" data-i18n="nav.tech">技術知識庫</a></li>
+                    <li><a href="/contact" data-nav-page="contact" class="nav-item {% if active_page == 'contact' %}active{% endif %}" data-i18n="nav.contact">聯絡諮詢</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <!-- Multi-Language Selector Dropdown (多國語言切換：繁中、英、日、韓) -->
+                <div class="lang-selector-wrap" id="langSelectorWrap">
+                    <button type="button" class="lang-current-btn" id="langCurrentBtn" aria-expanded="false" aria-haspopup="listbox" title="切換語言 / Language / 言語 / 언어">
+                        <span class="lang-icon" aria-hidden="true">🌐</span>
+                        <span class="lang-label" id="langCurrentLabel">繁體中文</span>
+                        <span class="lang-arrow" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-dropdown-menu" id="langDropdownMenu" role="listbox">
+                        <li role="option" data-lang="zh-TW" class="lang-opt active" onclick="switchLanguage('zh-TW')">
+                            <span>🇹🇼</span> 繁體中文
+                        </li>
+                        <li role="option" data-lang="en" class="lang-opt" onclick="switchLanguage('en')">
+                            <span>🇺🇸</span> English
+                        </li>
+                        <li role="option" data-lang="ja" class="lang-opt" onclick="switchLanguage('ja')">
+                            <span>🇯🇵</span> 日本語
+                        </li>
+                        <li role="option" data-lang="ko" class="lang-opt" onclick="switchLanguage('ko')">
+                            <span>🇰🇷</span> 한국어
+                        </li>
+                    </ul>
+                </div>
+
+                <button id="tunnelShareBtn" class="btn btn-audio nav-share-desktop" onclick="openTunnelModal()" data-i18n="nav.share">
+                    🌐 外網分享
+                </button>
+                <a href="/contact" data-nav-page="contact" class="btn btn-primary nav-cta-btn" data-i18n="nav.quote">立即詢價</a>
+                <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="開啟導覽選單">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Slide-Down Navigation Drawer -->
+    <div id="mobileNavOverlay" class="mobile-nav-overlay" role="dialog" aria-modal="true" aria-label="行動版導覽選單">
+        <nav class="mobile-nav-drawer">
+            <!-- Mobile Multi-Language Strip -->
+            <div class="mobile-lang-strip">
+                <button type="button" class="mobile-lang-btn active" data-lang="zh-TW" onclick="switchLanguage('zh-TW')">🇹🇼 繁中</button>
+                <button type="button" class="mobile-lang-btn" data-lang="en" onclick="switchLanguage('en')">🇺🇸 EN</button>
+                <button type="button" class="mobile-lang-btn" data-lang="ja" onclick="switchLanguage('ja')">🇯🇵 日本語</button>
+                <button type="button" class="mobile-lang-btn" data-lang="ko" onclick="switchLanguage('ko')">🇰🇷 한국어</button>
+            </div>
+
+            <div class="mobile-nav-grid">
+                <a href="/" data-nav-page="hero" class="mobile-nav-link {% if (active_page or 'hero') == 'hero' %}active{% endif %}" style="grid-column: 1 / -1; justify-content: center;" data-i18n="nav.home">🏠 首頁總覽</a>
+                <a href="/about" data-nav-page="about" class="mobile-nav-link {% if active_page == 'about' %}active{% endif %}" data-i18n="nav.about">🪷 關於我們沿革</a>
+                <a href="/network" data-nav-page="network" class="mobile-nav-link {% if active_page == 'network' %}active{% endif %}" data-i18n="nav.network">📍 全台服務據點</a>
+                <a href="/products" data-nav-page="products" class="mobile-nav-link {% if active_page == 'products' %}active{% endif %}" data-i18n="nav.products">✨ 精選旗艦材料</a>
+                <a href="/specs" data-nav-page="specs" class="mobile-nav-link {% if active_page == 'specs' %}active{% endif %}" data-i18n="nav.specs">📦 現貨規格檢索</a>
+                <a href="/machining" data-nav-page="machining" class="mobile-nav-link {% if active_page == 'machining' %}active{% endif %}" data-i18n="nav.machining">⚙️ 精密加工能量</a>
+                <a href="/cases" data-nav-page="cases" class="mobile-nav-link {% if active_page == 'cases' %}active{% endif %}" data-i18n="nav.cases">🏆 代表實績案例</a>
+                <a href="/tech" data-nav-page="tech" class="mobile-nav-link {% if active_page == 'tech' %}active{% endif %}" data-i18n="nav.tech">📚 鋁材工程知識庫</a>
+                <a href="/contact" data-nav-page="contact" class="mobile-nav-link {% if active_page == 'contact' %}active{% endif %}" data-i18n="nav.contact">📋 線上圖面詢價</a>
+            </div>
+            <div class="mobile-nav-footer">
+                <button class="btn btn-outline" style="width:100%; justify-content:center;" onclick="closeMobileMenu(); openTunnelModal();">
+                    <span data-i18n="btn_share_url">🌐 查看 / 複製公開分享網址</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main id="mainContent" role="main">
+        <!-- Subpage Breadcrumb & Horizontal Quick-Switch Bar (Shown on all subpages) -->
+        <div id="subpageTopBar" class="subpage-topbar {% if (active_page or 'hero') != 'hero' %}visible{% endif %}">
+            <div class="container">
+                <div class="subpage-crumb-row">
+                    <div class="subpage-crumbs">
+                        <a href="/" data-nav-page="hero" class="crumb-home" data-i18n="crumb.home">🏠 首頁總覽</a>
+                        <span class="crumb-sep">›</span>
+                        <strong id="subpageCrumbLabel" class="crumb-current">{{ page_meta.label if page_meta else '專區內容' }}</strong>
+                    </div>
+                    <a href="/contact" data-nav-page="contact" class="subpage-quick-rfq" data-i18n="crumb.rfq">📋 線上圖面估價 →</a>
+                </div>
+                <div class="subpage-pill-strip" id="subpagePillStrip">
+                    <a href="/" data-nav-page="hero" class="subpage-pill {% if (active_page or 'hero') == 'hero' %}active{% endif %}" data-i18n="nav.home">🏠 首頁</a>
+                    <a href="/about" data-nav-page="about" class="subpage-pill {% if active_page == 'about' %}active{% endif %}" data-i18n="nav.about">關於我們</a>
+                    <a href="/network" data-nav-page="network" class="subpage-pill {% if active_page == 'network' %}active{% endif %}" data-i18n="nav.network">服務網絡</a>
+                    <a href="/products" data-nav-page="products" class="subpage-pill {% if active_page == 'products' %}active{% endif %}" data-i18n="nav.products">旗艦材料</a>
+                    <a href="/specs" data-nav-page="specs" class="subpage-pill {% if active_page == 'specs' %}active{% endif %}" data-i18n="nav.specs">現貨規格</a>
+                    <a href="/machining" data-nav-page="machining" class="subpage-pill {% if active_page == 'machining' %}active{% endif %}" data-i18n="nav.machining">精密加工</a>
+                    <a href="/cases" data-nav-page="cases" class="subpage-pill {% if active_page == 'cases' %}active{% endif %}" data-i18n="nav.cases">代表實績</a>
+                    <a href="/tech" data-nav-page="tech" class="subpage-pill {% if active_page == 'tech' %}active{% endif %}" data-i18n="nav.tech">技術硬度</a>
+                    <a href="/contact" data-nav-page="contact" class="subpage-pill {% if active_page == 'contact' %}active{% endif %}" data-i18n="nav.contact">聯絡諮詢</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================================================
+             Hero Section (Home Overview Page)
+             ========================================================================== -->
+        <section id="hero" data-page-view="hero" class="hero-section page-view {% if (active_page or 'hero') == 'hero' %}active-page{% endif %}">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span data-i18n="hero.badge">⭐ 深耕台灣逾 50 載 (Since 1973) · 卓越材料與工藝標竿</span>
+                        </div>
+                        <h2 class="hero-title" data-i18n="hero.title">
+                            全方位鋁合金材料供應鏈
+                            <span class="highlight">高階精密加工一站整合</span>
+                        </h2>
+                        <p class="hero-lead" data-i18n="hero.lead">
+                            結合深厚金屬冶金專業與先進 CNC 精密銑削、大尺寸鋸切及原廠出廠證明，為航太、半導體及精密工業客戶提供可靠夥伴級服務。
+                        </p>
+                        <div class="hero-actions">
+                            <button id="startTourHeroBtn" class="btn btn-primary" data-i18n="hero.btn_tour">
+                                🎙️ 啟動沉浸式語音導覽
+                            </button>
+                            <a href="/specs" data-nav-page="specs" class="btn btn-outline" data-i18n="hero.btn_specs">
+                                🔍 檢索現貨庫存規格
+                            </a>
+                            <a href="/contact" data-nav-page="contact" class="btn btn-outline" data-i18n="hero.btn_quote">
+                                📋 立即線上圖面估價
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item reveal-on-scroll">
+                                <h3 data-counter-target="50" data-counter-suffix="+">50+</h3>
+                                <p data-i18n="hero.stat1_label">年專業誠信商譽</p>
+                            </div>
+                            <div class="stat-item reveal-on-scroll">
+                                <h3 data-counter-target="5" data-counter-suffix=" 大"><span data-i18n="hero_h3_branches">5 大</span></h3>
+                                <p data-i18n="hero.stat2_label">北中南營運據點</p>
+                            </div>
+                            <div class="stat-item reveal-on-scroll">
+                                <h3 data-counter-target="3081" data-counter-suffix="+">3,081+</h3>
+                                <p data-i18n="hero.stat3_label">現貨與免開模規格</p>
+                            </div>
+                            <div class="stat-item reveal-on-scroll">
+                                <h3 data-counter-target="100" data-counter-suffix="%">100%</h3>
+                                <p data-i18n="hero.stat4_label">原廠材質證明保證</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-preview-card glass-card">
+                            <span class="preview-badge-top" data-i18n="hero.preview_badge">半導體產業首選材料</span>
+                            <img src="/images/alu05.jpg" alt="日本 UACJ / 神鋼 / A-70 雙面貼膜鋁板與 600mm 特厚固溶板" class="zoomable-img" onclick="openImageLightbox(this.src, '賀華實業旗艦材料：日本 UACJ / 神鋼 / A-70 雙面貼膜鋁板 · 600mm 特厚鋁合金固溶板')">
+                            <div class="preview-info">
+                                <h4 data-i18n="hero_uacj_h4">日本 UACJ / 住友 / A-70 雙面貼膜鋁板 & 600mm 特厚板</h4>
+                                <p data-i18n="hero.preview_desc">獨特壓延工藝消除內應力，大量精密 CNC 銑削去除不易變形翹曲，確保超高真平度與氣密性。</p>
+                                <div class="preview-specs-chips">
+                                    <span class="chip" data-i18n="hero.chip_thick">厚度 0.5mm - 600mm</span>
+                                    <span class="chip" data-i18n="hero.chip_film">雙面保護貼膜</span>
+                                    <span class="chip" data-i18n="hero.chip_millsheet">附原廠 Mill Sheet</span>
+                                    <span class="chip" data-i18n="hero.chip_rohs">RoHS 認證</span>
+                                </div>
+                            </div>
+                            <div style="margin-top: 18px; display: flex; gap: 10px;">
+                                <button class="btn-read-tts" onclick="readAloudText('日本原裝進口 UACJ 5052 貼膜鋁板，獨特壓延工藝有效消除內部殘留應力，在經過大量精密銑削後不易變形翹曲，是半導體真空腔體與光電設備之指定材料。', this)">
+                                    <span data-i18n="btn_read_intro">🎙️ 語音朗讀介紹</span>
+                                </button>
+                                <a href="/specs" data-nav-page="specs" class="btn-quote-item" data-i18n="hero.btn_view_specs">🔍 查看庫存規格</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Quick Portal Directory (八大核心專區分頁入口) -->
+                <div class="home-portal-directory">
+                    <div class="portal-dir-head">
+                        <span class="section-tag" style="margin-bottom: 10px;" data-i18n="portal.tag">Quick Portal Navigation</span>
+                        <h3 data-i18n="portal.title">探索賀華八大核心業務與技術專區</h3>
+                        <p data-i18n="portal.desc">點擊下方任一專區卡片，即可零延遲切換至獨立分頁檢視完整圖鑑與規格資料庫</p>
+                    </div>
+                    <div class="portal-dir-grid">
+                        <a href="/about" data-nav-page="about" class="portal-dir-card glass-card">
+                            <span class="portal-dir-icon">🪷</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.about_title">關於我們 · 沿革願景</h4>
+                                <p data-i18n="portal.about_desc">1973 創立概要、誠信經營理念、九大營業項目與十一大應用產業</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.enter">進入專頁 →</span>
+                        </a>
+                        <a href="/network" data-nav-page="network" class="portal-dir-card glass-card">
+                            <span class="portal-dir-icon">📍</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.net_title">全台服務網絡據點</h4>
+                                <p data-i18n="portal.net_desc">台北廠(八里倉庫)、新竹廠(永旭材料)、台中一廠、台中二廠、台南廠五大廠區</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.enter">進入專頁 →</span>
+                        </a>
+                        <a href="/products" data-nav-page="products" class="portal-dir-card glass-card">
+                            <span class="portal-dir-icon">✨</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.prod_title">精選旗艦材料圖鑑</h4>
+                                <p data-i18n="portal.prod_desc">日本 UACJ 5052 貼膜板、7075 航太鋁、6061/5083 與壓花鋁板實拍</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.enter">進入專頁 →</span>
+                        </a>
+                        <a href="/specs" data-nav-page="specs" class="portal-dir-card glass-card portal-card-highlight">
+                            <span class="portal-dir-icon">📦</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.spec_title">現貨與模具規格檢索</h4>
+                                <p data-i18n="portal.spec_desc">同步官網 514 項常備現貨 ＋ 2,557 種免開模擠型尺寸即時查詢</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.search">立即檢索 →</span>
+                        </a>
+                        <a href="/machining" data-nav-page="machining" class="portal-dir-card glass-card">
+                            <span class="portal-dir-icon">⚙️</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.mach_title">高階精密加工能量</h4>
+                                <p data-i18n="portal.mach_desc">CNC 銑床、多軸車床、五軸同動、龍門銑削與 16 件加工實品展示</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.enter">進入專頁 →</span>
+                        </a>
+                        <a href="/cases" data-nav-page="cases" class="portal-dir-card glass-card">
+                            <span class="portal-dir-icon">🏆</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.cases_title">代表實績與解決方案</h4>
+                                <p data-i18n="portal.cases_desc">半導體真空腔體底座、航太高強度結構件與自動化設備成功案例</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.enter">進入專頁 →</span>
+                        </a>
+                        <a href="/tech" data-nav-page="tech" class="portal-dir-card glass-card">
+                            <span class="portal-dir-icon">📐</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.tech_title">國際硬度換算與辭典</h4>
+                                <p data-i18n="portal.tech_desc">HB / HRC / HRB / HV / 抗拉強度即時試算器與鋁合金調質代號解說</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.open">開啟工具 →</span>
+                        </a>
+                        <a href="/contact" data-nav-page="contact" class="portal-dir-card glass-card portal-card-highlight">
+                            <span class="portal-dir-icon">📋</span>
+                            <div class="portal-dir-body">
+                                <h4 data-i18n="portal.contact_title">即時諮詢與圖面估價</h4>
+                                <p data-i18n="portal.contact_desc">線上填寫材料規格或加工需求，北中南專業業務 24 小時內快速報價</p>
+                            </div>
+                            <span class="portal-dir-arrow" data-i18n="portal.quote">立即詢價 →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             About Us Section (關於我們：成立概要、經營理念願景、九大營業項目、十一大銷售行業)
+             ========================================================================== -->
+        <section id="about" data-page-view="about" class="section section-alt page-view {% if active_page == 'about' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="about.tag">About HARVARD Enterprises · Since 1973</span>
+                    <h2 class="section-title" data-i18n="about.title">關於賀華實業 · 深耕台灣五十載</h2>
+                    <p class="section-desc" data-i18n="about.desc">
+                        {{ data.company.about_us.subheadline }} —— 從國際金屬貿易啟航，穩健轉型為兼具「龐大現貨庫存」與「精密裁切加工」的全方位供應鏈夥伴。
+                    </p>
+                </div>
+
+                <!-- Interactive Sub-Section Filter Pills -->
+                <div class="product-filters about-tabs" id="aboutTabBar">
+                    <button class="filter-btn active" data-about-tab="all" data-i18n="about.tab_all">全部總覽</button>
+                    <button class="filter-btn" data-about-tab="overview" data-i18n="about.tab_overview">成立概要</button>
+                    <button class="filter-btn" data-about-tab="vision" data-i18n="about.tab_vision">經營理念 &amp; 願景</button>
+                    <button class="filter-btn" data-about-tab="services" data-i18n="about.tab_services">九大營業項目</button>
+                    <button class="filter-btn" data-about-tab="industries" data-i18n="about.tab_industries">銷售應用行業</button>
+                </div>
+
+                <!-- 1. 成立概要 (Company Overview & History) -->
+                <div class="about-block glass-card" data-about-panel="overview">
+                    <div class="about-split-grid">
+                        <div class="about-photo-stack">
+                            <div class="about-main-photo">
+                                <img src="{{ data.company.about_us.hero_image }}" alt="賀華實業股份有限公司成立概要" loading="lazy">
+                                <span class="about-seal-tag" data-i18n="about.seal_tag">創立於 1973 年 4 月 25 日 · 成立概要</span>
+                            </div>
+                            <div class="about-sub-banner">
+                                <img src="{{ data.company.about_us.banner_image }}" alt="賀華實業精密鋁合金材料與加工工藝" loading="lazy">
+                                <div class="about-sub-caption">
+                                    <strong data-i18n="about.caption_title">以鋁為本 · 服務為先</strong>
+                                    <span data-i18n="about.caption_sub">全台串連庫存網絡 · 迅速精準調撥送達</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-text-col">
+                            <h3 class="about-subtitle" data-i18n="about.headline">{{ data.company.about_us.headline }}</h3>
+                            <p class="about-kicker" data-i18n="about.subheadline">{{ data.company.about_us.subheadline }}</p>
+
+                            <div class="about-article-box">
+                                <h4 data-i18n="about.h_history">【企業沿革與願景】</h4>
+                                <p data-i18n="about.history">{{ data.company.about_us.history }}</p>
+                            </div>
+
+                            <div class="about-article-box">
+                                <h4 data-i18n="about.h_network">【全台五大廠區與國際合作夥伴佈局】</h4>
+                                <ul class="about-bullet-list">
+                                    <li>
+                                        <strong data-i18n="about.net1_title">台北廠 (八里倉庫) ＆ 新竹廠 (永旭材料)：</strong><span data-i18n="about.net1_desc">新北市八里區忠孝路399號 (02-2618-2817) ＆ 新竹市香山區牛埔南路221號 (03-539-6766)，就近支援北部與竹科半導體聚落。</span>
+                                    </li>
+                                    <li>
+                                        <strong data-i18n="about.net2_title">台中一廠 ＆ 台中二廠 (神岡雙核心)：</strong><span data-i18n="about.net2_desc">台中市神岡區中山路360巷10-5號 (04-2561-1017) ＆ 神洲路848巷39號 (04-2561-0277)，配備大型CNC雙面銑床、圓盤鋸、帶鋸機與分條裁剪產線。</span>
+                                    </li>
+                                    <li>
+                                        <strong data-i18n="about.net3_title">台南廠 ＆ 關係企業 (安達磨光鋼棒 / 日本池內 IKEUCHI)：</strong><span data-i18n="about.net3_desc">台南市永康區中正南路404巷15號 (06-232-9156)，串聯安達鐵材高精密磨光鋼棒與日本池內 IKEUCHI 二流體噴嘴。</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="about-promise-quote">
+                                <strong data-i18n="about.h_promise">【我們的承諾】</strong> <span data-i18n="about.promise">{{ data.company.about_us.promise }}</span>
+                            </div>
+
+                            <div style="margin-top: 18px;">
+                                <button class="btn-read-tts" onclick="readAloudText('成立概要。{{ data.company.about_us.headline }}。{{ data.company.about_us.history }}。我們的承諾：{{ data.company.about_us.promise }}', this)" data-i18n="about.btn_listen">
+                                    🎙️ 語音聆聽成立概要
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 經營理念與未來願景 (Philosophy & Vision) -->
+                <div class="about-block glass-card" data-about-panel="vision">
+                    <div class="about-split-grid reverse">
+                        <div class="about-text-col">
+                            <h3 class="about-subtitle" data-i18n="about.philo_title">{{ data.company.about_us.philosophy_title }}</h3>
+                            <p class="about-para" data-i18n="about.philo_desc">{{ data.company.about_us.philosophy_desc }}</p>
+
+                            <hr class="about-divider">
+
+                            <h3 class="about-subtitle" data-i18n="about.vision_title">{{ data.company.about_us.vision_title }}</h3>
+                            <p class="about-para" data-i18n="about.vision_intro">{{ data.company.about_us.vision_intro }}</p>
+
+                            <div class="vision-pillars">
+                                <div class="vision-pillar-item">
+                                    <h5 data-i18n="about.vp1_title">✦ 擴大高精度裁切與精密加工能量</h5>
+                                    <p data-i18n="about.vp1_desc">引進高速大型龍門銑削與多軸鋸切設備，提供公差極小化之毛胚客製加工服務。</p>
+                                </div>
+                                <div class="vision-pillar-item">
+                                    <h5 data-i18n="about.vp2_title">✦ 建立全台綠色永續回收與減碳供應鏈</h5>
+                                    <p data-i18n="about.vp2_desc">落實下料餘料分類回收與循環再生機制，符合國際綠色環保製造標準規範。</p>
+                                </div>
+                                <div class="vision-pillar-item">
+                                    <h5 data-i18n="about.vp3_title">✦ 深化航太與半導體高階合金認證</h5>
+                                    <p data-i18n="about.vp3_desc">每批材料均隨貨附原廠出廠檢驗證明（Mill Sheet），符合 AS9100 與 RoHS 嚴格品質體系。</p>
+                                </div>
+                            </div>
+
+                            <p class="about-goal-highlight" data-i18n="about.vision_goal">{{ data.company.about_us.vision_goal }}</p>
+
+                            <div style="margin-top: 16px;">
+                                <button class="btn-read-tts" onclick="readAloudText('{{ data.company.about_us.philosophy_title }}。{{ data.company.about_us.philosophy_desc }}。{{ data.company.about_us.vision_title }}。{{ data.company.about_us.vision_goal }}', this)" data-i18n="about.btn_listen_vision">
+                                    🎙️ 語音聆聽經營理念與願景
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="about-photo-single">
+                            <img src="{{ data.company.about_us.vision_image }}" alt="賀華實業經營理念與高科技願景" loading="lazy">
+                            <div class="vision-caption-bar">
+                                <span data-i18n="about.vis_tag1">誠信立基 · 整合共榮</span>
+                                <span data-i18n="about.vis_tag2">深耕半導體與航太關鍵供應鏈</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 九大營業項目與實拍圖鑑 (9 Official Business Scope Items) -->
+                <div class="about-sub-section" data-about-panel="services">
+                    <div class="about-sub-heading">
+                        <h3 data-i18n="about.services_heading">營業項目總覽 · 九大核心服務範疇</h3>
+                        <p data-i18n="about.services_desc">涵蓋多元金屬材料批發零售、精密機械加工、材料技術顧問與國際環保檢驗證明一貫化支援</p>
+                    </div>
+                    <div class="business-scope-grid">
+                        {% for b in data.company.about_us.business_items %}
+                        <div class="scope-card glass-card">
+                            <div class="scope-img-wrap">
+                                <img src="{{ b.image }}" alt="{{ b.title }}" loading="lazy">
+                            </div>
+                            <div class="scope-info">
+                                <h4 data-i18n="bitem.{{ loop.index }}.title">{{ b.title }}</h4>
+                                <p data-i18n="bitem.{{ loop.index }}.desc">{{ b.desc }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- 4. 十一大銷售行業 (11 Official Sales Industries) -->
+                <div class="about-sub-section" data-about-panel="industries">
+                    <div class="about-sub-heading">
+                        <h3><span data-i18n="about_industries_title">銷售與應用行業 · 跨足十一大產業領域</span></h3>
+                        <p><span data-i18n="about_industries_lead">長期供應全台高科技電子、半導體設備、醫療器材、航太運輸及精密機械產業關鍵金屬材料</span></p>
+                    </div>
+                    <div class="industries-grid">
+                        {% for ind in data.company.about_us.sales_industries %}
+                        <div class="industry-pill glass-card">
+                            <span class="ind-icon">{{ ind.icon }}</span>
+                            <span class="ind-name" data-i18n="ind.{{ loop.index }}">{{ ind.name }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Network & Locations Section
+             ========================================================================== -->
+        <section id="network" data-page-view="network" class="section page-view {% if active_page == 'network' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="section.network_tag">Logistics & Branches</span>
+                    <h2 class="section-title" data-i18n="section.network_title">全台北中南服務網絡佈局</h2>
+                    <p class="section-desc" data-i18n="network.desc">
+                        為即時回應全台客戶的材料需求，賀華實業於台北、台中、台南雙廠區打造緊密服務網，專屬物流車隊與大尺寸自動化裁切設備，實現最迅速的材料調撥與送達。
+                    </p>
+                </div>
+                <div class="locations-grid">
+                    {% for loc in data.company.locations %}
+                    <div class="location-card glass-card" id="loc-{{ loc.id }}">
+                        <div class="loc-header">
+                            <span class="loc-badge">{{ loc.id | upper }}</span>
+                            <h3 class="loc-title" data-i18n="loc.{{ loc.id }}.name">{{ loc.name }}</h3>
+                            <p class="loc-role" data-i18n="loc.{{ loc.id }}.role">{{ loc.role }}</p>
+                        </div>
+                        <div class="loc-body">
+                            <div class="loc-detail">
+                                <span class="icon">📍</span>
+                                <span data-i18n="loc.{{ loc.id }}.addr">{{ loc.address }}</span>
+                            </div>
+                            <div class="loc-detail">
+                                <span class="icon">📞</span>
+                                <span><span data-i18n="loc.lbl_tel">電話：</span><strong>{{ loc.tel }}</strong></span>
+                            </div>
+                            <div class="loc-detail">
+                                <span class="icon">📠</span>
+                                <span><span data-i18n="loc.lbl_fax">傳真：</span>{{ loc.fax }}</span>
+                            </div>
+                            <div class="loc-detail">
+                                <span class="icon">✉️</span>
+                                <span><span data-i18n="loc.lbl_email">信箱：</span>{{ loc.email }}</span>
+                            </div>
+                            <div class="loc-highlights" data-i18n="loc.{{ loc.id }}.highlights">
+                                {{ loc.highlights }}
+                            </div>
+                        </div>
+                        <div class="loc-actions">
+                            <a href="tel:{{ loc.tel }}" class="btn-primary" style="display:inline-flex; align-items:center; gap:4px;" data-i18n="action.call">📞 直接通話</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query={{ loc.address | urlencode }}" target="_blank" rel="noopener noreferrer" class="btn-outline" style="display:inline-flex; align-items:center; gap:4px;" title="開啟 Google 地圖導航" data-i18n="action.map">🗺️ 地圖導航</a>
+                            <button class="btn-outline" onclick="readAloudText('{{ loc.name }}。{{ loc.role }}。地址位於{{ loc.address }}。電話{{ loc.tel }}。{{ loc.highlights }}', this)" data-i18n="action.intro"><span data-i18n="dock_tour_lbl">🎙️ 語音導覽</span>與特色介紹</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Products & Materials Showcase
+             ========================================================================== -->
+        <section id="products" data-page-view="products" class="section section-alt page-view {% if active_page == 'products' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="products.tag">Flagship Materials</span>
+                    <h2 class="section-title" data-i18n="products.title">精選旗艦鋁材與多元合金</h2>
+                    <p class="section-desc" data-i18n="products.desc">
+                        涵蓋 1000 至 <span data-i18n="series_7000">7000 系</span>列鋁合金板材、擠型材、客製化模具以及不鏽鋼與銅材，附原廠檢驗證明書，滿足航太、半導體與高精密機械之嚴苛標準。
+                    </p>
+                </div>
+
+                <div class="product-filters">
+                    <button class="filter-btn active" data-filter="all" data-i18n="products.tab_all">全部材料</button>
+                    <button class="filter-btn" data-filter="鋁合金板材" data-i18n="products.tab_plate">鋁合金板材</button>
+                    <button class="filter-btn" data-filter="鋁擠型材" data-i18n="products.tab_ext">鋁擠型材</button>
+                    <button class="filter-btn" data-filter="客製開發" data-i18n="products.tab_mold">客製模具開發</button>
+                    <button class="filter-btn" data-filter="多元合金" data-i18n="products.tab_multi">多元合金 / 原物料</button>
+                </div>
+
+                <!-- 業界標竿：鋁合金系列特性與選用矩陣 (Alloy Series Engineering Matrix) -->
+                <div class="alloy-matrix-wrapper glass-card">
+                    <div class="alloy-matrix-header">
+                        <div>
+                            <span class="alloy-matrix-tag"><span data-i18n="matrix_tag">Alloy Grade Engineering Guide · 國際同業選用標竿</span></span>
+                            <h3 data-i18n="products.matrix_title">鋁合金與多元非鐵金屬系列特性速查矩陣</h3>
+                        </div>
+                        <p class="alloy-matrix-sub"><span data-i18n="matrix_lead">快速對照 1xxx ~ 7xxx 系列合金特性、陽極氧化性、切削加工與抗蝕評級，點擊任一系列可直接檢索在庫現貨規格</span></p>
+                    </div>
+                    <div class="alloy-matrix-grid">
+                        <!-- 1000系 -->
+                        <div class="alloy-series-card" onclick="quickFilterAlloy('1050')">
+                            <div class="series-card-top">
+                                <span class="series-num"><span data-i18n="series_1000">1000 系</span></span>
+                                <span class="series-name"><span data-i18n="series_1000_name">高純鋁 (1050 / 1100)</span></span>
+                            </div>
+                            <div class="series-ratings">
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_sea">耐海水/化蝕</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_anod">陽極成色性</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_cond">導電散熱性</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_mech">機械強度</span></span><span class="stars">★☆☆☆☆</span></div>
+                            </div>
+                            <p class="series-desc"><span data-i18n="series_1000_desc">純度高達99.5%以上，極佳導電散熱性與延展成型性，適合深抽加工、化工設備、導電排與光學反射板。</span></p>
+                            <div class="series-footer">
+                                <span class="badge-stock"><span data-i18n="series_1000_stock">常備：1050-H14/H24</span></span>
+                                <span class="btn-matrix-action"><span data-i18n="matrix_btn_view">查看現貨 ➔</span></span>
+                            </div>
+                        </div>
+
+                        <!-- 5000系 -->
+                        <div class="alloy-series-card featured" onclick="quickFilterAlloy('5052')">
+                            <div class="series-card-top">
+                                <span class="series-num"><span data-i18n="series_5000">5000 系</span></span>
+                                <span class="series-name"><span data-i18n="series_5000_name">鋁鎂耐蝕合金 (5052 / 5083)</span></span>
+                            </div>
+                            <div class="series-ratings">
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_salt">防海水鹽蝕</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_anod_nat">本色<span data-i18n="th_chem_anod">陽極性</span></span></span><span class="stars">★★★★☆</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_weld">結構銲接性</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_fatigue">抗疲勞強度</span></span><span class="stars">★★★★☆</span></div>
+                            </div>
+                            <p class="series-desc"><span data-i18n="series_5000_desc">具備最優異之耐海水與化學腐蝕能力，無應力腐蝕破裂傾向，船舶製造、半導體機箱及油箱首選。</span></p>
+                            <div class="series-footer">
+                                <span class="badge-stock"><span data-i18n="series_5000_stock">常備：5052-H32 / 5083-H111</span></span>
+                                <span class="btn-matrix-action"><span data-i18n="matrix_btn_view">查看現貨 ➔</span></span>
+                            </div>
+                        </div>
+
+                        <!-- 6000系 -->
+                        <div class="alloy-series-card featured" onclick="quickFilterAlloy('6061')">
+                            <div class="series-card-top">
+                                <span class="series-num"><span data-i18n="series_6000">6000 系</span></span>
+                                <span class="series-name"><span data-i18n="series_6000_name">鋁鎂矽結構合金 (6061 / 6063)</span></span>
+                            </div>
+                            <div class="series-ratings">
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_cnc">CNC<span data-i18n="th_chem_cut">切削性</span></span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_hard_anod">硬質陽極性</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_rigidity">結構剛性</span></span><span class="stars">★★★★☆</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_extrude">擠型成型性</span></span><span class="stars">★★★★★</span></div>
+                            </div>
+                            <p class="series-desc"><span data-i18n="series_6000_desc">綜合性能最高之通用合金，機械切削與擠型結構首選，硬質陽極膜厚均勻，航太治具與自動化支架必備。</span></p>
+                            <div class="series-footer">
+                                <span class="badge-stock"><span data-i18n="series_6000_stock">常備：6061-T6/T651 / 6063-T5</span></span>
+                                <span class="btn-matrix-action"><span data-i18n="matrix_btn_view">查看現貨 ➔</span></span>
+                            </div>
+                        </div>
+
+                        <!-- 7000系 -->
+                        <div class="alloy-series-card featured" onclick="quickFilterAlloy('7075')">
+                            <div class="series-card-top">
+                                <span class="series-num"><span data-i18n="series_7000">7000 系</span></span>
+                                <span class="series-name"><span data-i18n="series_7000_name">超硬航空合金 (7075 / 7050)</span></span>
+                            </div>
+                            <div class="series-ratings">
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_uts">抗拉極限(MPa)</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_mill">精密銑削性</span></span><span class="stars">★★★★★</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_wear">表面耐磨耗</span></span><span class="stars">★★★★☆</span></div>
+                                <div class="rating-row"><span><span data-i18n="matrix_lbl_weldability">銲接性能</span></span><span class="stars">★★☆☆☆</span></div>
+                            </div>
+                            <p class="series-desc"><span data-i18n="series_7000_desc">超高強度航空級超硬鋁，抗拉強度達 570 MPa 以上，適合高負載航太零組件、精密高週波吹氣模具與結構體。</span></p>
+                            <div class="series-footer">
+                                <span class="badge-stock"><span data-i18n="series_7000_stock">常備：7075-T651預拉伸光板</span></span>
+                                <span class="btn-matrix-action"><span data-i18n="matrix_btn_view">查看現貨 ➔</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    {% for prod in data.products %}
+                    <div class="product-card glass-card" data-category="{{ prod.category }}">
+                        <div class="product-thumb {% if prod.image_fit == 'contain' %}thumb-contain{% endif %}">
+                            <img src="{{ prod.image }}" alt="{{ prod.name }}" loading="lazy" class="zoomable-img" onclick="openImageLightbox(this.src, '{{ prod.name }}')">
+                            <span class="product-badge" data-i18n="prod.{{ prod.id }}.badge">{{ prod.badge }}</span>
+                            <span class="product-series" data-i18n="prod.{{ prod.id }}.series">{{ prod.series }}</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title" data-i18n="prod.{{ prod.id }}.name">{{ prod.name }}</h3>
+                            <p class="product-subtitle" data-i18n="prod.{{ prod.id }}.sub">{{ prod.subtitle }}</p>
+                            <p class="product-desc" data-i18n="prod.{{ prod.id }}.desc">{{ prod.desc }}</p>
+                            <ul class="product-specs-list">
+                                {% for spec in prod.specs %}
+                                <li data-i18n="prod.{{ prod.id }}.spec.{{ loop.index }}">{{ spec }}</li>
+                                {% endfor %}
+                            </ul>
+                            <div class="product-actions">
+                                <button class="btn-read-tts" onclick="readAloudText('{{ prod.name }}。{{ prod.subtitle }}。{{ prod.desc }}', this)" data-i18n="btn.read_tts">
+                                    🎙️ 語音朗讀
+                                </button>
+                                <button class="btn-quote-item" onclick="addSpecToQuote('{{ prod.name }}')" data-i18n="btn.add_quote">
+                                    加入詢價單
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- 官網鏡面鋁及壓花鋁板實品圖鑑 (附圖一 ~ 附圖七) -->
+                {% if data.embossed_samples %}
+                <div class="showcase-subpanel glass-card" id="embossedGalleryPanel">
+                    <div class="showcase-subhead">
+                        <div>
+                            <span class="showcase-tag"><span data-i18n="embossed_tag">Official Sample Atlas · 鏡面鋁及壓花板實拍</span></span>
+                            <h3 data-i18n="embossed_title">鏡面鋁及壓花鋁板實品圖鑑（附圖一 ～ 附圖七）</h3>
+                        </div>
+                        <p><span data-i18n="embossed_hint">對應官網鏡面鋁與止滑壓花板實品樣板，點擊任一圖鑑可放大檢視紋路細節</span></p>
+                    </div>
+                    <div class="sample-atlas-grid">
+                        {% for s in data.embossed_samples %}
+                        <div class="sample-atlas-card" onclick="openImageLightbox('{{ s.image }}', '{{ s.fig }} · {{ s.title }}（{{ s.spec }}）')">
+                            <div class="sample-atlas-img">
+                                <img src="{{ s.image }}" alt="{{ s.fig }} {{ s.title }}" loading="lazy">
+                                <span class="sample-fig-badge" data-i18n="emb.{{ loop.index }}.fig">{{ s.fig }}</span>
+                            </div>
+                            <div class="sample-atlas-info">
+                                <h4 data-i18n="emb.{{ loop.index }}.title">{{ s.title }}</h4>
+                                <span class="sample-spec" data-i18n="emb.{{ loop.index }}.spec">{{ s.spec }}</span>
+                                <p data-i18n="emb.{{ loop.index }}.usage">{{ s.usage }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- 賀華實業官網 61 張原始實拍照片全圖鑑 (100% 一樣不漏) -->
+                <div class="showcase-subpanel glass-card" id="official61AtlasPanel" style="margin-top: 28px;">
+                    <div class="showcase-subhead" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                        <div>
+                            <span class="showcase-tag">100% Official Photo Archive · 官網 61 張原始照片全收錄</span>
+                            <h3>📸 賀華實業官網 61 張原始實拍與型錄圖鑑（一樣不漏）</h3>
+                            <p>完整收錄 www.harvard-ent.com.tw 全站 61 張原始照片（含輪播橫幅、企業廠區、9大鋁材特寫、30張工廠加工設備與量測、SGS/RoHS認證與關係企業標誌），點擊任一照片可高清放大檢視：</p>
+                        </div>
+                        <button type="button" class="btn btn-outline btn-sm" onclick="const g=document.getElementById('all61Grid'); g.style.display = g.style.display === 'none' ? 'grid' : 'none'; this.textContent = g.style.display === 'none' ? '📂 展開檢視全部 61 張官網原始照片' : '🔼 收合 61 張照片圖鑑';">
+                            🔼 收合 61 張照片圖鑑
+                        </button>
+                    </div>
+                    <div id="all61Grid" class="machining-parts-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-top: 16px;">
+                        {% for img_name in [
+                            'logo_brand.png','banner1.jpg','banner2.jpg','banner3.jpg','banner4.jpg','banner5.jpg',
+                            'a1.jpg','ab1.jpg','g1.jpg','g2.jpg','g3.jpg',
+                            'alu01.jpg','alu02.jpg','alu03.jpg','alu04.jpg','alu05.jpg','alu06.jpg','alu07.jpg','alu08.jpg','alu09.jpg',
+                            's01.jpg','s02.jpg','s03.jpg','s04.jpg','s05.jpg','s06.jpg','s07.jpg','s08.jpg','s09.jpg','s10.jpg',
+                            's11.jpg','s12.jpg','s13.jpg','s14.jpg','s15.jpg','s16.jpg','s17.jpg','s18.jpg','s19.jpg','s20.jpg',
+                            's21.jpg','s22.jpg','s23.jpg','s24.jpg','s25.jpg','s26.jpg','s27.jpg','s28.jpg','s29.jpg','s30.jpg',
+                            'royal-1.png','royal-2.png','royal-3.png','royal-4.png','royal-5.png',
+                            'c-anda.png','c-anda2.png','c-fufong.png','c-futsu.png','c-ikeuchi.png','top_up.png'
+                        ] %}
+                        <div class="machining-part-card" onclick="openImageLightbox('/images/{{ img_name }}', '賀華實業官網原始檔案：images/{{ img_name }} ({{ loop.index }} / 61)')" style="cursor:pointer;">
+                            <img src="/images/{{ img_name }}" alt="賀華實業官網原始圖片 {{ img_name }}" loading="lazy" style="height:105px; object-fit:cover; background:rgba(4,12,28,0.85);">
+                            <span style="font-size:0.75rem; font-family:monospace; color:var(--accent-cyan);">#{{ loop.index }} · {{ img_name }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Interactive Stock Specs Explorer (現貨規格即時查詢系統)
+             ========================================================================== -->
+        <section id="specs" data-page-view="specs" class="section page-view {% if active_page == 'specs' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="specs.tag">Inventory &amp; Mold Specifications</span>
+                    <h2 class="section-title" data-i18n="specs.title">現貨規格與現有模具即時檢索系統</h2>
+                    <p class="section-desc" data-i18n="specs.desc">
+                        100% 同步官網三大規格總表：涵蓋 <strong>514 項常備鋁板／圓棒／扁條現貨規格</strong>，以及 <strong>2,557 種免開模鋁擠型現有模具規格</strong>（共 {{ inventory_count }} 筆）。支援以材質、厚度、外徑或模具編號（如 FT001、PW5168）即時檢索並一鍵加入詢價單。
+                    </p>
+                </div>
+
+                <!-- 官網鋁擠型現有模具七大斷面規格示意圖 -->
+                {% if data.extrusion_profiles %}
+                <div class="extrusion-diagram-strip glass-card">
+                    <div class="diagram-strip-head">
+                        <strong><span data-i18n="mold_drawing_title">📐 鋁擠型現有模具七大標準斷面標示圖</span></strong>
+                        <span><span data-i18n="mold_drawing_hint">點擊任一斷面直接篩選該規格表，點擊右上 🔍 放大檢視標示圖</span></span>
+                    </div>
+                    <div class="extrusion-diagram-grid">
+                        {% for ep in data.extrusion_profiles %}
+                        <div class="diagram-item-btn" onclick="quickFilterExtrusion('{{ ep.filter_cat }}')">
+                            <div class="diagram-img-box">
+                                <img src="{{ ep.image }}" alt="{{ ep.name }}" loading="lazy">
+                                <span class="diagram-zoom-chip" title="放大檢視斷面圖" onclick="event.stopPropagation(); openImageLightbox('{{ ep.image }}', '{{ ep.name }} · {{ ep.dim }}')">🔍</span>
+                            </div>
+                            <span class="diagram-name" data-i18n="ep.{{ loop.index }}.name">{{ ep.name }}</span>
+                            <span class="diagram-dim" data-i18n="ep.{{ loop.index }}.dim">{{ ep.dim }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="specs-explorer-card glass-card" id="specsExplorerCard">
+                    <div class="specs-group-tabs" id="specsGroupTabs">
+                        <button type="button" class="filter-btn active" data-spec-group="all" data-i18n="specs.btn_all">全部規格總覽 (3,081)</button>
+                        <button type="button" class="filter-btn" data-spec-group="stock" data-i18n="specs.btn_stock">📦 常備現貨規格表 (514)</button>
+                        <button type="button" class="filter-btn" data-spec-group="mold" data-i18n="specs.btn_mold">📐 現有模具規格表 (2,557)</button>
+                    </div>
+
+                    <div class="specs-toolbar">
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="specsSearchInput" data-i18n="specs.placeholder" placeholder="搜尋材質、尺寸或模號（例：5052、6061、7075、4' * 8'、Dia. 50、PW5168、FT001...）">
+                        </div>
+                        <div class="category-select">
+                            <select id="specsCatSelect">
+                                <option value="全部"><span data-i18n="opt_all_specs">全部 16 大規格表 (3,081 筆)</span></option>
+                                <optgroup label="📦 鋁合金板常備現貨規格表">
+                                    <option value="1050 / 5052 鋁板現貨"><span data-i18n="opt_spec_1">1050 / 5052 鋁板現貨 (48)</span></option>
+                                    <option value="5083 鋁合金板現貨"><span data-i18n="opt_spec_2">5083 鋁合金板現貨 (57)</span></option>
+                                    <option value="6061 鋁合金板現貨"><span data-i18n="opt_spec_3">6061 鋁合金板現貨 (65)</span></option>
+                                    <option value="7075 鋁合金板現貨"><span data-i18n="opt_spec_4">7075 航太鋁合金板現貨 (35)</span></option>
+                                    <option value="日本進口 5052 貼膜鋁板現貨"><span data-i18n="opt_spec_5">日本進口 5052 貼膜鋁板現貨 (12)</span></option>
+                                    <option value="壓花鋁板現貨"><span data-i18n="opt_spec_6">五爪 / 鑽石 / 人字壓花鋁板現貨 (8)</span></option>
+                                </optgroup>
+                                <optgroup label="📦 鋁擠型常備現貨規格表">
+                                    <option value="6061 鋁圓棒現貨"><span data-i18n="opt_spec_7">6061 鋁圓棒現貨 (129)</span></option>
+                                    <option value="7075 鋁圓棒現貨"><span data-i18n="opt_spec_8">7075 鋁圓棒現貨 (42)</span></option>
+                                    <option value="6061 鋁扁條現貨"><span data-i18n="opt_spec_9">6061 鋁扁條現貨 (118)</span></option>
+                                </optgroup>
+                                <optgroup label="📐 現有模具規格表（免開模費）">
+                                    <option value="現有模具 · 6061 鋁圓棒"><span data-i18n="opt_spec_10">現有模具 · 6061 鋁圓棒 (282)</span></option>
+                                    <option value="現有模具 · 鋁圓管"><span data-i18n="opt_spec_11">現有模具 · 鋁圓管 (823)</span></option>
+                                    <option value="現有模具 · 鋁扁條"><span data-i18n="opt_spec_12">現有模具 · 鋁扁條 (1,041)</span></option>
+                                    <option value="現有模具 · 鋁四方條"><span data-i18n="opt_spec_13">現有模具 · 鋁四方條 (72)</span></option>
+                                    <option value="現有模具 · 鋁正方管"><span data-i18n="opt_spec_14">現有模具 · 鋁正方管 (69)</span></option>
+                                    <option value="現有模具 · 鋁長方管"><span data-i18n="opt_spec_15">現有模具 · 鋁長方管 (152)</span></option>
+                                    <option value="現有模具 · 鋁六角條"><span data-i18n="opt_spec_16">現有模具 · 鋁六角條 (118)</span></option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="specs-table-container">
+                        <table class="specs-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="specs.th_id">編號</th>
+                                    <th data-i18n="specs.th_cat">規格表類別</th>
+                                    <th data-i18n="specs.th_alloy">材質 / 模具編號</th>
+                                    <th data-i18n="specs.th_spec">厚度 / 直徑 / 斷面規格</th>
+                                    <th data-i18n="specs.th_dims">長寬尺寸 / 單米重</th>
+                                    <th data-i18n="specs.th_status">庫存與模具狀態 / 動作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="specsTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="specs-pagination">
+                        <div>
+                            <span data-i18n="lbl_search_found">共檢索到</span> <strong id="specsTotalCount" style="color:var(--accent-cyan);">0</strong> <span data-i18n="lbl_search_items">筆符合規格</span>
+                        </div>
+                        <div class="page-controls">
+                            <button id="specsPrevBtn" class="page-btn" data-i18n="specs.prev">上一頁</button>
+                            <span id="specsPageNum" style="align-self:center; font-weight:600;">1 / 1</span>
+                            <button id="specsNextBtn" class="page-btn" data-i18n="specs.next">下一頁</button>
+                        </div>
+                    </div>
+
+                    <!-- Callout to CP-SAT Workbench -->
+                    <div style="margin-top: 24px; padding: 18px 24px; background: linear-gradient(135deg, rgba(184,51,42,0.06), rgba(20,184,166,0.06)); border: 1px dashed rgba(184,51,42,0.3); border-radius: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <strong style="color: var(--accent-cinnabar); font-size: 0.96rem; display: block; margin-bottom: 4px;" data-i18n="specs.cpsat_callout_title">
+                                ⚡ 需要特定長度下料裁切或多規格定寸組合？
+                            </strong>
+                            <p style="margin: 0; font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5;" data-i18n="specs.cpsat_callout_desc">
+                                使用 AI 智慧排料工作台，隨時輸入工件長度與數量，0.1 秒精算全局最少母材數與餘料最小化排版。
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="navigateToPage('machining', { scrollTarget: 'machiningCpsatWorkbench' })" style="padding: 10px 18px; font-weight: 700; white-space: nowrap;" data-i18n="specs.cpsat_callout_btn">
+                            進入 AI 排料工作台 →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Manufacturing & Capabilities Section
+             ========================================================================== -->
+        <section id="machining" data-page-view="machining" class="section section-alt page-view {% if active_page == 'machining' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="machining.tag">High-End Processing</span>
+                    <h2 class="section-title" data-i18n="machining.title">高階精密加工與表面工程</h2>
+                    <p class="section-desc" data-i18n="machining.desc">
+                        廠內配備高剛性 CNC 加工中心、多軸車床、大型龍門銑削、航太五軸聯動與表面陽極拉絲線，提供從毛胚鋸切到成品出貨的一站式加工製造能量。
+                    </p>
+                </div>
+
+                <div class="capabilities-grid">
+                    {% for cap in data.capabilities %}
+                    <div class="capability-card glass-card">
+                        <div class="cap-image">
+                            <img src="{{ cap.image }}" alt="{{ cap.name }}" loading="lazy" class="zoomable-img" onclick="openImageLightbox(this.src, '{{ cap.name }}')">
+                        </div>
+                        <div class="cap-title">
+                            <span data-i18n="cap.{{ cap.id }}.name">{{ cap.name }}</span>
+                            <span style="font-size: 1.2rem; color: var(--accent-cyan);">⚙️</span>
+                        </div>
+                        <p class="cap-desc" data-i18n="cap.{{ cap.id }}.desc">{{ cap.desc }}</p>
+                        <button class="btn-read-tts" onclick="readAloudText('{{ cap.name }}。{{ cap.desc }}', this)" data-i18n="cap.btn_tts">
+                            🎙️ 語音解析此製程
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- 官網加工部門 16 件 CNC 精密加工與細孔加工實品圖鑑 -->
+                {% if data.machining_gallery %}
+                <div class="showcase-subpanel glass-card">
+                    <div class="showcase-subhead">
+                        <div>
+                            <span class="showcase-tag"><span data-i18n="mach_parts_tag">Precision Parts Gallery · 加工部門實品展示</span></span>
+                            <h3 data-i18n="machining.gallery_title">賀華加工部門 · CNC 銑削、車銑小零件與微細孔加工實品</h3>
+                        </div>
+                        <p><span data-i18n="mach_parts_desc">廠內與協力資源網實際生產之精密鋁合金工件，點擊照片可放大檢視加工細節</span></p>
+                    </div>
+                    {% for grp in data.machining_gallery %}
+                    {% set g_idx = loop.index %}
+                    <div class="machining-group-block">
+                        <h4 class="machining-group-title" data-i18n="mg_grp.{{ g_idx }}">◆ {{ grp.group }}</h4>
+                        <div class="machining-parts-grid">
+                            {% for item in grp['items'] %}
+                            <div class="machining-part-card" onclick="openImageLightbox('{{ item.image }}', '{{ grp.group }} · {{ item.title }}')">
+                                <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy">
+                                <span data-i18n="mg_item.{{ g_idx }}_{{ loop.index }}">{{ item.title }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- 廠內設備加工極限能力與精密公差標註矩陣 (Tolerance & Equipment Capabilities Matrix) -->
+                {% if data.machining_tolerance_matrix %}
+                <div class="tolerance-matrix-block glass-card">
+                    <div class="tech-subhead">
+                        <h3 data-i18n="machining.tolerance_title"><span>📐</span> 廠內設備加工極限能力與精密公差規範矩陣</h3>
+                        <p><span data-i18n="mach_insp_desc">嚴格遵循 DIN ISO 2768-m 精密級公差與航太低應力加工規範，支援大行程鋸切、五軸銑削與表面雙面貼膜保護：</span></p>
+                    </div>
+                    <div class="tolerance-grid">
+                        {% for eq in data.machining_tolerance_matrix %}
+                        <div class="tolerance-card">
+                            <h4 class="tolerance-title" data-i18n="tol.{{ loop.index }}.equip">{{ eq.equipment }}</h4>
+                            <div class="tolerance-specs">
+                                <div class="spec-row">
+                                    <span class="spec-label" data-i18n="tol.lbl_max_cap">最大加工能力：</span>
+                                    <span class="spec-val hl" data-i18n="tol.{{ loop.index }}.thick">{{ eq.max_thickness }}</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label" data-i18n="tol.lbl_stroke">規格行程範圍：</span>
+                                    <span class="spec-val" data-i18n="tol.{{ loop.index }}.cap">{{ eq.max_capacity }}</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label" data-i18n="tol.lbl_tol">加工保證公差：</span>
+                                    <span class="spec-val hl" data-i18n="tol.{{ loop.index }}.tol">{{ eq.tolerance }}</span>
+                                </div>
+                            </div>
+                            <p class="tolerance-desc" data-i18n="tol.{{ loop.index }}.desc">{{ eq.features }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- 精密銑削與研磨品質檢驗保證 (Precision Machining & Inspection Guarantee) -->
+                    <div class="quality-assurance-bar" style="margin-top: 24px; padding: 20px; background: rgba(184, 51, 42, 0.04); border: 1px solid rgba(184, 51, 42, 0.2); border-radius: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="font-size: 1.5rem; line-height: 1;">🔬</span>
+                            <div>
+                                <strong style="display: block; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 2px;"><span data-i18n="mach_ra_title">表面粗糙度 Ra 0.2 ~ 0.8 µm</span></strong>
+                                <span style="font-size: 0.82rem; color: var(--text-secondary);"><span data-i18n="mach_ra_desc">雙面高精密飛刀精銑與光板研磨，超平整刀痕控制</span></span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="font-size: 1.5rem; line-height: 1;">📏</span>
+                            <div>
+                                <strong style="display: block; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 2px;"><span data-i18n="mach_flat_title">平行度與平坦度 ≤ 0.03 mm</span></strong>
+                                <span style="font-size: 0.82rem; color: var(--text-secondary);"><span data-i18n="mach_flat_desc">真空吸盤固定銑削，釋放應力，杜絕熱變形翹曲</span></span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="font-size: 1.5rem; line-height: 1;">🎯</span>
+                            <div>
+                                <strong style="display: block; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 2px;"><span data-i18n="mach_cmm_title">CMM 三次元三維全檢保證</span></strong>
+                                <span style="font-size: 0.82rem; color: var(--text-secondary);"><span data-i18n="mach_cmm_desc">附出廠檢驗量測報告 (FAI)、原廠材質證明書 (Mill Sheet)</span></span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: flex-start;">
+                            <span style="font-size: 1.5rem; line-height: 1;">🛡️</span>
+                            <div>
+                                <strong style="display: block; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 2px;"><span data-i18n="mach_film_title">雙面耐磨藍色保護膜貼覆</span></strong>
+                                <span style="font-size: 0.82rem; color: var(--text-secondary);"><span data-i18n="mach_film_desc">全自動貼膜機包覆，運輸搬運零刮傷零氧化</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px; text-align: center;">
+                        <a href="/contact" data-nav-page="contact" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;" data-i18n="tol.btn_upload_rfq">
+                            📋 立即上傳圖面 · 評估加工公差與報價
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- ==================================================================
+                     Google OR-Tools CP-SAT Optimization Engineering Workbench (4 Engines)
+                     ================================================================== -->
+                <div class="cpsat-workbench-card glass-card" id="machiningCpsatWorkbench" style="margin-top: 36px; padding: 28px; border-radius: 16px; border: 1px solid rgba(0, 229, 255, 0.35); background: rgba(8, 20, 44, 0.88);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+                        <div>
+                            <span class="section-tag" style="display: inline-block; margin-bottom: 6px;" data-i18n="cpsat.badge">Google OR-Tools CP-SAT · 整數約束規劃全局最優解</span>
+                            <h3 style="font-size: 1.38rem; font-weight: 800; color: var(--text-main); margin: 0 0 6px 0;" data-i18n="cpsat.workbench_title">⚡ Google OR-Tools CP-SAT 智慧裁切排料、2D鋁板排樣與五廠排程工程工作台</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin: 0; line-height: 1.6;" data-i18n="cpsat.workbench_desc">
+                                搭載 Python <code>ortools.sat.python.cp_model</code> 四大約束規劃求解引擎：支援 1D 母材定寸下料、2D 鋁板矩形無重疊排樣 (<code>AddNoOverlap2D</code>)、全台五廠區甘特圖排程與智慧合金選型。
+                            </p>
+                        </div>
+                        <div class="product-filters" style="margin-bottom: 0; gap: 8px;">
+                            <button type="button" class="filter-btn active" id="wbTabBtn1d" onclick="switchWbTab('1d')">📏 1D 母材定寸下料</button>
+                            <button type="button" class="filter-btn" id="wbTabBtn2d" onclick="switchWbTab('2d')">🟦 2D 鋁板無重疊排樣 (AddNoOverlap2D)</button>
+                            <button type="button" class="filter-btn" id="wbTabBtnSched" onclick="switchWbTab('sched')">🏭 五廠區產能甘特排程</button>
+                            <button type="button" class="filter-btn" id="wbTabBtnAlloy" onclick="switchWbTab('alloy')">🔬 CP-SAT 智慧選料推薦</button>
+                        </div>
+                    </div>
+
+                    <!-- TAB 1: 1D Cutting Stock -->
+                    <div id="wbPanel1d">
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;">
+                            <button type="button" class="btn btn-outline btn-sm" onclick="applyCpsatPreset('aerospace')" style="font-size: 0.8rem; padding: 6px 12px;" data-i18n="cpsat.preset_aero">
+                                ✈️ 範例一：航太結構件 (3000mm)
+                            </button>
+                            <button type="button" class="btn btn-outline btn-sm" onclick="applyCpsatPreset('long_bar')" style="font-size: 0.8rem; padding: 6px 12px;" data-i18n="cpsat.preset_long">
+                                🏭 範例二：長尺寸圓棒 (6000mm)
+                            </button>
+                            <button type="button" class="btn btn-outline btn-sm" onclick="applyCpsatPreset('custom')" style="font-size: 0.8rem; padding: 6px 12px;" data-i18n="cpsat.preset_plate">
+                                📐 範例三：大尺寸扁條 (4000mm)
+                            </button>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; padding: 18px; background: rgba(4, 12, 28, 0.65); border-radius: 12px; border: 1px solid var(--border-subtle);">
+                            <div>
+                                <label for="wbStockLen" style="display: block; font-size: 0.86rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;" data-i18n="cpsat.lbl_stock">
+                                    1. 母材標準長度 (mm)：
+                                </label>
+                                <input type="number" id="wbStockLen" value="3000" min="500" max="12000" step="100" style="width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 700; font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label for="wbKerf" style="display: block; font-size: 0.86rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;" data-i18n="cpsat.lbl_kerf">
+                                    2. 鋸片切削損耗 (Kerf mm)：
+                                </label>
+                                <input type="number" id="wbKerf" value="3" min="0" max="20" step="0.5" style="width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 700; font-size: 1rem;">
+                            </div>
+                            <div style="display: flex; align-items: flex-end;">
+                                <span style="font-size: 0.8rem; color: var(--text-dim); line-height: 1.5;" data-i18n="cpsat.kerf_hint">
+                                    💡 建議：標準圓鋸片損耗約 3mm；大尺寸帶鋸約 2mm；精密水刀約 1.2mm。
+                                </span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong style="font-size: 0.95rem; color: var(--text-main);" data-i18n="cpsat.demands_title">
+                                    3. 隨時可變更的裁切工件清單 (長度 mm × 需求數量 支)：
+                                </strong>
+                                <button type="button" class="btn btn-outline btn-sm" onclick="addWbDemandRow()" style="font-size: 0.82rem; padding: 6px 14px; font-weight: 700;" data-i18n="cpsat.btn_add_row">
+                                    ＋ 新增裁切尺寸
+                                </button>
+                            </div>
+
+                            <div id="wbDemandList" style="display: flex; flex-direction: column; gap: 8px;">
+                                <div class="wb-demand-row" style="display: flex; gap: 10px; align-items: center;">
+                                    <input type="number" class="wb-len-input" value="800" min="10" placeholder="長度 mm" style="flex: 2; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 600;">
+                                    <input type="number" class="wb-qty-input" value="3" min="1" placeholder="支數" style="flex: 1; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 600;">
+                                    <button type="button" class="btn-outline" onclick="this.parentElement.remove()" style="padding: 8px 12px; border-color: #ef4444; color: #ef4444; border-radius: 8px;" title="刪除此列">✕</button>
+                                </div>
+                                <div class="wb-demand-row" style="display: flex; gap: 10px; align-items: center;">
+                                    <input type="number" class="wb-len-input" value="550" min="10" placeholder="長度 mm" style="flex: 2; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 600;">
+                                    <input type="number" class="wb-qty-input" value="4" min="1" placeholder="支數" style="flex: 1; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 600;">
+                                    <button type="button" class="btn-outline" onclick="this.parentElement.remove()" style="padding: 8px 12px; border-color: #ef4444; color: #ef4444; border-radius: 8px;" title="刪除此列">✕</button>
+                                </div>
+                                <div class="wb-demand-row" style="display: flex; gap: 10px; align-items: center;">
+                                    <input type="number" class="wb-len-input" value="420" min="10" placeholder="長度 mm" style="flex: 2; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 600;">
+                                    <input type="number" class="wb-qty-input" value="5" min="1" placeholder="支數" style="flex: 1; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.9); color: var(--text-main); font-weight: 600;">
+                                    <button type="button" class="btn-outline" onclick="this.parentElement.remove()" style="padding: 8px 12px; border-color: #ef4444; color: #ef4444; border-radius: 8px;" title="刪除此列">✕</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <button type="button" id="wbSolveBtn" class="btn btn-primary" onclick="runWorkbenchCpsatSolver()" style="width: 100%; justify-content: center; padding: 14px; font-size: 1.05rem; font-weight: 800; border-radius: 10px;">
+                                <span data-i18n="cpsat.btn_solve">🚀 啟動 CP-SAT 1D 母材裁切最佳化求解</span>
+                            </button>
+                        </div>
+
+                        <div id="wbResultBox" style="display: none; padding: 20px; border-radius: 12px; background: rgba(5, 14, 32, 0.92); border: 1px solid var(--border-subtle);"></div>
+                    </div>
+
+                    <!-- TAB 2: 2D Plate Cutting (AddNoOverlap2D) -->
+                    <div id="wbPanel2d" style="display: none;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 18px; padding: 16px; background: rgba(4, 12, 28, 0.65); border-radius: 12px; border: 1px solid var(--border-subtle);">
+                            <div>
+                                <label style="display:block; font-size:0.84rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">母板寬度 W (mm)：</label>
+                                <input type="number" id="wb2dWidth" value="1250" min="300" max="4000" style="width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main); font-weight:700;">
+                            </div>
+                            <div>
+                                <label style="display:block; font-size:0.84rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">母板長度 H (mm)：</label>
+                                <input type="number" id="wb2dHeight" value="2500" min="300" max="6000" style="width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main); font-weight:700;">
+                            </div>
+                            <div>
+                                <label style="display:block; font-size:0.84rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">鋸路間距 Kerf (mm)：</label>
+                                <input type="number" id="wb2dKerf" value="4" min="0" max="25" style="width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main); font-weight:700;">
+                            </div>
+                            <div style="display:flex; align-items:center; padding-top:18px;">
+                                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:700; color:var(--accent-cyan);">
+                                    <input type="checkbox" id="wb2dRotate" checked style="width:18px; height:18px;"> 允許 90° 旋轉排樣
+                                </label>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <strong style="color:var(--text-main); font-size:0.94rem;">矩形鋁板裁切需求清單 (標籤 / 寬 W × 長 H × 數量)：</strong>
+                                <button type="button" class="btn btn-outline btn-sm" onclick="addWb2dRow()">＋ 新增矩形塊</button>
+                            </div>
+                            <div id="wb2dList" style="display:flex; flex-direction:column; gap:8px;">
+                                <div class="wb2d-row" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr 0.8fr auto; gap:8px; align-items:center;">
+                                    <input type="text" class="wb2d-lbl" value="腔體底板A" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-w" value="600" placeholder="寬mm" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-h" value="800" placeholder="長mm" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-q" value="2" placeholder="數量" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <button type="button" class="btn-outline" onclick="this.parentElement.remove()" style="padding:7px 11px; color:#ef4444; border-color:#ef4444; border-radius:8px;">✕</button>
+                                </div>
+                                <div class="wb2d-row" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr 0.8fr auto; gap:8px; align-items:center;">
+                                    <input type="text" class="wb2d-lbl" value="精密治具板B" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-w" value="500" placeholder="寬mm" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-h" value="600" placeholder="長mm" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-q" value="3" placeholder="數量" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <button type="button" class="btn-outline" onclick="this.parentElement.remove()" style="padding:7px 11px; color:#ef4444; border-color:#ef4444; border-radius:8px;">✕</button>
+                                </div>
+                                <div class="wb2d-row" style="display:grid; grid-template-columns: 1.2fr 1fr 1fr 0.8fr auto; gap:8px; align-items:center;">
+                                    <input type="text" class="wb2d-lbl" value="光學支撐板C" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-w" value="400" placeholder="寬mm" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-h" value="450" placeholder="長mm" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <input type="number" class="wb2d-q" value="3" placeholder="數量" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main);">
+                                    <button type="button" class="btn-outline" onclick="this.parentElement.remove()" style="padding:7px 11px; color:#ef4444; border-color:#ef4444; border-radius:8px;">✕</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="runWb2DPlateSolver()" style="width:100%; justify-content:center; padding:14px; font-size:1.05rem; font-weight:800; border-radius:10px; margin-bottom:18px;">
+                            🚀 啟動 CP-SAT AddNoOverlap2D 二維鋁板排樣求解
+                        </button>
+                        <div id="wb2dResultBox" style="display:none; padding:20px; border-radius:12px; background:rgba(5,14,32,0.92); border:1px solid var(--border-subtle);"></div>
+                    </div>
+
+                    <!-- TAB 3: 5-Plant Job-Shop Scheduling -->
+                    <div id="wbPanelSched" style="display: none;">
+                        <p style="font-size:0.9rem; color:var(--text-dim); margin-bottom:14px;">
+                            運用 <code>cp_model.AddNoOverlap</code> 針對賀華實業全台五大廠區（台北八里廠、新竹香山廠、台中神岡一廠、台中神岡二廠、台南永康廠）進行多機台平行派工與總完工時間 (Makespan) 最小化排程：
+                        </p>
+                        <button type="button" class="btn btn-primary" onclick="runWbScheduleSolver()" style="width:100%; justify-content:center; padding:14px; font-size:1.05rem; font-weight:800; border-radius:10px; margin-bottom:18px;">
+                            🚀 啟動 CP-SAT 全台五廠區智慧產能甘特圖排程
+                        </button>
+                        <div id="wbSchedResultBox" style="display:none; padding:20px; border-radius:12px; background:rgba(5,14,32,0.92); border:1px solid var(--border-subtle);"></div>
+                    </div>
+
+                    <!-- TAB 4: CP-SAT Multi-Criteria Alloy Selection -->
+                    <div id="wbPanelAlloy" style="display: none;">
+                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-bottom:18px; padding:16px; background:rgba(4,12,28,0.65); border-radius:12px; border:1px solid var(--border-subtle);">
+                            <div>
+                                <label style="display:block; font-size:0.84rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">最低抗拉強度 (MPa)：</label>
+                                <input type="number" id="wbAlloyTensile" value="280" min="50" max="600" style="width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main); font-weight:700;">
+                            </div>
+                            <div>
+                                <label style="display:block; font-size:0.84rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">需求板厚 / 棒徑 (mm)：</label>
+                                <input type="number" id="wbAlloyThick" value="25" min="0.5" max="600" step="0.5" style="width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main); font-weight:700;">
+                            </div>
+                            <div>
+                                <label style="display:block; font-size:0.84rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">優先工程權重目標：</label>
+                                <select id="wbAlloyPriority" style="width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border-subtle); background:rgba(6,16,36,0.9); color:var(--text-main); font-weight:700;">
+                                    <option value="flatness">真平度與低內應力優先 (半導體腔體/治具)</option>
+                                    <option value="strength">極限抗拉強度優先 (航太結構/高負載模具)</option>
+                                    <option value="corrosion">耐海水與化學腐蝕優先 (船舶/化工設備)</option>
+                                    <option value="anodizing">陽極氧化成色優先 (光學外觀件)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="runWbAlloySolver()" style="width:100%; justify-content:center; padding:14px; font-size:1.05rem; font-weight:800; border-radius:10px; margin-bottom:18px;">
+                            🚀 啟動 CP-SAT 多目標合金選型推薦引擎
+                        </button>
+                        <div id="wbAlloyResultBox" style="display:none; padding:20px; border-radius:12px; background:rgba(5,14,32,0.92); border:1px solid var(--border-subtle);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Representative Cases & Solutions
+             ========================================================================== -->
+        <section id="cases" data-page-view="cases" class="section page-view {% if active_page == 'cases' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="cases.tag">Case Studies</span>
+                    <h2 class="section-title" data-i18n="cases.title">代表個案 · 半導體、航太與自動化實績</h2>
+                    <p class="section-desc" data-i18n="cases.desc">
+                        運用日本 UACJ 高階低應力鋁材、7075 航太鋁合金與精密 CNC 五軸／陽極一站式整合技術，協助各領域設備大廠克服應力變形與輕量化挑戰。
+                    </p>
+                </div>
+
+                <div class="cases-grid">
+                    {% for c in data.cases %}
+                    <div class="case-card glass-card">
+                        {% if c.image %}
+                        <div class="case-photo-wrap">
+                            <img src="{{ c.image }}" alt="{{ c.title }}" loading="lazy" class="zoomable-img" onclick="openImageLightbox(this.src, '{{ c.tag }} · {{ c.title }}')">
+                            <span class="case-badge" data-i18n="case.{{ c.id }}.tag">{{ c.tag }}</span>
+                        </div>
+                        {% else %}
+                        <span class="case-badge" data-i18n="case.{{ c.id }}.tag">{{ c.tag }}</span>
+                        {% endif %}
+                        <h3 class="case-title" data-i18n="case.{{ c.id }}.title">{{ c.title }}</h3>
+                        <p class="case-client"><span data-i18n="cases.client_prefix">產業對象：</span><span data-i18n="case.{{ c.id }}.client">{{ c.client }}</span></p>
+                        
+                        <div class="case-box">
+                            <h5><span data-i18n="case_lbl_challenge">關鍵挑戰</span></h5>
+                            <p data-i18n="case.{{ c.id }}.challenge">{{ c.challenge }}</p>
+                        </div>
+                        <div class="case-box" style="border-left-color: var(--accent-amber);">
+                            <h5 style="color: var(--accent-amber);"><span data-i18n="case_lbl_solution">賀華解決方案</span></h5>
+                            <p data-i18n="case.{{ c.id }}.solution">{{ c.solution }}</p>
+                        </div>
+                        <div class="case-box" style="border-left-color: var(--accent-emerald);">
+                            <h5 style="color: var(--accent-emerald);"><span data-i18n="case_lbl_results">成果與效益</span></h5>
+                            <p data-i18n="case.{{ c.id }}.result">{{ c.result }}</p>
+                        </div>
+
+                        <div style="margin-top: 18px;">
+                            <button class="btn-read-tts" style="width:100%;" onclick="readAloudText('{{ c.title }}。挑戰：{{ c.challenge }}。賀華解決方案：{{ c.solution }}。成果：{{ c.result }}', this)" data-i18n="case.btn_tts">
+                                🎙️ 語音聆聽完整案例解析
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Aluminum Metallurgy & Engineering Knowledge Base Hub
+             ========================================================================== -->
+        <section id="tech" data-page-view="tech" class="section section-alt page-view {% if active_page == 'tech' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="tech.tag">Engineering Knowledge &amp; Metallurgy Hub</span>
+                    <h2 class="section-title" data-i18n="tech.title">鋁材工程知識庫 · 特性選用與合金物性表</h2>
+                    <p class="section-desc" data-i18n="tech.desc">
+                        涵蓋鋁合金 15 大材料特性、1000~7000 系列選料原則、常用合金化學成分與機械性能對照表，並整合國際標準硬度試算器與調質辭典。
+                    </p>
+                </div>
+
+                <!-- Interactive Tech Knowledge Sub-Tabs -->
+                <div class="product-filters tech-tabs" id="techTabBar">
+                    <button class="filter-btn active" data-tech-tab="all" data-i18n="tech.tab_all">📚 全部知識庫總覽</button>
+                    <button class="filter-btn" data-tech-tab="iso9001" data-i18n="tech.tab_iso">🏅 ISO 9001品質體系與認證</button>
+                    <button class="filter-btn" data-tech-tab="weight" data-i18n="tech.tab_weight">⚖️ 鋁材重量/材積計算機</button>
+                    <button class="filter-btn" data-tech-tab="chars15" data-i18n="tech.tab_chars">🌟 15 大材料特性</button>
+                    <button class="filter-btn" data-tech-tab="series" data-i18n="tech.tab_series">🔬 1000~7000 系列選用原則</button>
+                    <button class="filter-btn" data-tech-tab="chemical" data-i18n="tech.tab_chem">📊 化學成分與機械物性表</button>
+                    <button class="filter-btn" data-tech-tab="standards" data-i18n="tech.tab_standards">🌐 國際規範對照 (JIS/ASTM/CNS)</button>
+                    <button class="filter-btn" data-tech-tab="hardness" data-i18n="tech.tab_hardness">⚡ 硬度試算與調質辭典</button>
+                </div>
+
+                <!-- Panel: ISO 9001:2015 & ISO 14001 Quality Management System & RoHS/REACH Atlas -->
+                <div class="tech-block glass-card" data-tech-panel="iso9001">
+                    <div class="tech-subhead">
+                        <h3><span>🏅</span> <span data-i18n="iso_title">ISO 9001:2015 品質管理體系與國際環保規範保證</span></h3>
+                        <p><span data-i18n="tech.iso_p1">賀華實業自 1973 年 4 月 25 日創立以來，全面導入嚴格之進料、製程、出廠三級檢驗體系與 100% 爐號追溯，確保供應之每件鋁材皆符合國際最高標準：</span></p>
+                    </div>
+
+                    <div class="iso-cert-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                        <!-- ISO 9001 Card -->
+                        <div class="iso-card" style="background: rgba(10, 24, 50, 0.88); border: 1px solid rgba(184, 51, 42, 0.25); border-radius: 14px; padding: 22px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                <span style="font-size: 2rem;">🏅</span>
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.15rem; font-weight: 800; color: var(--accent-cinnabar);">ISO 9001:2015 &amp; AS9100D</h4>
+                                    <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 600;"><span data-i18n="iso_sub1">品質管理體系認證與航太材料標準</span></span>
+                                </div>
+                            </div>
+                            <ul style="font-size: 0.88rem; line-height: 1.7; color: var(--text-main); margin: 0; padding-left: 18px;">
+                                <li><strong><span data-i18n="iso_iqc">IQC 來料全檢</span></strong><span data-i18n="iso_iqc_desc">：進口板材與原物料 100% 檢驗化學成分與機械性能。</span></li>
+                                <li><strong><span data-i18n="iso_ipqc">IPQC 製程管制</span></strong><span data-i18n="iso_ipqc_desc">：精密定寸鋸切、雙面飛刀精銑尺寸公差嚴格管控。</span></li>
+                                <li><strong><span data-i18n="iso_oqc">OQC 出貨檢驗</span></strong><span data-i18n="iso_oqc_desc">：附出廠檢驗量測報告 (FAI)，確保規格零缺失。</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Full Traceability Card -->
+                        <div class="iso-card" style="background: rgba(10, 24, 50, 0.88); border: 1px solid rgba(184, 51, 42, 0.25); border-radius: 14px; padding: 22px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                <span style="font-size: 2rem;">📑</span>
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.15rem; font-weight: 800; color: var(--accent-cinnabar);"><span data-i18n="iso_trace_title">100% 履歷追溯 (Heat No.)</span></h4>
+                                    <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 600;"><span data-i18n="iso_trace_sub">原廠出廠材質證明書 (Mill Sheet)</span></span>
+                                </div>
+                            </div>
+                            <ul style="font-size: 0.88rem; line-height: 1.7; color: var(--text-main); margin: 0; padding-left: 18px;">
+                                <li><span data-i18n="tech.iso_trace_li1">每批材料標註獨立<strong data-i18n="tech.iso_heat_lot">爐號 (Heat No.) 與生產批號 (Lot No.)</strong>。</span></li>
+                                <li><span data-i18n="iso_trace_desc1">隨貨附日本 UACJ、神戶製鋼或歐美原廠標準檢驗證明書 (MTR)。</span></li>
+                                <li><span data-i18n="iso_trace_desc2">確保符合航太、半導體與高真空腔體嚴苛之材料物理完整性。</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Environmental & Green Card -->
+                        <div class="iso-card" style="background: rgba(10, 24, 50, 0.88); border: 1px solid rgba(184, 51, 42, 0.25); border-radius: 14px; padding: 22px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                <span style="font-size: 2rem;">🌿</span>
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.15rem; font-weight: 800; color: var(--accent-cinnabar);">ISO 14001 &amp; RoHS/REACH</h4>
+                                    <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 600;"><span data-i18n="tech.iso_env_tag">環境管理與歐盟綠色供應鏈</span></span>
+                                </div>
+                            </div>
+                            <ul style="font-size: 0.88rem; line-height: 1.7; color: var(--text-main); margin: 0; padding-left: 18px;">
+                                <li><strong>EU RoHS 2.0 (2011/65/EU)</strong> <span data-i18n="tech.iso_rohs_li">鉛、鎘、汞等有害重金屬零超標保證。</span></li>
+                                <li><strong>EU REACH SVHC</strong> <span data-i18n="tech.iso_reach_li">高關注度物質清單即時合規登錄。</span></li>
+                                <li data-i18n="tech.iso_recycle_li">廠內實施 100% 純鋁廢料分流回收，落實綠色低碳循環經濟。</li>
+                            </ul>
+                        </div>
+
+                        <!-- Quality Assurance & CAPA SOP -->
+                        <div class="iso-card" style="background: rgba(10, 24, 50, 0.88); border: 1px solid rgba(184, 51, 42, 0.25); border-radius: 14px; padding: 22px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                <span style="font-size: 2rem;">🛡️</span>
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.15rem; font-weight: 800; color: var(--accent-cinnabar);"><span data-i18n="iso_8d_title">8D 異常改善與保證</span></h4>
+                                    <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 600;"><span data-i18n="iso_8d_sub">客戶滿意與售後技術支援 SOP</span></span>
+                                </div>
+                            </div>
+                            <ul style="font-size: 0.88rem; line-height: 1.7; color: var(--text-main); margin: 0; padding-left: 18px;">
+                                <li><strong data-i18n="tech.iso_team_li">專業工程團隊</strong><strong><span data-i18n="iso_8d_resp">24 小時內即時回應</span></strong><span data-i18n="tech.iso_resp_li">客戶規格或技術諮詢。</span></li>
+                                <li><span data-i18n="iso_8d_desc1">品質問題依循 8D 方法論，48 小時內出具異常要因分析與改善對策。</span></li>
+                                <li><span data-i18n="iso_8d_desc2">全省車隊專人退換貨與補料保證，全面捍衛客戶生產排程。</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ISO Policy Statement Banner -->
+                    <div style="padding: 18px 24px; background: rgba(184, 51, 42, 0.05); border: 1px solid rgba(184, 51, 42, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <strong style="font-size: 1rem; color: var(--accent-cinnabar); display: block; margin-bottom: 4px;"><span data-i18n="iso_policy_lbl">賀華實業品質承諾方針：</span></strong>
+                            <span style="font-size: 0.88rem; color: var(--text-main);"><span data-i18n="iso_policy_text">「精選頂級鋁材、落實精密加工、落實批次追溯、致力顧客超越期待」</span></span>
+                        </div>
+                        <a href="/contact" data-nav-page="contact" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.86rem;">
+                            <span data-i18n="btn_millsheet_sample">📑 索取原廠出廠證明範本</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Panel 0: Interactive Aluminum & Metal Weight / Volume Calculator -->
+                <div class="tech-block glass-card" data-tech-panel="weight">
+                    <div class="tech-subhead">
+                        <h3><span>⚖️</span> <span data-i18n="calc_hub_title">工業鋁合金與特殊金屬重量／材積即時試算器</span></h3>
+                        <p><span data-i18n="calc_hub_desc">支援鋁板、扁條、圓棒、圓管、四方條、六角條與方矩管之精確理論重量試算，並可一鍵將算料規格加入詢價單：</span></p>
+                    </div>
+
+                    <div class="tech-grid">
+                        <div class="calculator-card glass-card">
+                            <div class="calc-input-group" style="margin-bottom: 14px;">
+                                <label for="wtAlloySelect"><span data-i18n="calc_lbl_alloy_density">1. 選擇材質牌號與標準比重 (g/cm³)：</span></label>
+                                <select id="wtAlloySelect" onchange="calculateMetalWeight()" style="width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.92); color: var(--text-main); font-weight: 700;">
+                                    <option value="2.70|6061 / 6063 鋁合金" data-i18n="calc.opt_alloy_6061" selected>6061 / 6063 結構鋁合金 (比重 2.70 g/cm³)</option>
+                                    <option value="2.68|5052 耐蝕鋁合金" data-i18n="calc.opt_alloy_5052">5052 耐蝕鋁鎂合金 (比重 2.68 g/cm³)</option>
+                                    <option value="2.66|5083 船用鋁合金" data-i18n="calc.opt_alloy_5083">5083 船用高耐蝕鋁合金 (比重 2.66 g/cm³)</option>
+                                    <option value="2.81|7075 航太超硬鋁" data-i18n="calc.opt_alloy_7075">7075 航太超硬鋁合金 (比重 2.81 g/cm³)</option>
+                                    <option value="2.78|2024 航太高強鋁" data-i18n="calc.opt_alloy_2024">2024 航太高疲勞鋁合金 (比重 2.78 g/cm³)</option>
+                                    <option value="2.71|1050 純鋁 / Korea 4N 超平板" data-i18n="calc.opt_alloy_1050">1050 純鋁 ／ Korea 4N 超平板 (比重 2.71 g/cm³)</option>
+                                    <option value="7.93|SUS304 不鏽鋼" data-i18n="calc.opt_alloy_sus304">AISI / SUS 304 不鏽鋼 (比重 7.93 g/cm³)</option>
+                                    <option value="8.96|C1100 紅銅 / 紫銅" data-i18n="calc.opt_alloy_c1100">C1100 紅銅 ／ 紫銅 (比重 8.96 g/cm³)</option>
+                                    <option value="8.50|C3604 黃銅" data-i18n="calc.opt_alloy_c3604">C3604 黃銅 (比重 8.50 g/cm³)</option>
+                                    <option value="1.77|AZ31B 鎂合金" data-i18n="calc.opt_alloy_az31b">AZ31B 工業鎂合金 (比重 1.77 g/cm³)</option>
+                                </select>
+                            </div>
+
+                            <div class="calc-input-group" style="margin-bottom: 14px;">
+                                <label for="wtShapeSelect"><span data-i18n="calc_lbl_shape">2. 選擇型材斷面形狀：</span></label>
+                                <select id="wtShapeSelect" onchange="updateWeightShapeInputs()" style="width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-subtle); background: rgba(6, 16, 36, 0.92); color: var(--text-main); font-weight: 700;">
+                                    <option value="plate" data-i18n="calc.shape_plate" selected>🟦 鋁板 ／ 扁條 (厚 T × 寬 W × 長 L)</option>
+                                    <option value="round_bar" data-i18n="calc.shape_round_bar">⚪ 圓棒 (外徑 D × 長度 L)</option>
+                                    <option value="round_tube" data-i18n="calc.shape_round_tube">⭕ 圓管 (外徑 OD × 管壁厚 t × 長度 L)</option>
+                                    <option value="square_bar" data-i18n="calc.shape_square_bar">⬛ 四方條 ／ 正方棒 (邊寬 W × 長度 L)</option>
+                                    <option value="hex_bar" data-i18n="calc.shape_hex_bar">⬡ 六角棒 ／ 六方條 (對邊 D × 長度 L)</option>
+                                    <option value="rect_tube" data-i18n="calc.shape_rect_tube">🔲 方管 ／ 長方管 (寬 W × 高 H × 壁厚 t × 長 L)</option>
+                                </select>
+                            </div>
+
+                            <div id="wtPresetRow" style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
+                                <span style="font-size: 0.78rem; color: var(--text-muted); align-self: center;"><span data-i18n="calc_lbl_presets">常用板規快選：</span></span>
+                                <button type="button" class="cpsat-add-btn" onclick="applyPlatePreset(1220, 2440)">4'×8' (1220×2440)</button>
+                                <button type="button" class="cpsat-add-btn" onclick="applyPlatePreset(914, 1829)">3'×6' (914×1829)</button>
+                                <button type="button" class="cpsat-add-btn" onclick="applyPlatePreset(1524, 3048)">5'×10' (1524×3048)</button>
+                                <button type="button" class="cpsat-add-btn" onclick="applyPlatePreset(1000, 2000)">1m×2m (1000×2000)</button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                                <div class="calc-input-group" id="wtDim1Wrap">
+                                    <label id="wtDim1Label" for="wtDim1"><span data-i18n="calc_lbl_t">厚度 T (mm)：</span></label>
+                                    <input type="number" id="wtDim1" value="10" min="0.1" step="0.1" oninput="calculateMetalWeight()">
+                                </div>
+                                <div class="calc-input-group" id="wtDim2Wrap">
+                                    <label id="wtDim2Label" for="wtDim2"><span data-i18n="calc_lbl_w">寬度 W (mm)：</span></label>
+                                    <input type="number" id="wtDim2" value="1220" min="1" step="1" oninput="calculateMetalWeight()">
+                                </div>
+                                <div class="calc-input-group" id="wtDim3Wrap" style="display: none;">
+                                    <label id="wtDim3Label" for="wtDim3"><span data-i18n="calc_lbl_wall">管壁厚 t (mm)：</span></label>
+                                    <input type="number" id="wtDim3" value="3" min="0.2" step="0.1" oninput="calculateMetalWeight()">
+                                </div>
+                                <div class="calc-input-group">
+                                    <label for="wtLength"><span data-i18n="calc_lbl_l">長度 L (mm)：</span></label>
+                                    <input type="number" id="wtLength" value="2440" min="1" step="1" oninput="calculateMetalWeight()">
+                                </div>
+                                <div class="calc-input-group">
+                                    <label for="wtQty"><span data-i18n="calc_lbl_n">需求數量 (片 / 支 / 件)：</span></label>
+                                    <input type="number" id="wtQty" value="1" min="1" step="1" oninput="calculateMetalWeight()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculator-card glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;"><span data-i18n="calc_res_title">📊 理論材積與重量試算結果</span></h4>
+                                <p id="wtFormulaDesc" style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 18px;">
+                                    <span data-i18n="calc_formula_desc">計算公式：厚(mm) × 寬(mm) × 長(mm) × 比重 ÷ 1,000,000</span>
+                                </p>
+
+                                <div class="calc-results-grid">
+                                    <div class="calc-metric-box">
+                                        <div class="metric-label"><span data-i18n="calc_res_single">單件理論重量 (Single Weight)</span></div>
+                                        <div class="metric-value" id="wtSingleKg">80.37 kg</div>
+                                    </div>
+                                    <div class="calc-metric-box">
+                                        <div class="metric-label"><span data-i18n="calc_res_per_meter">每米單位重 (Weight / Meter)</span></div>
+                                        <div class="metric-value" id="wtPerMeterKg">32.94 kg/m</div>
+                                    </div>
+                                    <div class="calc-metric-box">
+                                        <div class="metric-label"><span data-i18n="calc_res_vol">單件材積體積 (Volume)</span></div>
+                                        <div class="metric-value" id="wtVolumeCm3">29,768 cm³</div>
+                                    </div>
+                                    <div class="calc-metric-box" style="border-color: var(--accent-cinnabar); background: rgba(182, 59, 46, 0.06);">
+                                        <div class="metric-label"><span data-i18n="calc_res_batch">總計理論重量 (Total Batch Weight)</span></div>
+                                        <div class="metric-value" id="wtTotalKg" style="color: var(--accent-cinnabar); font-size: 1.45rem;">80.37 kg</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 8px;">
+                                <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="addCalculatedWeightToQuote()">
+                                    <span data-i18n="btn_add_calc_quote">📋 將此算料規格與總重加入詢價單</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary" style="width: 100%; justify-content: center; background: rgba(10, 24, 50, 0.9); color: var(--accent-cinnabar); border-color: rgba(182, 59, 46, 0.4);" onclick="exportCalculatedWeightToPdf()">
+                                    <span data-i18n="btn_calc_pdf">📄 產出正式試算報價單 (PDF / 列印)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 1: 15 Characteristics -->
+                <div class="tech-block glass-card" data-tech-panel="chars15">
+                    <div class="tech-subhead">
+                        <h3><span>🌟</span> <span data-i18n="tech_15_title">鋁合金現代工業 15 大材料特性與優勢</span></h3>
+                        <p><span data-i18n="tech_15_desc">深入解析鋁金屬在比重、耐蝕、導熱、切削效率及綠色回收等各項關鍵物理與機械性能：</span></p>
+                    </div>
+                    <div class="chars-grid">
+                        {% for ch in data.aluminum_knowledge.characteristics_15 %}
+                        <div class="char-card">
+                            <div class="char-head">
+                                <span class="char-title" data-i18n="char.{{ ch.id }}.name">{{ ch.name }}</span>
+                                <span class="char-badge" data-i18n="char.{{ ch.id }}.badge">{{ ch.badge }}</span>
+                            </div>
+                            <p class="char-desc" data-i18n="char.{{ ch.id }}.desc">{{ ch.desc }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Panel 2: 1000~7000 Series Selection Guide -->
+                <div class="tech-block glass-card" data-tech-panel="series">
+                    <div class="tech-subhead">
+                        <h3><span>🔬</span> <span data-i18n="tech_series_title">1000 ~ 7000 系列鋁合金選料指南與適用情境</span></h3>
+                        <p><span data-i18n="tech_series_desc">依照<span data-i18n="th_chem_corr">耐蝕性</span>、強度需求、成形深度與焊接切削要求，挑選最符合加工效益之合適鋁系：</span></p>
+                    </div>
+                    <div class="series-grid">
+                        {% for s in data.aluminum_knowledge.series_guide %}
+                        {% set s_id = s.series.split(' ')[0] %}
+                        <div class="series-card">
+                            <div class="series-top">
+                                <div>
+                                    <div class="series-name" data-i18n="series.{{ s_id }}.name">{{ s.series }}</div>
+                                    <div class="series-system" data-i18n="series.{{ s_id }}.system">{{ s.alloy_system }}</div>
+                                </div>
+                                <span class="series-badge {% if '熱處理強化型' in s.heat_treatable %}heat-yes{% else %}heat-no{% endif %}" data-i18n="series.{{ s_id }}.heat">
+                                    {{ s.heat_treatable }}
+                                </span>
+                            </div>
+                            <div class="series-typical">
+                                <strong><span data-i18n="lbl_grades">代表牌號：</span></strong>{{ s.typical_alloys }}
+                            </div>
+                            <p class="series-features" data-i18n="series.{{ s_id }}.features">{{ s.features }}</p>
+                            <div class="series-apps">
+                                <strong><span data-i18n="lbl_apps">典型應用領域：</span></strong><span data-i18n="series.{{ s_id }}.apps">{{ s.applications }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Panel 3: Chemical Composition & Mechanical Properties Table -->
+                <div class="tech-block glass-card" data-tech-panel="chemical">
+                    <div class="tech-subhead" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <h3><span>📊</span> <span data-i18n="tech_chem_title">常用工業鋁合金化學成分與機械性能速查表</span></h3>
+                            <p><span data-i18n="tech_chem_desc">依據 ASTM B209 / JIS H4000 標準彙整之各系列主力合金元素比率與抗拉/降伏/延伸率參考值：</span></p>
+                        </div>
+                        <div style="min-width: 260px;">
+                            <input type="text" id="chemTableSearchInput" aria-label="搜尋化學成分與機械物性牌號" placeholder="🔍 即時過濾牌號 (如 6061, 7075, 4N)..." oninput="filterChemTable(this.value)" class="calc-input" style="padding: 9px 14px; border-radius: 8px; width: 100%; font-size: 0.88rem; background: rgba(10, 24, 50, 0.9); border: 1px solid var(--border-subtle); color: var(--text-primary); box-shadow: inset 0 1px 2px rgba(0,0,0,0.04); font-weight: 500;">
+                        </div>
+                    </div>
+                    <div class="chem-table-wrap">
+                        <table class="chem-table">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2"><span data-i18n="th_chem_alloy">合金牌號 &amp; 調質</span></th>
+                                    <th rowspan="2"><span data-i18n="th_chem_type">類型分類</span></th>
+                                    <th colspan="9"><span data-i18n="th_chem_wt">化學成分重量百分比 (Wt %)</span></th>
+                                    <th colspan="4"><span data-i18n="th_chem_mech">機械性能 (Mechanical Properties)</span></th>
+                                    <th colspan="3"><span data-i18n="th_chem_eval">工藝特性評等</span></th>
+                                </tr>
+                                <tr>
+                                    <th>Si</th>
+                                    <th>Fe</th>
+                                    <th>Cu</th>
+                                    <th>Mn</th>
+                                    <th>Mg</th>
+                                    <th>Cr</th>
+                                    <th>Zn</th>
+                                    <th>Ti</th>
+                                    <th>Al</th>
+                                    <th><span data-i18n="th_chem_uts">抗拉強度 (MPa)</span></th>
+                                    <th><span data-i18n="th_chem_ys">降伏強度 (MPa)</span></th>
+                                    <th><span data-i18n="th_chem_el">延伸率 (%)</span></th>
+                                    <th><span data-i18n="th_chem_hb">硬度 (HB)</span></th>
+                                    <th><span data-i18n="th_chem_mach">切削性</span></th>
+                                    <th><span data-i18n="th_chem_anod">陽極性</span></th>
+                                    <th><span data-i18n="th_chem_corr">耐蝕性</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="chemTableBody">
+                                {% for row in data.aluminum_knowledge.chemical_mechanical_matrix %}
+                                <tr>
+                                    <td class="td-alloy">{{ row.alloy }}</td>
+                                    <td data-i18n="chem.{{ loop.index }}.cat">{{ row.category }}</td>
+                                    <td>{{ row.si }}</td>
+                                    <td>{{ row.fe }}</td>
+                                    <td>{{ row.cu }}</td>
+                                    <td>{{ row.mn }}</td>
+                                    <td>{{ row.mg }}</td>
+                                    <td>{{ row.cr }}</td>
+                                    <td>{{ row.zn }}</td>
+                                    <td>{{ row.ti }}</td>
+                                    <td class="td-hl">{{ row.al }}</td>
+                                    <td class="td-hl">{{ row.tensile }}</td>
+                                    <td>{{ row.yield }}</td>
+                                    <td>{{ row.elongation }}</td>
+                                    <td class="td-hl">{{ row.hardness }}</td>
+                                    <td class="rating-good" data-i18n="chem.{{ loop.index }}.mach">{{ row.machinability }}</td>
+                                    <td class="rating-good" data-i18n="chem.{{ loop.index }}.anod">{{ row.anodizing }}</td>
+                                    <td class="rating-good" data-i18n="chem.{{ loop.index }}.corr">{{ row.corrosion }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">
+                        <span data-i18n="tech.chem_note">※ 註：上表數值依常用規格板材標準厚度測定，實際交付數據以每批原廠出廠檢驗證明書（Mill Sheet / MTR）為準。賀華實業常備庫存皆附材質檢驗證明。</span>
+                    </p>
+                </div>
+
+                <!-- Panel 4: International Standards Cross-Reference -->
+                <div class="tech-block glass-card" data-tech-panel="standards">
+                    <div class="tech-subhead">
+                        <h3><span>🌐</span> <span data-i18n="tech_standards_title">常用國際金屬標準規範縮寫與對照體系</span></h3>
+                        <p><span data-i18n="tech_standards_desc">快速對照台灣、日本、美國、歐洲各國工程圖面常見之鋁材技術規範：</span></p>
+                    </div>
+                    <div class="standards-grid">
+                        {% for st in data.aluminum_knowledge.standards_crossref %}
+                        <div class="standard-card">
+                            <div class="standard-top">
+                                <span class="standard-code">{{ st.standard }}</span>
+                                <span class="standard-country" data-i18n="std.{{ loop.index }}.country">{{ st.country }}</span>
+                            </div>
+                            <div class="standard-full" data-i18n="std.{{ loop.index }}.full">{{ st.fullName }}</div>
+                            <div class="standard-ex"><span data-i18n="tech.std_code_lbl">常見標準代號：</span><strong>{{ st.example }}</strong></div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Panel 5: Hardness Calculator & Temper Designation (Existing Tools Enhanced) -->
+                <div class="tech-block glass-card" data-tech-panel="hardness">
+                    <div class="tech-subhead">
+                        <h3><span>⚡</span> <span data-i18n="tech_hardness_dict_title">國際標準硬度即時換算器與熱處理<span data-i18n="ft_temper">調質代號辭典</span></span></h3>
+                        <p><span data-i18n="tech_hardness_dict_desc">即時試算布氏 (HB)、洛氏 (HRC / HRB)、維氏 (HV)、肖氏 (HS) 硬度，並解析調質狀態定義：</span></p>
+                    </div>
+                    <div class="tech-grid">
+                        <!-- Calculator Card -->
+                        <div class="calculator-card glass-card">
+                            <h4 style="font-size: 1.2rem; font-weight:700; margin-bottom: 8px;" data-i18n="tech.hardness_title">金屬硬度即時試算器</h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;"><span data-i18n="tech_hardness_calc_hint">請輸入布氏硬度 (HB)，系統將自動對照各項國際硬度與近似抗拉強度：</span></p>
+                            
+                            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
+                                <span style="font-size: 0.78rem; color: var(--text-muted); align-self: center;"><span data-i18n="tech_hardness_quick_lbl">常用合金硬度快選：</span></span>
+                                <button type="button" class="cpsat-add-btn" onclick="applyHbPreset(95)">6061-T6 (≈95 HB)</button>
+                                <button type="button" class="cpsat-add-btn" onclick="applyHbPreset(150)">7075-T651 (≈150 HB)</button>
+                                <button type="button" class="cpsat-add-btn" onclick="applyHbPreset(68)">5052-H32 (≈68 HB)</button>
+                                <button type="button" class="cpsat-add-btn" onclick="applyHbPreset(229)"><span data-i18n="btn_steel_hb">結構鋼 (≈229 HB)</span></button>
+                            </div>
+
+                            <div class="calc-input-group">
+                                <label for="calcHbInput" data-i18n="tech.hardness_lbl">布氏硬度 (HB / Brinell)：</label>
+                                <input type="number" id="calcHbInput" value="229" min="60" max="700">
+                            </div>
+
+                            <div class="calc-results-grid">
+                                <div class="calc-metric-box">
+                                    <div class="metric-label"><span data-i18n="lbl_hrc">洛氏硬度 HRC (C標尺)</span></div>
+                                    <div class="metric-value" id="calcHrcVal">20.5 HRC</div>
+                                </div>
+                                <div class="calc-metric-box">
+                                    <div class="metric-label"><span data-i18n="lbl_hrb">洛氏硬度 HRB (B標尺)</span></div>
+                                    <div class="metric-value" id="calcHrbVal">98.2 HRB</div>
+                                </div>
+                                <div class="calc-metric-box">
+                                    <div class="metric-label"><span data-i18n="lbl_hv">維氏硬度 HV</span></div>
+                                    <div class="metric-value" id="calcHvVal">241 HV</div>
+                                </div>
+                                <div class="calc-metric-box">
+                                    <div class="metric-label"><span data-i18n="lbl_hs">肖氏硬度 HS</span></div>
+                                    <div class="metric-value" id="calcShoreVal">36 HS</div>
+                                </div>
+                                <div class="calc-metric-box" style="grid-column: 1 / -1; border-color: var(--accent-cyan);">
+                                    <div class="metric-label"><span data-i18n="lbl_tensile">估算抗拉強度 Tensile Strength</span></div>
+                                    <div class="metric-value" id="calcTensileVal">≈ 775 MPa</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Temper Designation Card -->
+                        <div class="temper-card glass-card">
+                            <h4 style="font-size: 1.2rem; font-weight:700; margin-bottom: 8px;" data-i18n="tech.temper_title">熱處理與調質代號辭典</h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;"><span data-i18n="lbl_temper_desc">鋁合金常見之後綴調質狀態技術定義：</span></p>
+
+                            <div class="temper-accordion">
+                                {% for t in data.temper_definitions %}
+                                <div class="temper-item">
+                                    <div>
+                                        <span class="temper-code">{{ t.code }}</span>
+                                        <span class="temper-name" data-i18n="temper.{{ t.code }}.name">{{ t.name }}</span>
+                                    </div>
+                                    <p class="temper-desc" data-i18n="temper.{{ t.code }}.desc">{{ t.desc }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Contact & Instant RFQ Form
+             ========================================================================== -->
+        <section id="contact" data-page-view="contact" class="section page-view {% if active_page == 'contact' %}active-page{% endif %}">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="contact.tag">Direct Inquiry</span>
+                    <h2 class="section-title" data-i18n="contact.title">即時諮詢與快速估價</h2>
+                    <p class="section-desc" data-i18n="contact.desc">
+                        歡迎留下您的材料規格或加工圖面需求，賀華實業台北、台中、台南專業業務工程師將於 24 小時內為您提供詳盡報價與技術建議。
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info-card glass-card">
+                        <h3 style="font-size: 1.4rem; font-weight:700; margin-bottom: 12px;" data-i18n="contact.hub_title">賀華實業聯繫窗口</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dim); line-height: 1.7;">
+                            <span data-i18n="contact_call_note">如需緊急調料或大批量合約專案，歡迎直接致電各據點物流中心，我們將安排專屬業務為您服務。</span>
+                        </p>
+
+                        <div class="info-branch-list">
+                            <div class="info-branch-item">
+                                <h4>🏢 台北廠 (八里大型倉儲物流中心)</h4>
+                                <p><span>地址：</span><a href="https://www.google.com/maps/search/?api=1&query=新北市八里區忠孝路399號" target="_blank" rel="noopener" style="color:var(--accent-cyan); text-decoration:underline;">新北市八里區忠孝路399號 🗺️</a></p>
+                                <p><span>電話：</span><a href="tel:0226182817" style="color:var(--accent-cyan); font-weight:700;">(02) 2618-2817</a> ｜ 傳真：(02) 2618-2923</p>
+                                <p><span>信箱：</span><a href="mailto:harvard.tpe@msa.hinet.net" style="color:inherit;">harvard.tpe@msa.hinet.net</a></p>
+                            </div>
+                            <div class="info-branch-item">
+                                <h4>🔬 新竹廠 (永旭材料股份有限公司)</h4>
+                                <p><span>地址：</span><a href="https://www.google.com/maps/search/?api=1&query=新竹市香山區牛埔南路221號" target="_blank" rel="noopener" style="color:var(--accent-cyan); text-decoration:underline;">新竹市香山區牛埔南路221號 🗺️</a></p>
+                                <p><span>電話：</span><a href="tel:035396766" style="color:var(--accent-cyan); font-weight:700;">(03) 539-6766</a> ｜ 傳真：(03) 530-9899</p>
+                                <p><span>信箱：</span><a href="mailto:ys5396766@gmail.com" style="color:inherit;">ys5396766@gmail.com</a></p>
+                            </div>
+                            <div class="info-branch-item">
+                                <h4>🏭 台中一廠 ＆ 台中二廠 (神岡精密銑削與分條雙核心)</h4>
+                                <p><span>一廠：</span><a href="https://www.google.com/maps/search/?api=1&query=台中市神岡區中山路360巷10-5號" target="_blank" rel="noopener" style="color:var(--accent-cyan); text-decoration:underline;">台中市神岡區中山路360巷10-5號</a> ｜ <a href="tel:0425611017" style="color:var(--accent-cyan); font-weight:700;">(04) 2561-1017</a></p>
+                                <p><span>二廠：</span><a href="https://www.google.com/maps/search/?api=1&query=台中市神岡區神洲路848巷39號" target="_blank" rel="noopener" style="color:var(--accent-cyan); text-decoration:underline;">台中市神岡區神洲路848巷39號</a> ｜ <a href="tel:0425610277" style="color:var(--accent-cyan); font-weight:700;">(04) 2561-0277</a></p>
+                                <p><span>傳真：</span>(04) 2562-9758 ｜ 信箱：<a href="mailto:harvard.tcg@msa.hinet.net" style="color:inherit;">harvard.tcg@msa.hinet.net</a></p>
+                            </div>
+                            <div class="info-branch-item">
+                                <h4>🏭 台南廠 (南部科學園區與精密機械支援中心)</h4>
+                                <p><span>地址：</span><a href="https://www.google.com/maps/search/?api=1&query=台南市永康區中正南路404巷15號" target="_blank" rel="noopener" style="color:var(--accent-cyan); text-decoration:underline;">台南市永康區中正南路404巷15號 🗺️</a></p>
+                                <p><span>電話：</span><a href="tel:062329156" style="color:var(--accent-cyan); font-weight:700;">(06) 232-9156</a> ｜ 傳真：(06) 233-4651</p>
+                                <p><span>信箱：</span><a href="mailto:harvard.tnn@msa.hinet.net" style="color:inherit;">harvard.tnn@msa.hinet.net</a></p>
+                            </div>
+                        </div>
+
+                        <div class="admin-portal-box">
+                            <span class="admin-portal-hint"><span data-i18n="contact_admin_tag">內部業務與管理人員專區</span></span>
+                            <a href="/admin" class="btn btn-admin-portal">
+                                <span data-i18n="contact.crm_btn">🔐 進入業務詢價管理後台 (CRM)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="quote-form-card glass-card" id="quoteFormCard">
+                        <h3 style="font-size: 1.4rem; font-weight:700; margin-bottom: 20px;" data-i18n="contact.form_title">填寫需求估價單</h3>
+                        <form id="quoteForm">
+                            <!-- Anti-spam Honeypot (hidden from human visitors) -->
+                            <input type="text" name="website_hp" id="website_hp" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="companyName" data-i18n="contact.lbl_company">公司寶號 *</label>
+                                    <input type="text" id="companyName" name="companyName" required data-i18n="contact.ph_company" placeholder="例：台積精密機械有限公司">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPerson" data-i18n="contact.lbl_name">聯絡人姓名 *</label>
+                                    <input type="text" id="contactPerson" name="contactPerson" required data-i18n="contact.ph_name" placeholder="例：陳經理 / 林先生">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone" data-i18n="contact.lbl_phone">連絡電話 / 手機 *</label>
+                                    <input type="tel" id="contactPhone" name="contactPhone" required data-i18n="contact.ph_phone" placeholder="例：0912-345-678 或 02-...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail" data-i18n="contact.lbl_email">電子郵件 *</label>
+                                    <input type="email" id="contactEmail" name="contactEmail" required data-i18n="contact.ph_email" placeholder="name@company.com">
+                                </div>
+                                <div class="form-group full">
+                                    <label for="inquiryMaterial" data-i18n="contact.lbl_material">材料型號與規格需求</label>
+                                    <input type="text" id="inquiryMaterial" name="inquiryMaterial" data-i18n="contact.ph_material" placeholder="例：UACJ 5052 貼膜板 10mm x 4' x 8' 或 6061-T6 圓棒 Dia.50">
+                                </div>
+                                <div class="form-group full">
+                                    <label data-i18n="contact.lbl_drawings">CAD / PDF 工程圖面（選填）</label>
+                                    <div class="drawing-dropzone" id="drawingDropzone">
+                                        <input type="file" id="drawingFileInput" name="drawing_file" accept=".pdf,.dxf,.dwg,.step,.stp,.iges,.igs,.png,.jpg,.jpeg,.zip,.rar,.7z" style="display:none;">
+                                        <div class="dropzone-inner" onclick="document.getElementById('drawingFileInput').click()">
+                                            <div class="dropzone-icon">📐</div>
+                                            <div class="dropzone-text">
+                                                <strong><span data-i18n="upload_click_drag">點擊選取或拖曳圖檔至此</span></strong>
+                                                <span><span data-i18n="upload_formats_desc">支援 2D (.DXF, .DWG, .PDF) 及 3D 實體模型 (.STEP, .STP, .IGES, .ZIP)，單檔最大 50MB</span></span>
+                                            </div>
+                                            <button type="button" class="btn btn-secondary btn-sm" style="pointer-events:none; padding: 6px 12px; font-size: 0.8rem;" data-i18n="contact.browse_files">瀏覽檔案</button>
+                                        </div>
+                                        <div id="fileSelectedBadge" class="file-badge" style="display:none;">
+                                            <span class="file-icon">📎</span>
+                                            <span id="fileSelectedName" class="file-name"></span>
+                                            <span id="fileSelectedSize" class="file-size"></span>
+                                            <button type="button" class="file-remove-btn" id="fileRemoveBtn" title="移除圖檔">✕</button>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top:8px;">
+                                        <input type="text" id="drawingUrl" name="drawingUrl" data-i18n="contact.ph_drawing_url" placeholder="或貼上 Google Drive、Dropbox 或 WeTransfer 雲端圖面連結...">
+                                    </div>
+                                    <span style="display:block; font-size:0.8rem; color:var(--text-dim); margin-top:5px;"><span data-i18n="upload_dfm_hint">💡 上傳圖面後，本公司專業業務工程師將立即為您進行 DFM 可加工性評估與精確估價。</span></span>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px;">
+                                        <span class="badge-stock" style="font-size:0.7rem; padding: 2px 7px; background: rgba(0,0,0,0.05); border-radius: 4px;" data-i18n="contact.fmt_step">.STEP / .STP (3D實體)</span>
+                                        <span class="badge-stock" style="font-size:0.7rem; padding: 2px 7px; background: rgba(0,0,0,0.05); border-radius: 4px;" data-i18n="contact.fmt_iges">.IGES (曲面模型)</span>
+                                        <span class="badge-stock" style="font-size:0.7rem; padding: 2px 7px; background: rgba(0,0,0,0.05); border-radius: 4px;" data-i18n="contact.fmt_dxf">.DXF / .DWG (2D工程圖)</span>
+                                        <span class="badge-stock" style="font-size:0.7rem; padding: 2px 7px; background: rgba(0,0,0,0.05); border-radius: 4px;" data-i18n="contact.fmt_pdf">.PDF (標準標註)</span>
+                                        <span class="badge-stock" style="font-size:0.7rem; padding: 2px 7px; background: rgba(0,0,0,0.05); border-radius: 4px;" data-i18n="contact.fmt_sldprt">.SLDPRT / .ZIP</span>
+                                    </div>
+                                </div>
+                                <div class="form-group full">
+                                    <label for="inquiryMessage" data-i18n="contact.lbl_message">需求數量、加工說明與備註</label>
+                                    <textarea id="inquiryMessage" name="inquiryMessage" data-i18n="contact.ph_message" placeholder="請填寫預計採購數量、裁切尺寸、是否有雙面平銑/CNC加工或表面陽極需求..."></textarea>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                                <button type="submit" class="btn btn-primary" style="flex: 2; justify-content: center; padding: 14px;" data-i18n="contact.submit_rfq">
+                                    🚀 送出詢價需求單
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="copyRfqDraft()" style="flex: 1; justify-content: center; padding: 14px; background: rgba(10, 24, 50, 0.9); border-color: rgba(184, 51, 42, 0.35); color: var(--accent-cinnabar);" title="複製目前所填寫之詢價草稿" data-i18n="contact.copy_draft">
+                                    📋 複製草稿
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subpage Bottom Sequential Navigation Bar -->
+        <div id="subpagePagerBar" class="subpage-pager-wrap {% if (active_page or 'hero') != 'hero' %}visible{% endif %}">
+            <div class="container">
+                <div class="subpage-pager-card glass-card">
+                    <a href="/" id="pagerPrevBtn" class="pager-nav-btn"><span data-i18n="pager_prev">← 上一單元</span></a>
+                    <a href="/" data-nav-page="hero" class="pager-home-btn"><span data-i18n="pager_home">🏠 返回首頁總覽</span></a>
+                    <a href="/contact" id="pagerNextBtn" class="pager-nav-btn"><span data-i18n="pager_next">下一單元 →</span></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-group">
+                        <span class="logo-emblem-fx">
+                            <span class="logo-halo-ring" aria-hidden="true"></span>
+                            <span class="logo-shine-mask">
+                                <img src="{{ url_for('static', filename='img_crawled/fapo_logo.png', v='10.0') }}" alt="賀華實業股份有限公司 LOGO" class="logo-img">
+                            </span>
+                            <span class="logo-glint-star" aria-hidden="true">✦</span>
+                        </span>
+                        <div class="logo-text">
+                            <h2 style="font-size:1.2rem; font-family: var(--font-serif);" data-i18n="brand.name">賀華實業股份有限公司</h2>
+                            <p>HARVARD ENTERPRISES INC.</p>
+                        </div>
+                    </div>
+                    <p data-i18n="footer.desc">
+                        深耕台灣逾五十載，以鋁為本、服務為先。全方位供應純鋁、鋁合金板、擠型材、特殊合金與精密 CNC 加工、表面陽極一貫化整合服務。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5 data-i18n="footer.col_nav">快速導覽</h5>
+                    <ul>
+                        <li><a href="/" data-nav-page="hero" data-i18n="nav.home">首頁總覽</a></li>
+                        <li><a href="/about" data-nav-page="about" data-i18n="nav.about">關於我們 · 沿革</a></li>
+                        <li><a href="/network" data-nav-page="network" data-i18n="nav.network">全台服務據點</a></li>
+                        <li><a href="/products" data-nav-page="products" data-i18n="nav.products">旗艦材料系列</a></li>
+                        <li><a href="/specs" data-nav-page="specs" data-i18n="nav.specs">現貨庫存規格</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5 data-i18n="footer.col_tech">技術與加工</h5>
+                    <ul>
+                        <li><a href="/machining" data-nav-page="machining" data-i18n="nav.machining">精密加工能量</a></li>
+                        <li><a href="/cases" data-nav-page="cases" data-i18n="nav.cases">半導體航太實績</a></li>
+                        <li><a href="/tech" data-nav-page="tech"><span data-i18n="ft_hardness">金屬硬度換算</span></a></li>
+                        <li><a href="/tech" data-nav-page="tech"><span data-i18n="ft_temper">調質代號辭典</span></a></li>
+                        <li><a href="/contact" data-nav-page="contact" data-i18n="nav.quote">線上圖面估價</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5 data-i18n="footer.col_quality">品質與認證</h5>
+                    <ul>
+                        <li><a href="/tech" data-nav-page="tech"><span data-i18n="ft_iso">ISO 9001:2015 體系</span></a></li>
+                        <li><a href="/tech" data-nav-page="tech"><span data-i18n="ft_as9100">AS9100D 航太規範</span></a></li>
+                        <li><a href="/tech" data-nav-page="tech"><span data-i18n="ft_rohs">RoHS / REACH 宣告</span></a></li>
+                        <li><a href="/tech" data-nav-page="tech"><span data-i18n="ft_millsheet">Mill Sheet 原廠證明</span></a></li>
+                        <li style="margin-top: 8px;"><a href="/admin" class="footer-admin-btn"><span data-i18n="ft_admin">🔐 業務詢價後台</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-standards-strip">
+                    <span class="std-chip" title="ISO 9001:2015 品質管理系統規範">ISO 9001:2015</span>
+                    <span class="std-chip" title="AS9100D 航太材料品質管理標準">AS9100D</span>
+                    <span class="std-chip" title="EU RoHS 2.0 綠色環保有害物質限用指令">RoHS 2.0</span>
+                    <span class="std-chip" title="EU REACH 高關注度物質合規登錄">REACH SVHC</span>
+                    <span class="std-chip" title="W3C WCAG 2.1 AA 友善無障礙設計規範">WCAG 2.1 AA</span>
+                </div>
+                <p class="footer-copy">&copy; 1973 - 2026 賀華實業股份有限公司 HARVARD ENTERPRISES INC. 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         Floating Edge-TTS Audio Tour Player Dock
+         ========================================================================== -->
+    <div id="audioDock" class="audio-dock">
+        <div class="dock-main-bar">
+            <div class="dock-left">
+                <button id="dockPlayBtn" class="btn-play-dock" title="播放語音導覽">
+                    ▶
+                </button>
+                <div class="dock-track-info">
+                    <span class="track-badge" data-i18n="dock.badge">🎙️ 語音導覽</span>
+                    <span id="dockTrackTitle" class="track-title">賀華實業 · 企業簡介</span>
+                </div>
+            </div>
+
+            <div class="dock-visualizer">
+                <canvas id="audioWaveCanvas" width="200" height="32"></canvas>
+            </div>
+
+            <div class="dock-quick-actions">
+                <button id="dockZenBgmBtn" class="btn-zen-pill active" title="開關真人實錄背景輕音樂">
+                    🎵 <span class="zen-label-txt" data-i18n="dock_bgm_lbl">輕音樂</span>
+                </button>
+
+                <button id="dockMoreBtn" class="btn-dock-more" title="展開音訊與章節設定">
+                    <span data-i18n="dock_btn_audio">音訊 ▴</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="dockExpandable" class="dock-expandable">
+            <div class="dock-step-btns">
+                <button id="dockPrevBtn" class="btn-dock-icon" title="上一章節">⏮</button>
+                <button id="dockNextBtn" class="btn-dock-icon" title="下一章節">⏭</button>
+            </div>
+            
+            <div class="dock-chapter-select">
+                <select id="dockChapterSelect">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+
+            <div class="dock-bgm-select">
+                <select id="dockBgmSelect" title="選擇背景輕音樂曲目">
+                    <option value="piano" selected><span data-i18n="opt_bgm_piano">🎹 典雅鋼琴 · 巴哈前奏曲</span></option>
+                    <option value="guitar"><span data-i18n="opt_bgm_guitar">🎸 溫潤吉他 · 薩提慢板</span></option>
+                    <option value="guqin"><span data-i18n="opt_bgm_guqin">🍵 東方古琴 · 陽關三疊</span></option>
+                    <option value="off"><span data-i18n="opt_bgm_mute">🔇 關閉配樂 (純語音)</span></option>
+                </select>
+            </div>
+
+            <div class="dock-voice-select">
+                <select id="dockVoiceSelect" title="選擇語音導覽人聲">
+                    <option value="zen-male" selected>🎙️ 沉穩專業男聲</option>
+                    <option value="zen-female">🎙️ 溫潤柔和女聲</option>
+                    <option value="zh-TW-HsiaoChenNeural">🎙️ 現代俐落女聲</option>
+                </select>
+            </div>
+
+            <div class="dock-speed-select">
+                <select id="dockSpeedSelect">
+                    <option value="1.0"><span data-i18n="opt_speed_10">1.0x 語速</span></option>
+                    <option value="0.9"><span data-i18n="opt_speed_09">0.9x 舒緩語速</span></option>
+                    <option value="1.15"><span data-i18n="opt_speed_115">1.15x 語速</span></option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         FAPO AI Customer Service & AI Cutting Stock Optimizer Widget
+         ========================================================================== -->
+    <button id="aiChatLauncher" class="ai-chat-launcher" onclick="toggleAiChatWidget()" title="開啟賀華 AI 智能工程客服與智慧下料計算">
+        <span class="ai-launcher-icon">🤖</span>
+        <span class="ai-launcher-text">
+            <strong data-i18n="ai.launcher">AI 智能客服</strong>
+            <small data-i18n="ai.launcher_sub">現貨查詢 · 智慧算料</small>
+        </span>
+        <span class="ai-pulse-dot"></span>
+    </button>
+
+    <div id="aiChatWidget" class="ai-chat-widget">
+        <div class="ai-widget-header">
+            <div class="ai-header-title">
+                <span class="ai-avatar">🤖</span>
+                <div>
+                    <h4 data-i18n="ai.header_title">賀華 AI 智能工程客服</h4>
+                    <span class="ai-online-status" style="font-size: 0.72rem; color: #4ade80; display: flex; align-items: center; gap: 4px; font-weight: 500;">
+                        <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#4ade80; box-shadow:0 0 6px #4ade80;"></span>
+                        <span data-i18n="ai.online_status">即時連線 (3,081 筆現貨/模具規格庫)</span>
+                    </span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+                <button class="ai-close-btn" onclick="toggleAiChatWidget(false)" title="最小化視窗 (Esc)" style="font-size: 1rem; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px;">✕</button>
+            </div>
+        </div>
+
+        <div class="ai-mode-tabs">
+            <button type="button" class="ai-mode-btn active" id="aiTabBtnChat" onclick="switchAiMode('chat')" data-i18n="ai.tab_chat">
+                💬 智能規格與選料對答
+            </button>
+            <button type="button" class="ai-mode-btn" id="aiTabBtnCpsat" onclick="switchAiMode('cpsat')" data-i18n="ai.tab_cpsat">
+                🧮 母材裁切最佳化
+            </button>
+        </div>
+
+        <!-- Mode 1: Conversational AI Customer Service -->
+        <div id="aiPanelChat" class="ai-panel-body">
+            <div id="aiChatMessages" class="ai-chat-messages">
+                <div class="ai-msg ai-msg-bot">
+                    <div class="ai-msg-bubble" id="aiDefaultGreeting">
+                        您好！我是 <strong>賀華實業 AI 智能工程客服</strong>（即時串聯 3,081 筆現貨與模具規格資料庫）。<br><br>
+                        您可以直接詢問：<br>
+                        • <strong>現貨與模具查詢</strong>：「6061 圓棒 50mm」、「7075 厚 20mm 鋁板」<br>
+                        • <strong>智慧裁切排料</strong>：「母材 3000mm 切 800*3, 550*4, 420*5」<br>
+                        • <strong>工程選料顧問</strong>：「推薦適合硬陽極與高強度的鋁材」<br>
+                        <button type="button" class="ai-bubble-audio-btn" onclick="readAloudText('您好！我是賀華實業 AI 智慧工程客服。您可以透過語音或文字向我查詢現貨庫存、工程選料，或是使用 AI 進行母材下料裁切最佳化計算！', this)">
+                            🔊 語音朗讀介紹
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-quick-chips">
+                <button type="button" onclick="sendAiQuickPrompt('查詢 6061 圓棒 直徑 50mm 現貨')" data-i18n="ai.chip1">📦 6061圓棒 50mm</button>
+                <button type="button" onclick="sendAiQuickPrompt('推薦適合陽極處理與高強度的鋁材')" data-i18n="ai.chip2">🔬 陽極高強選料</button>
+                <button type="button" onclick="sendAiQuickPrompt('母材 3000mm 切 800*3, 550*4, 420*5')" data-i18n="ai.chip3">🧮 智慧下料範例</button>
+                <button type="button" onclick="sendAiQuickPrompt('全台服務據點與原廠材質證明')" data-i18n="ai.chip4">📍 據點與證明</button>
+            </div>
+
+            <form class="ai-chat-input-bar" onsubmit="event.preventDefault(); sendAiChatMessage();">
+                <button type="button" id="aiVoiceInputBtn" class="ai-voice-input-btn" title="按一下開始語音對話輸入（支援中文辨識）" onclick="toggleAiVoiceRecognition()">
+                    🎙️
+                </button>
+                <input type="text" id="aiChatInput" data-i18n="ai.placeholder" placeholder="輸入或以語音說出規格需求、裁切尺寸..." autocomplete="off">
+                <button type="submit" id="aiChatSendBtn" class="btn btn-primary" data-i18n="ai.send">發送</button>
+            </form>
+        </div>
+
+        <!-- Mode 2: Interactive 1D Cutting Stock Solver -->
+        <div id="aiPanelCpsat" class="ai-panel-body" style="display: none;">
+            <div class="cpsat-form-scroll">
+                <div class="cpsat-intro-banner">
+                    <strong><span data-i18n="cpsat_head_title">⚡ 智慧母材定寸裁切與餘料最小化計算</span></strong>
+                    <span><span data-i18n="cpsat_head_desc">自動計算最少母材支數、考慮鋸縫損耗並將餘料最小化</span></span>
+                </div>
+
+                <div class="cpsat-config-row">
+                    <div class="cpsat-field">
+                        <label><span data-i18n="cpsat_lbl_stock_len">母材標準總長 (mm)</span></label>
+                        <input type="number" id="cpsatStockLen" value="3000" min="500" max="12000">
+                    </div>
+                    <div class="cpsat-field">
+                        <label><span data-i18n="cpsat_lbl_kerf">鋸片損耗鋸縫 (mm)</span></label>
+                        <input type="number" id="cpsatKerf" value="3" min="0" max="20">
+                    </div>
+                </div>
+
+                <div class="cpsat-demands-head">
+                    <span><span data-i18n="cpsat_lbl_items">需求裁切長度 (mm) × 需求數量 (支)</span></span>
+                    <button type="button" class="cpsat-add-btn" onclick="addCpsatDemandRow()"><span data-i18n="cpsat_btn_add">＋新增尺寸</span></button>
+                </div>
+
+                <div id="cpsatDemandList" class="cpsat-demand-list">
+                    <div class="cpsat-demand-row">
+                        <input type="number" class="cpsat-len-input" value="800" placeholder="長度 mm" min="10" aria-label="裁切尺寸 1 長度 (mm)">
+                        <span>×</span>
+                        <input type="number" class="cpsat-qty-input" value="3" placeholder="支數" min="1" aria-label="裁切尺寸 1 需求支數">
+                        <button type="button" class="cpsat-del-btn" onclick="this.parentElement.remove()" aria-label="刪除此列尺寸">✕</button>
+                    </div>
+                    <div class="cpsat-demand-row">
+                        <input type="number" class="cpsat-len-input" value="550" placeholder="長度 mm" min="10" aria-label="裁切尺寸 2 長度 (mm)">
+                        <span>×</span>
+                        <input type="number" class="cpsat-qty-input" value="4" placeholder="支數" min="1" aria-label="裁切尺寸 2 需求支數">
+                        <button type="button" class="cpsat-del-btn" onclick="this.parentElement.remove()" aria-label="刪除此列尺寸">✕</button>
+                    </div>
+                    <div class="cpsat-demand-row">
+                        <input type="number" class="cpsat-len-input" value="420" placeholder="長度 mm" min="10" aria-label="裁切尺寸 3 長度 (mm)">
+                        <span>×</span>
+                        <input type="number" class="cpsat-qty-input" value="5" placeholder="支數" min="1" aria-label="裁切尺寸 3 需求支數">
+                        <button type="button" class="cpsat-del-btn" onclick="this.parentElement.remove()" aria-label="刪除此列尺寸">✕</button>
+                    </div>
+                </div>
+
+                <button type="button" id="cpsatSolveBtn" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;" onclick="runInteractiveCpsatSolver()">
+                    <span data-i18n="cpsat_btn_calc">🚀 啟動最佳化下料計算</span>
+                </button>
+
+                <div id="cpsatResultBox" class="cpsat-result-box" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cloudflare Tunnel Modal (WCAG Accessible Dialog) -->
+    <div id="tunnelModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tunnelModalHeading">
+        <div class="modal-content glass-card">
+            <button class="modal-close" onclick="closeTunnelModal()" aria-label="關閉外網分享視窗">✕</button>
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+                <span style="font-size:1.8rem;" aria-hidden="true">🌐</span>
+                <div>
+                    <h3 id="tunnelModalHeading" style="font-size: 1.4rem; color: var(--accent-cyan);">Cloudflare Tunnel 內網穿透</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">免固定 IP · 免設定路由器 · 外網隨時隨地安全連線</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(8, 20, 44, 0.85); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px;">
+                <label for="tunnelUrlInput" style="font-size: 0.8rem; color: var(--text-muted); display:block; margin-bottom: 6px; font-weight: 600;">公開連線網址：</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="tunnelUrlInput" readonly value="檢測中..." style="flex:1; background: rgba(6, 16, 36, 0.92); border: 1px solid var(--border-highlight); color: var(--accent-cinnabar); font-weight:700; padding:10px 14px; border-radius: var(--radius-sm); font-size:0.95rem; outline:none;">
+                    <button class="btn btn-primary" onclick="copyTunnelUrl()" style="padding: 10px 18px;" aria-label="複製外網連線網址">複製</button>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                <button id="btnToggleTunnel" class="btn btn-outline" style="flex:1; justify-content:center;" onclick="toggleTunnelAction()">
+                    <span data-i18n="tunnel.btn_generate">⚡ 建立 / 重新取得外網網址</span>
+                </button>
+                <a id="tunnelOpenLink" href="#" target="_blank" class="btn btn-outline" style="display:none; justify-content:center;">
+                    <span data-i18n="tunnel.btn_open">在新分頁開啟 ↗</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal (WCAG Accessible Dialog) -->
+    <div id="successModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+        <div class="modal-content glass-card">
+            <button class="modal-close" onclick="closeModal()" aria-label="關閉送出成功視窗">✕</button>
+            <h3 id="successModalTitle" style="font-size: 1.5rem; color: var(--accent-cyan); margin-bottom: 12px;" data-i18n="modal.title">🎉 需求已成功送達</h3>
+            <p id="modalTicket" style="color: var(--accent-amber); font-weight: 700; margin-bottom: 12px;"></p>
+            <p id="modalMessage" style="color: var(--text-dim); line-height: 1.7; margin-bottom: 24px;"></p>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <a id="modalPrintPdfBtn" href="#" target="_blank" class="btn btn-secondary" style="width: 100%; justify-content: center; background:#1e293b; color:#fff; border-color:#334155; text-decoration:none;">
+                    <span data-i18n="modal.print">📄 檢視 / 下載正式估價意向單 (PDF / 列印)</span>
+                </a>
+                <button class="btn btn-primary" onclick="closeModal()" style="width: 100%; justify-content: center;" data-i18n="modal.close">好，我知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Zoom Lightbox Modal (WCAG Accessible Dialog) -->
+    <div id="imageLightboxModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="實品圖片放大檢視視窗" onclick="if(event.target===this) closeImageLightbox()">
+        <div class="modal-content glass-card lightbox-modal-box">
+            <button class="modal-close" onclick="closeImageLightbox()" aria-label="關閉圖片視窗">✕</button>
+            <img id="lightboxImg" src="" alt="放大檢視實品圖">
+            <p id="lightboxCaption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Floating Back-to-Top Button with Scroll Progress Dial -->
+    <button id="backToTopBtn" class="back-to-top-btn" aria-label="回到頁面頂端" title="回到頁面頂端">
+        <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+            <circle class="progress-ring-bg" cx="24" cy="24" r="20" stroke-width="3" fill="none"/>
+            <circle id="backToTopCircle" class="progress-ring-fill" cx="24" cy="24" r="20" stroke-width="3" fill="none" stroke-dasharray="125.66" stroke-dashoffset="125.66"/>
+        </svg>
+        <span class="back-to-top-arrow">↑</span>
+    </button>
+
+    <!-- Embedded Data for Instant Client Interaction -->
+    <script>
+        window.SITE_DATA = {{ data | tojson }};
+        window.INITIAL_PAGE = {{ (active_page or 'hero') | tojson }};
+        window.ALL_PAGES_META = {{ (all_pages_meta or {}) | tojson }};
+    </script>
+    <!-- Internationalization (i18n) Multi-Language Engine -->
+    <script src="{{ url_for('static', filename='js/i18n.js', v='14.0') }}"></script>
+    <!-- Main Interactive Script -->
+    <script src="{{ url_for('static', filename='js/main.js', v='36.0') }}"></script>
+</body>
+</html>
+

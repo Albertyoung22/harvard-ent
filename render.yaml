@@ -1,12 +1,10 @@
 services:
   - type: web
-    name: harvard-ent-smart-cpsat
+    name: harvard-ent
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: waitress-serve --host=0.0.0.0 --port=$PORT --threads=8 app:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
-      - key: PORT
-        value: 8080

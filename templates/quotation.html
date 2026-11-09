@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="quote.title">產品需求估價單 - 賀華實業股份有限公司 HARVARD ENTERPRISES</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img_crawled/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img_crawled/fapo_logo.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #a83327;
+            --accent-blue: #1e3a8a;
+            --border: #cbd5e1;
+            --bg-light: #f8fafc;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 24px 16px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .action-bar {
+            max-width: 840px;
+            margin: 0 auto 16px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .btn-print {
+            background: #a83327;
+            color: #ffffff;
+        }
+        .btn-print:hover {
+            background: #8e2b20;
+        }
+        .btn-secondary {
+            background: #f8fafc;
+            color: #334155;
+            border-color: #cbd5e1;
+        }
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+        
+        /* Quotation Paper Sheet (A4 Proportion) */
+        .sheet {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 36px 44px;
+            border-radius: 4px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        /* Header */
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #a83327;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .brand-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+        .brand-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+        }
+        .brand-en {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 1px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .company-meta {
+            text-align: right;
+            font-size: 11px;
+            color: #475569;
+            line-height: 1.45;
+        }
+        
+        /* Document Title */
+        .doc-title-row {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .doc-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 4px;
+            display: inline-block;
+            border-bottom: 2px solid #0f172a;
+            padding-bottom: 4px;
+        }
+        .doc-subtitle {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 2px;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        /* 2-Column Meta Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+        .info-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px 14px;
+            background: #fafafa;
+        }
+        .info-card-title {
+            font-size: 11px;
+            font-weight: 800;
+            color: #a83327;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 4px;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+        .info-label {
+            width: 78px;
+            color: #64748b;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .info-val {
+            color: #0f172a;
+            font-weight: 500;
+            word-break: break-all;
+        }
+        .info-val.highlight {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: #a83327;
+        }
+
+        /* Items Table */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+        .items-table th {
+            background: #1e293b;
+            color: #ffffff;
+            font-weight: 700;
+            text-align: left;
+            padding: 8px 10px;
+            border: 1px solid #1e293b;
+        }
+        .items-table td {
+            padding: 9px 10px;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            vertical-align: top;
+        }
+        .items-table tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .num-font { font-family: 'JetBrains Mono', monospace; }
+
+        /* Notes & Terms */
+        .terms-box {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px 14px;
+            background: #f8fafc;
+            margin-bottom: 24px;
+            font-size: 11px;
+            color: #475569;
+            line-height: 1.6;
+        }
+        .terms-title {
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .terms-list {
+            padding-left: 18px;
+        }
+        .terms-list li {
+            margin-bottom: 3px;
+        }
+
+        /* Signatures */
+        .sign-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 28px;
+        }
+        .sign-box {
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 14px;
+            min-height: 110px;
+            position: relative;
+            background: #ffffff;
+        }
+        .sign-title {
+            font-size: 11px;
+            font-weight: 800;
+            color: #334155;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px;
+        }
+        .stamp-mark {
+            position: absolute;
+            right: 18px;
+            bottom: 12px;
+            width: 78px;
+            height: 78px;
+            border: 2px dashed rgba(168, 51, 39, 0.55);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #a83327;
+            font-size: 10px;
+            font-weight: 800;
+            transform: rotate(-10deg);
+            pointer-events: none;
+            opacity: 0.85;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Footer watermark */
+        .doc-footer {
+            margin-top: 24px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #94a3b8;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Print Media Styles */
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .action-bar {
+                display: none !important;
+            }
+            .sheet {
+                box-shadow: none;
+                border: none;
+                padding: 10mm 12mm;
+                max-width: 100%;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 8mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Action Bar (Hidden when printing) -->
+    <div class="action-bar">
+        <div>
+            <span style="font-weight:700; color:#1e293b;" data-i18n="quote.sheet_title">📄 正式需求估價單據預覽</span>
+            <span style="font-size:12px; color:#64748b; margin-left:8px;">單號：{{ inquiry.id }}</span>
+        </div>
+        <div style="display:flex; gap:10px;">
+            <button type="button" class="action-btn btn-secondary" onclick="window.history.back()">
+                ↩️ 返回
+            </button>
+            <button type="button" class="action-btn btn-secondary" onclick="navigator.clipboard.writeText(window.location.href); alert('單據連結已複製至剪貼簿！');">
+                🔗 複製連結
+            </button>
+            <button type="button" class="action-btn btn-print" onclick="window.print()">
+                🖨️ 列印 / 另存為 PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Printable Paper Sheet -->
+    <div class="sheet">
+        <!-- Header -->
+        <header class="sheet-header">
+            <div class="brand-logo-wrap">
+                <img src="{{ url_for('static', filename='img_crawled/fapo_logo.png') }}" alt="賀華實業 Logo" class="brand-logo" onerror="this.style.display='none'">
+                <div>
+                    <h1 class="brand-title">賀華實業股份有限公司</h1>
+                    <div class="brand-en">HARVARD ENTERPRISES INC.</div>
+                </div>
+            </div>
+            <div class="company-meta">
+                <div>統一編號：23891042</div>
+                <div>服務據點：台北總部 · 龜山倉儲中心 · 台中機械廠 · 台南物流</div>
+                <div>電話：(02) 2992-8888 · 傳真：(02) 2992-8899</div>
+                <div>網址：https://fapolu.com · Email：service@fapolu.com</div>
+            </div>
+        </header>
+
+        <!-- Document Title -->
+        <div class="doc-title-row">
+            <div class="doc-title" data-i18n="quote.sheet_title">產 品 需 求 估 價 單</div>
+            <div class="doc-subtitle">Commercial Product Inquiry & Quotation</div>
+        </div>
+
+        <!-- 2-Column Meta Grid -->
+        <div class="info-grid">
+            <!-- Client Info -->
+            <div class="info-card">
+                <div class="info-card-title" data-i18n="quote.sec_customer">客戶資料 / Client Information</div>
+                <div class="info-row">
+                    <span class="info-label">客戶寶號：</span>
+                    <span class="info-val" style="font-weight:700;">{{ inquiry.companyName or '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">聯絡人員：</span>
+                    <span class="info-val">{{ inquiry.contactPerson or '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">聯絡電話：</span>
+                    <span class="info-val num-font">{{ inquiry.contactPhone or '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">電子郵件：</span>
+                    <span class="info-val num-font">{{ inquiry.contactEmail or '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">送達廠區：</span>
+                    <span class="info-val">{{ inquiry.branch or '全台配送 / 依約定' }}</span>
+                </div>
+            </div>
+
+            <!-- Quotation Meta -->
+            <div class="info-card">
+                <div class="info-card-title" data-i18n="quote.sec_info">單據資訊 / Quotation Details</div>
+                <div class="info-row">
+                    <span class="info-label">報價單號：</span>
+                    <span class="info-val highlight">{{ inquiry.id }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">開單日期：</span>
+                    <span class="info-val num-font">{{ inquiry.timestamp or '2026-11-07' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">有效期限：</span>
+                    <span class="info-val">30 天（遇原鋁錠國際行情劇烈變動時另行協商）</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">承辦窗口：</span>
+                    <span class="info-val">賀華實業 專案業務工程組</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">單據狀態：</span>
+                    <span class="info-val" style="color:#059669; font-weight:700;">
+                        {% if inquiry.status == 'completed' %}已結案完工
+                        {% elif inquiry.status == 'in_progress' %}工程評估 / 報價中
+                        {% elif inquiry.status == 'archived' %}已歸檔
+                        {% else %}新進需求待審核
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Items Table -->
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th style="width: 45px;" class="text-center" data-i18n="quote.th_index">項次</th>
+                    <th data-i18n="quote.th_spec">材料規格 / 型號說明</th>
+                    <th style="width: 140px;" data-i18n="quote.th_alloy">材質合金牌號</th>
+                    <th style="width: 80px;" class="text-center" data-i18n="quote.th_qty">數量/單位</th>
+                    <th style="width: 100px;" class="text-right" data-i18n="quote.th_weight">試算重量</th>
+                    <th style="width: 130px;" data-i18n="quote.th_machining">加工與表面需求</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center num-font">01</td>
+                    <td>
+                        <strong style="color:#0f172a; font-size:13px;">{{ inquiry.inquiryMaterial or '客製鋁合金精密切割料' }}</strong>
+                        {% if inquiry.inquiryMessage %}
+                        <div style="font-size:11px; color:#475569; margin-top:4px; line-height:1.4;">
+                            說明：{{ inquiry.inquiryMessage }}
+                        </div>
+                        {% endif %}
+                        {% if inquiry.drawingUrl %}
+                        <div style="font-size:11px; color:#1e40af; margin-top:4px;">
+                            📎 檢附工程圖面：{{ inquiry.drawingUrl }}
+                        </div>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <span style="font-weight:700; color:#1e293b;">
+                            {{ inquiry.detectedAlloy or 'AL 鋁合金系列' }}
+                        </span>
+                        <div style="font-size:10px; color:#64748b;">ASTM / JIS 規範</div>
+                    </td>
+                    <td class="text-center num-font">
+                        <strong>{{ inquiry.itemQty or '1' }}</strong> 組/件
+                    </td>
+                    <td class="text-right num-font">
+                        <strong>{{ inquiry.calcWeight or '依圖面實秤' }}</strong>
+                    </td>
+                    <td>
+                        <span style="font-size:11px; color:#334155;">
+                            {{ inquiry.machiningReq or '精密切割 / PE膜保護' }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Terms and Notes -->
+        <div class="terms-box">
+            <div class="terms-title">
+                <span>📌 品質與交易條款說明 (Standard Terms & Warranty)：</span>
+            </div>
+            <ol class="terms-list">
+                <li><strong>材質保證</strong>：本公司供應之所有鋁合金平板、圓棒、無縫管皆符合 ASTM / JIS 工業標準，出廠可檢附材質分析試驗報告書（MTC）及無毒 RoHS/REACH 聲明。</li>
+                <li><strong>加工公差</strong>：精密切割尺寸公差依據國際標準 ISO 2768-m 執行；若需高精密雙面平銑，厚度公差可達 ±0.05mm 範圍。</li>
+                <li><strong>表面保護</strong>：材料出廠均覆蓋耐候抗刮保護膜（PE 藍膜或光纖雷射膜），確保運送與 CNC 上夾時無擦刮傷。</li>
+                <li><strong>交期及配送</strong>：標準在庫規格 1~2 工作天發貨；客製精密裁切與表面陽極處理工藝約需 3~5 工作天。全台配送至指定廠區。</li>
+            </ol>
+        </div>
+
+        <!-- Signatures & Official Stamp -->
+        <div class="sign-grid">
+            <div class="sign-box">
+                <div class="sign-title">發行單位 / ISSUED BY</div>
+                <div style="font-size:12px; font-weight:700; color:#1e293b;">賀華實業股份有限公司 業務技術部</div>
+                <div style="font-size:11px; color:#64748b; margin-top:2px;">承辦人員：陳冠宏（專案工程師）</div>
+                <div style="font-size:11px; color:#64748b;">開立日期：{{ inquiry.timestamp or '2026-11-07' }}</div>
+                
+                <!-- Digital Stamp Mockup -->
+                <div class="stamp-mark">
+                    <span>賀華實業</span>
+                    <span style="font-size:8px;">★ 專用章 ★</span>
+                    <span style="font-size:7px;">FAPO ENT.</span>
+                </div>
+            </div>
+
+            <div class="sign-box">
+                <div class="sign-title">客戶確認核准回簽 / CLIENT CONFIRMATION</div>
+                <div style="font-size:11px; color:#64748b; margin-bottom: 24px;">
+                    請於上方核對規格與數量無誤後，簽章回傳或以電子郵件確認：
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:11px; color:#334155; border-top:1px dashed #cbd5e1; padding-top:6px;">
+                    <span>授權代表人簽章：___________________</span>
+                    <span>日期：____年____月____日</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Watermark Footer -->
+        <footer class="doc-footer">
+            <span>HARVARD ENTERPRISES INC. · PRECISION ALUMINUM SUPPLY CHAIN</span>
+            <span>DOCUMENT REF: {{ inquiry.id }} · GENERATED: {{ inquiry.timestamp or '2026-11-07' }}</span>
+        </footer>
+    </div>
+
+
+    <!-- Internationalization (i18n) Engine -->
+    <script src="{{ url_for('static', filename='js/i18n.js', v='4.0') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var curLang = window.getCurrentLanguage ? window.getCurrentLanguage() : 'zh-TW';
+            var sel = document.getElementById('quoteLangSelect');
+            if (sel) sel.value = curLang;
+        });
+        window.addEventListener('fapo-language-changed', function(e) {
+            var sel = document.getElementById('quoteLangSelect');
+            if (sel) sel.value = e.detail.language;
+        });
+    </script>
+</body>
+</html>
+

@@ -8,3 +8,10 @@ ENV/
 *.log
 .DS_Store
 Thumbs.db
+
+
+bin/cloudflared.exe
+data/*.db
+crash_log.txt
+static/audio/cache/
+

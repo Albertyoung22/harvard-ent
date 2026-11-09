@@ -11,3 +11,4 @@ if errorlevel 1 (
     echo 執行發生錯誤，請確認已安裝 Python 與套件：pip install -r requirements.txt
     pause
 )
+

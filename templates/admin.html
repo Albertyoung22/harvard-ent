@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>賀華實業股份有限公司 | 詢價單管理後台 (RFQ Admin CRM)</title>
+    <link rel="icon" type="image/png" href="/static/img_crawled/favicon.png?v=11.0">
+    <link rel="apple-touch-icon" href="/static/img_crawled/fapo_logo.png?v=11.0">
+    <!-- PWA Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#c99b3b">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap');
+        :root {
+            --bg-primary: #f6f1e6;
+            --bg-secondary: #eee7d7;
+            --bg-tertiary: #e6ddca;
+            --bg-card: rgba(253, 250, 243, 0.9);
+            --accent-cyan: #a62c22;
+            --accent-blue: #35597a;
+            --accent-amber: #a85814;
+            --accent-emerald: #2d6a4f;
+            --accent-rose: #b42318;
+            --text-main: #1f1b16;
+            --text-dim: #4a4339;
+            --text-muted: #766c5d;
+            --border-subtle: rgba(92, 75, 48, 0.16);
+            --border-highlight: rgba(158, 112, 36, 0.45);
+            --font-serif: 'Noto Serif TC', 'Songti TC', 'PMingLiU', serif;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 20% 8%, rgba(218, 190, 130, 0.18) 0%, transparent 48%),
+                linear-gradient(180deg, #faf6ee 0%, #f4eee1 55%, #ede4d2 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border-subtle);
+            background: #fffdf8;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+        .btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); transform: translateY(-1px); }
+        .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+        .btn-primary {
+            background: linear-gradient(135deg, #a62c22, #851e16);
+            border: none;
+            color: #fffaf2;
+            box-shadow: 0 4px 14px rgba(166, 44, 34, 0.25);
+        }
+        .btn-primary:hover { color: #fffaf2; box-shadow: 0 6px 20px rgba(166, 44, 34, 0.38); }
+        .btn-emerald {
+            background: rgba(45, 106, 79, 0.12);
+            border-color: rgba(45, 106, 79, 0.35);
+            color: #21573f;
+        }
+        .btn-danger {
+            background: rgba(180, 35, 24, 0.08);
+            border-color: rgba(180, 35, 24, 0.3);
+            color: #b42318;
+        }
+        .btn-sm { padding: 5px 11px; font-size: 0.8rem; }
+
+        /* Login View */
+        .login-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 430px;
+            background: var(--bg-card);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            padding: 38px 32px;
+            box-shadow: 0 18px 45px rgba(62, 48, 24, 0.14);
+        }
+        .brand-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .logo-emblem-fx {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 9px rgba(245, 190, 50, 0.55));
+        }
+        .logo-halo-ring {
+            position: absolute;
+            inset: -2.5px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(245,190,50,0.2), #fff9c4 75deg, #ffd54f 115deg, rgba(218,152,26,0.25) 180deg, #fff3b0 260deg, #f5b82e 300deg, rgba(245,190,50,0.2));
+            animation: logoHaloSpin 4.2s linear infinite;
+        }
+        .logo-shine-mask {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1;
+            background: #14549c;
+        }
+        .logo-shine-mask::after {
+            content: '';
+            position: absolute;
+            top: -35%;
+            left: -130%;
+            width: 85%;
+            height: 170%;
+            background: linear-gradient(115deg, transparent 15%, rgba(255,248,200,0.2) 38%, rgba(255,255,240,0.9) 50%, rgba(255,215,70,0.45) 62%, transparent 85%);
+            transform: skewX(-22deg);
+            mix-blend-mode: screen;
+            animation: logoShineSweep 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: contain;
+            display: block;
+        }
+        .logo-glint-star {
+            position: absolute;
+            top: -5px;
+            right: -3px;
+            font-size: 0.76rem;
+            color: #fffbe0;
+            text-shadow: 0 0 6px #ffe066, 0 0 12px #f59e0b;
+            z-index: 2;
+            animation: logoStarTwinkle 3.4s ease-in-out infinite;
+        }
+        @keyframes logoHaloSpin { to { transform: rotate(360deg); } }
+        @keyframes logoShineSweep {
+            0%, 18% { left: -130%; opacity: 0; }
+            28% { opacity: 1; }
+            62% { left: 155%; opacity: 1; }
+            68%, 100% { left: 155%; opacity: 0; }
+        }
+        @keyframes logoStarTwinkle {
+            0%, 36%, 76%, 100% { transform: scale(0.35) rotate(0deg); opacity: 0.15; }
+            52% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+        }
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        .input-control {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(120, 96, 58, 0.3);
+            background: #fffdf8;
+            color: var(--text-main);
+            font-size: 0.94rem;
+            outline: none;
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        .input-control:focus { border-color: var(--accent-cyan); }
+        textarea.input-control { min-height: 95px; resize: vertical; }
+
+        .error-msg {
+            display: none;
+            background: rgba(180, 35, 24, 0.1);
+            border: 1px solid rgba(180, 35, 24, 0.35);
+            color: #b42318;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+        }
+
+        /* Dashboard Header */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(246, 241, 230, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .smtp-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid var(--border-subtle);
+            background: #fffdf8;
+        }
+        .smtp-pill.on { border-color: rgba(45, 106, 79, 0.45); color: #21573f; }
+        .smtp-pill.off { border-color: rgba(168, 88, 20, 0.45); color: #8a480d; }
+
+        .container {
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 26px 24px 60px;
+        }
+
+        /* Alert Banner */
+        .cloud-banner {
+            display: none;
+            background: rgba(218, 165, 32, 0.12);
+            border: 1px solid rgba(168, 88, 20, 0.35);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            margin-bottom: 22px;
+            color: #6b3c08;
+            font-size: 0.88rem;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(60, 48, 28, 0.05);
+            transition: all 0.2s ease;
+        }
+        .stat-card:hover { border-color: var(--border-highlight); transform: translateY(-2px); }
+        .stat-label { font-size: 0.84rem; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; }
+        .stat-value { font-family: var(--font-serif); font-size: 2rem; font-weight: 900; }
+        .stat-card.pending .stat-value { color: var(--accent-amber); }
+        .stat-card.quoting .stat-value { color: var(--accent-blue); }
+        .stat-card.closed .stat-value { color: var(--accent-emerald); }
+        .stat-card.total .stat-value { color: var(--accent-cyan); }
+
+        /* Filter Bar */
+        .toolbar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+        .chip {
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.83rem;
+            font-weight: 600;
+            background: #fffdf8;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.18s;
+        }
+        .chip.active, .chip:hover {
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            color: #fffaf2;
+        }
+        .search-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            max-width: 480px;
+            min-width: 250px;
+        }
+
+        /* Table */
+        .table-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            box-shadow: 0 6px 20px rgba(60, 48, 28, 0.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 960px;
+        }
+        th {
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            color: #5c3d0e;
+            background: rgba(226, 215, 193, 0.65);
+            border-bottom: 1px solid var(--border-highlight);
+        }
+        td {
+            padding: 15px 16px;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+        tbody tr { transition: background 0.15s; cursor: pointer; }
+        tbody tr:hover { background: rgba(180, 130, 45, 0.08); }
+
+        .ticket-id {
+            font-family: 'Consolas', monospace;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-size: 0.92rem;
+        }
+        .time-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 3px; }
+        .company-title { font-weight: 700; color: var(--text-main); }
+        .person-sub { font-size: 0.83rem; color: var(--text-dim); margin-top: 2px; }
+        .contact-link {
+            display: block;
+            color: #2b547e;
+            font-weight: 600;
+            font-size: 0.84rem;
+        }
+        .contact-link:hover { text-decoration: underline; }
+        .material-tag {
+            display: inline-block;
+            color: #8a4b08;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .msg-preview {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            max-width: 300px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .note-preview {
+            margin-top: 5px;
+            font-size: 0.78rem;
+            color: #6b3c08;
+            background: rgba(180, 130, 45, 0.15);
+            padding: 3px 8px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .badge-pending { background: rgba(180, 110, 20, 0.14); color: #8a4b08; border: 1px solid rgba(180, 110, 20, 0.38); }
+        .badge-quoting { background: rgba(53, 89, 122, 0.14); color: #264a6e; border: 1px solid rgba(53, 89, 122, 0.35); }
+        .badge-closed { background: rgba(45, 106, 79, 0.14); color: #1f543c; border: 1px solid rgba(45, 106, 79, 0.35); }
+        .badge-archived { background: rgba(120, 110, 96, 0.14); color: #5c5449; border: 1px solid rgba(120, 110, 96, 0.3); }
+
+        .empty-state {
+            text-align: center;
+            padding: 56px 20px;
+            color: var(--text-muted);
+        }
+
+        /* Modals */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(38, 30, 18, 0.5);
+            backdrop-filter: blur(6px);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-backdrop.open { display: flex; }
+        .modal-box {
+            width: 100%;
+            max-width: 680px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #fbf7ee;
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: 0 24px 60px rgba(45, 34, 16, 0.25);
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .info-block {
+            background: #fffdf8;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 11px 14px;
+        }
+        .info-block.full { grid-column: 1 / -1; }
+        .info-block .lbl { font-size: 0.76rem; color: var(--text-muted); font-weight: 600; margin-bottom: 3px; }
+        .info-block .val { font-size: 0.94rem; color: var(--text-main); word-break: break-word; white-space: pre-wrap; }
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #fbf7ee;
+            border: 1px solid var(--accent-cyan);
+            border-left: 4px solid var(--accent-cyan);
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 10px 28px rgba(45, 34, 16, 0.18);
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            font-size: 0.9rem;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        /* Navigation Tabs */
+        .admin-nav-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--border-subtle);
+            padding-bottom: 2px;
+            flex-wrap: wrap;
+        }
+        .admin-tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        .admin-tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(92, 75, 48, 0.05);
+        }
+        .admin-tab-btn.active {
+            color: var(--accent-cyan);
+            border-bottom: 3px solid var(--accent-cyan);
+            margin-bottom: -2px;
+            background: rgba(166, 44, 34, 0.04);
+        }
+        .admin-tab-btn .badge-count {
+            background: rgba(166, 44, 34, 0.12);
+            color: var(--accent-cyan);
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .specs-pager {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .action-btn-group {
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .login-wrap { padding: 16px; }
+            .login-card { padding: 26px 20px; }
+            .topbar { padding: 12px 14px; gap: 10px; }
+            .topbar-actions { width: 100%; gap: 6px; }
+            .topbar-actions .btn { padding: 6px 10px; font-size: 0.8rem; }
+            .smtp-pill { width: 100%; justify-content: center; font-size: 0.78rem; }
+            .container { padding: 16px 14px 48px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+            .stat-card { padding: 14px; }
+            .stat-label { font-size: 0.76rem; }
+            .stat-value { font-size: 1.55rem; }
+            .toolbar { padding: 12px; gap: 10px; }
+            .filter-chips {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                width: 100%;
+                padding-bottom: 4px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .filter-chips::-webkit-scrollbar { display: none; }
+            .chip { flex-shrink: 0; white-space: nowrap; }
+            .search-group {
+                min-width: 0;
+                max-width: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            #branchFilter { width: 100% !important; }
+            .input-control { font-size: 16px; }
+
+            /* Mobile CRM Card Layout for Inquiries */
+            .table-card {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                overflow-x: visible;
+            }
+            table { min-width: 0; display: block; }
+            thead { display: none; }
+            tbody { display: flex; flex-direction: column; gap: 12px; }
+            tbody tr.inq-row {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 8px 10px;
+                background: #fffdf8;
+                border: 1px solid var(--border-subtle);
+                border-radius: var(--radius-md);
+                padding: 14px 15px;
+                box-shadow: 0 4px 14px rgba(60, 48, 28, 0.06);
+            }
+            tbody tr.inq-row td {
+                padding: 0;
+                border: none;
+                font-size: 0.88rem;
+            }
+            tbody tr.inq-row td:nth-child(1) { order: 1; }
+            tbody tr.inq-row td:nth-child(6) { order: 2; text-align: right; }
+            tbody tr.inq-row td:nth-child(2) { order: 3; grid-column: 1 / -1; }
+            tbody tr.inq-row td:nth-child(3) { order: 4; grid-column: 1 / -1; }
+            tbody tr.inq-row td:nth-child(4) { order: 5; grid-column: 1 / -1; background: rgba(235, 227, 210, 0.45); padding: 8px 10px; border-radius: 8px; }
+            tbody tr.inq-row td:nth-child(5) { order: 6; align-self: center; }
+            tbody tr.inq-row td:nth-child(7) { order: 7; text-align: right; align-self: center; }
+            tbody tr.inq-row td:nth-child(8) {
+                order: 8;
+                grid-column: 1 / -1;
+                display: flex;
+                justify-content: flex-end;
+                padding-top: 8px;
+                margin-top: 2px;
+                border-top: 1px dashed var(--border-subtle);
+            }
+            .msg-preview { max-width: 100%; }
+
+            .detail-grid { grid-template-columns: 1fr; gap: 10px; }
+            .modal-backdrop { padding: 12px; }
+            .modal-box { padding: 20px 16px; max-height: 92vh; }
+            .toast { left: 14px; right: 14px; bottom: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+{% if not is_logged_in %}
+    <!-- =====================================================================
+         Admin Login Screen
+         ===================================================================== -->
+    <div class="login-wrap">
+        <div class="login-card">
+            <div class="brand-row">
+                <span class="logo-emblem-fx">
+                    <span class="logo-halo-ring" aria-hidden="true"></span>
+                    <span class="logo-shine-mask">
+                        <img src="/static/img_crawled/fapo_logo.png?v=10.0" alt="賀華實業 LOGO" class="logo-img">
+                    </span>
+                    <span class="logo-glint-star" aria-hidden="true">✦</span>
+                </span>
+                <div>
+                    <h2 style="font-size: 1.2rem; font-weight: 800;">賀華實業 · 詢價管理後台</h2>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">HARVARD ENTERPRISES RFQ ADMIN</p>
+                </div>
+            </div>
+
+            <div id="loginError" class="error-msg"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="adminPwd">管理員登入密碼</label>
+                    <input type="password" id="adminPwd" class="input-control" placeholder="請輸入管理密碼..." required autofocus>
+                </div>
+                <button type="submit" id="loginBtn" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 6px;">
+                    🔐 登入詢價管理系統
+                </button>
+            </form>
+
+            <div style="margin-top: 20px; text-align: center; font-size: 0.84rem; color: var(--text-muted);">
+                <a href="/" style="color: var(--accent-cyan);">← 返回賀華實業官方網站首頁</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const pwd = document.getElementById('adminPwd').value;
+            const errBox = document.getElementById('loginError');
+            const btn = document.getElementById('loginBtn');
+            errBox.style.display = 'none';
+            btn.disabled = true;
+            btn.textContent = '驗證中...';
+            try {
+                const res = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: pwd })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    window.location.reload();
+                } else {
+                    errBox.textContent = data.error || '登入失敗';
+                    errBox.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = '🔐 登入詢價管理系統';
+                }
+            } catch (err) {
+                errBox.textContent = '網路連線異常，請稍後再試';
+                errBox.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = '🔐 登入詢價管理系統';
+            }
+        });
+    </script>
+
+{% else %}
+    <!-- =====================================================================
+         Authenticated Admin Dashboard
+         ===================================================================== -->
+    <header class="topbar">
+        <div class="brand-row" style="margin-bottom: 0;">
+            <span class="logo-emblem-fx">
+                <span class="logo-halo-ring" aria-hidden="true"></span>
+                <span class="logo-shine-mask">
+                    <img src="/static/img_crawled/fapo_logo.png?v=10.0" alt="賀華實業 LOGO" class="logo-img">
+                </span>
+                <span class="logo-glint-star" aria-hidden="true">✦</span>
+            </span>
+            <div>
+                <h1 style="font-size: 1.1rem; font-weight: 800;">賀華實業 · 客戶詢價管理後台</h1>
+                <p style="font-size: 0.76rem; color: var(--text-muted);">北中南業務報價追蹤與 Email 即時通知中心</p>
+            </div>
+        </div>
+
+        <div class="topbar-actions">
+            <div id="cloudDbStatusPill" class="smtp-pill off" onclick="openSettingsModal()" title="點擊查看/設定雲端永久資料庫">
+                ☁️ 資料庫檢測中...
+            </div>
+            <div id="smtpStatusPill" class="smtp-pill off" onclick="openSettingsModal()" title="點擊設定 Email 通知">
+                ⚪ Email 通知檢測中...
+            </div>
+            <button class="btn" onclick="fetchInquiries()">🔄 重新整理</button>
+            <button class="btn" onclick="openSettingsModal()">⚙️ 雲端與通知設定</button>
+            <button class="btn btn-emerald" onclick="exportCsv()">📥 匯出 Excel (CSV)</button>
+            <a href="/" class="btn">🏠 前台官網</a>
+            <button class="btn btn-danger" onclick="logoutAdmin()">登出</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Admin Navigation Tabs -->
+        <div class="admin-nav-tabs">
+            <button id="tabBtnInquiries" class="admin-tab-btn active" onclick="switchAdminTab('inquiries')">
+                📋 客戶詢價管理 (RFQ CRM)
+                <span class="badge-count" id="tabInqBadge">0</span>
+            </button>
+            <button id="tabBtnSpecs" class="admin-tab-btn" onclick="switchAdminTab('specs')">
+                📦 現貨與模具規格資料庫 (CRUD 編輯庫)
+                <span class="badge-count" id="tabSpecsBadge">3,071</span>
+            </button>
+        </div>
+
+        <!-- Panel 1: RFQ Inquiries CRM -->
+        <div id="panelInquiries">
+            <!-- Render Cloud Storage Reminder -->
+            <div id="renderBanner" class="cloud-banner">
+                <div>
+                    ⚠️ <b>Render 免費版防資料遺失提醒：</b>目前尚未綁定外部雲端資料庫（<code>DATABASE_URL</code> 或 <code>Google 試算表同步</code>），Render 休眠或重新上傳時會重置本機暫存檔。請點擊右側按鈕設定 <b>外部雲端資料庫 / Google 試算表同步</b> 或 <b>Email 即時通知</b>，即可 100% 永久保存所有客戶詢價與圖檔！
+                </div>
+                <button class="btn btn-sm" style="border-color:#a85814;color:#8a480d;" onclick="openSettingsModal()">立即設定雲端永久保存</button>
+            </div>
+
+            <!-- KPI Stats -->
+            <div class="stats-grid">
+                <div class="stat-card total" onclick="setStatusFilter('all')">
+                    <div class="stat-label">📋 累計總詢價單</div>
+                    <div class="stat-value" id="statTotal">0</div>
+                </div>
+                <div class="stat-card pending" onclick="setStatusFilter('pending')">
+                    <div class="stat-label">🔔 待處理新單 (需優先報價)</div>
+                    <div class="stat-value" id="statPending">0</div>
+                </div>
+                <div class="stat-card quoting" onclick="setStatusFilter('quoting')">
+                    <div class="stat-label">💬 已報價 / 跟進中</div>
+                    <div class="stat-value" id="statQuoting">0</div>
+                </div>
+                <div class="stat-card closed" onclick="setStatusFilter('closed')">
+                    <div class="stat-label">✅ 已成交結案</div>
+                    <div class="stat-value" id="statClosed">0</div>
+                </div>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="toolbar">
+                <div class="filter-chips" id="statusChips">
+                    <button class="chip active" data-status="all" onclick="setStatusFilter('all')">全部單據</button>
+                    <button class="chip" data-status="pending" onclick="setStatusFilter('pending')">🔔 待處理</button>
+                    <button class="chip" data-status="quoting" onclick="setStatusFilter('quoting')">💬 已報價</button>
+                    <button class="chip" data-status="closed" onclick="setStatusFilter('closed')">✅ 已結案</button>
+                    <button class="chip" data-status="archived" onclick="setStatusFilter('archived')">🗄️ 已取消</button>
+                </div>
+
+                <div class="search-group">
+                    <select id="branchFilter" class="input-control" style="width: 150px;" onchange="renderTable()">
+                        <option value="all">全部廠區據點</option>
+                        <option value="未指派">未指派</option>
+                        <option value="台北總公司">台北總公司</option>
+                        <option value="台中廠">台中廠</option>
+                        <option value="台南雙廠區">台南雙廠區</option>
+                    </select>
+                    <input type="text" id="searchInput" class="input-control" placeholder="🔍 搜尋單號、公司、聯絡人、電話、鋁材規格..." oninput="renderTable()">
+                </div>
+            </div>
+
+            <!-- Inquiries Data Table -->
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>單號 / 時間</th>
+                            <th>客戶公司 / 聯絡人</th>
+                            <th>聯絡方式</th>
+                            <th>材料規格與需求說明</th>
+                            <th>負責廠區</th>
+                            <th>狀態</th>
+                            <th>信件通知</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inquiryTableBody">
+                        <tr><td colspan="8" class="empty-state">載入詢價資料中...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Panel 2: Specs & Inventory Management (CRUD) -->
+        <div id="panelSpecs" style="display:none;">
+            <!-- Specs Stats -->
+            <div class="stats-grid">
+                <div class="stat-card total" onclick="setSpecsGroupFilter('all')">
+                    <div class="stat-label">📦 全站收錄規格總數</div>
+                    <div class="stat-value" id="statSpecsTotal">3,071</div>
+                </div>
+                <div class="stat-card pending" onclick="setSpecsGroupFilter('stock')">
+                    <div class="stat-label">🟢 常備現貨庫存項目</div>
+                    <div class="stat-value" id="statSpecsStock">514</div>
+                </div>
+                <div class="stat-card quoting" onclick="setSpecsGroupFilter('mold')">
+                    <div class="stat-label">🔵 免開模現有模具尺寸</div>
+                    <div class="stat-value" id="statSpecsMold">2,557</div>
+                </div>
+                <div class="stat-card closed">
+                    <div class="stat-label">🏷️ 規格涵蓋大類數</div>
+                    <div class="stat-value" id="statSpecsCats">16</div>
+                </div>
+            </div>
+
+            <!-- Specs Toolbar -->
+            <div class="toolbar" style="gap: 12px; flex-wrap: wrap;">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="openSpecModal()">
+                        ➕ 新增規格項目
+                    </button>
+                    <select id="specsGroupFilter" class="input-control" style="width: 170px;" onchange="loadSpecsAdmin(1)">
+                        <option value="all">全部規格類型</option>
+                        <option value="stock">常備現貨庫存</option>
+                        <option value="mold">免開模現有模具</option>
+                    </select>
+                    <select id="specsCategoryFilter" class="input-control" style="width: 220px;" onchange="loadSpecsAdmin(1)">
+                        <option value="全部">全部分類 (全部 16 類)</option>
+                    </select>
+                </div>
+                <div class="search-group" style="min-width: 280px;">
+                    <input type="text" id="specsSearchInput" class="input-control" placeholder="🔍 搜尋序號、合金代號、厚度/外徑、尺寸、備註..." oninput="debounceSpecsSearch()">
+                </div>
+            </div>
+
+            <!-- Specs Data Table -->
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 70px;">序號</th>
+                            <th style="width: 180px;">規格分類</th>
+                            <th style="width: 130px;">材質型號</th>
+                            <th>規格尺寸</th>
+                            <th>長度 / 單重</th>
+                            <th style="width: 140px;">庫存備註</th>
+                            <th style="width: 150px; text-align: center;">操作 (CRUD)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="specsTableBody">
+                        <tr><td colspan="7" class="empty-state">載入現貨規格資料庫中...</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- Specs Pagination Bar -->
+                <div class="specs-pager">
+                    <div style="font-size: 0.88rem; color: var(--text-dim);" id="specsCountInfo">
+                        共 3,071 筆資料
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <button id="btnSpecsPrev" class="btn btn-sm" onclick="changeSpecsPage(-1)">← 上一頁</button>
+                        <span id="specsPageIndicator" style="font-size: 0.88rem; font-weight: 700; padding: 0 8px;">1 / 1</span>
+                        <button id="btnSpecsNext" class="btn btn-sm" onclick="changeSpecsPage(1)">下一頁 →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- =====================================================================
+         Inquiry Detail & Edit Modal
+         ===================================================================== -->
+    <div id="detailModal" class="modal-backdrop" onclick="if(event.target===this)closeDetailModal()">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <span id="mTicketId" class="ticket-id" style="font-size: 1.15rem;">REQ-1001</span>
+                    <span id="mTimestamp" style="font-size: 0.82rem; color: var(--text-muted); margin-left: 10px;"></span>
+                </div>
+                <button class="btn btn-sm" onclick="closeDetailModal()">✕ 關閉</button>
+            </div>
+
+            <div class="detail-grid">
+                <div class="info-block">
+                    <div class="lbl">公司寶號</div>
+                    <div class="val" id="mCompany" style="font-weight: 700;"></div>
+                </div>
+                <div class="info-block">
+                    <div class="lbl">聯絡人姓名</div>
+                    <div class="val" id="mPerson"></div>
+                </div>
+                <div class="info-block">
+                    <div class="lbl">聯絡電話 / 手機</div>
+                    <div class="val"><a id="mPhoneLink" href="#" style="color: #2b547e; font-weight: 700;"></a></div>
+                </div>
+                <div class="info-block">
+                    <div class="lbl">電子郵件</div>
+                    <div class="val"><a id="mEmailLink" href="#" style="color: #2b547e; font-weight: 600;"></a></div>
+                </div>
+                <div class="info-block full">
+                    <div class="lbl">材料型號與規格需求</div>
+                    <div class="val" id="mMaterial" style="color: #a62c22; font-weight: 700;"></div>
+                </div>
+                <div class="info-block full" id="mDrawingBlock" style="display:none;">
+                    <div class="lbl">CAD / 加工圖面連結或備註</div>
+                    <div class="val" id="mDrawing"></div>
+                </div>
+                <div class="info-block full">
+                    <div class="lbl">需求數量、加工說明與備註</div>
+                    <div class="val" id="mMessage"></div>
+                </div>
+            </div>
+
+            <!-- Quick Reply Actions -->
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;">
+                <a id="mMailtoReply" href="#" class="btn btn-emerald btn-sm">✉️ 開啟郵件軟體回覆客戶報價</a>
+                <a id="mQuotationPdfBtn" href="#" target="_blank" class="btn btn-sm" style="background:#1e293b; color:#fff; display:inline-flex; align-items:center; gap:6px;">📄 產出正式報價單 (PDF / 列印)</a>
+                <button class="btn btn-sm" onclick="resendEmailCurrent()">📨 補寄內部通知信</button>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: 16px 0;">
+
+            <!-- Admin CRM Controls -->
+            <div class="detail-grid">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label for="mStatus">處理進度狀態</label>
+                    <select id="mStatus" class="input-control">
+                        <option value="pending">🔔 待處理 (新進詢價)</option>
+                        <option value="quoting">💬 已報價 / 業務跟進中</option>
+                        <option value="closed">✅ 已成交結案</option>
+                        <option value="archived">🗄️ 已取消 / 歸檔</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label for="mBranch">指派負責廠區據點</label>
+                    <select id="mBranch" class="input-control">
+                        <option value="未指派">未指派</option>
+                        <option value="台北總公司">🏢 台北總公司</option>
+                        <option value="台中廠">🏭 台中廠 (沙鹿物流裁切)</option>
+                        <option value="台南雙廠區">🏭 台南雙廠區 (佳里/麻豆)</option>
+                    </select>
+                </div>
+                <div class="form-group full" style="grid-column: 1 / -1; margin-bottom: 6px;">
+                    <label for="mAdminNote">內部業務備註（報價金額、負責業務姓名、交期紀錄）</label>
+                    <textarea id="mAdminNote" class="input-control" placeholder="例如：11/06 張業務已電話聯繫，報價 UACJ 5052 20mm 每公斤 $XXX，等待客戶確認圖面..."></textarea>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 18px; gap: 10px;">
+                <button class="btn btn-danger btn-sm" onclick="deleteCurrentInquiry()">🗑️ 刪除此單</button>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn" onclick="closeDetailModal()">取消</button>
+                    <button id="btnSaveInquiry" class="btn btn-primary" onclick="saveCurrentInquiry()">💾 儲存處理狀態</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         Add / Edit Spec Modal (CRUD)
+         ===================================================================== -->
+    <div id="specModal" class="modal-backdrop" onclick="if(event.target===this)closeSpecModal()">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <h3 id="specModalTitle" style="font-size: 1.15rem; font-weight: 800; color: var(--text-main);">➕ 新增現貨/模具規格</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">資料儲存至 SQLite 資料庫並即時連動官網前台</p>
+                </div>
+                <button class="btn btn-sm" onclick="closeSpecModal()">✕ 關閉</button>
+            </div>
+
+            <form id="specForm" onsubmit="saveSpecForm(event)">
+                <input type="hidden" id="specFormId" value="">
+
+                <div class="detail-grid">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="specFormGroup">規格類型 *</label>
+                        <select id="specFormGroup" class="input-control" required onchange="handleSpecGroupChange()">
+                            <option value="stock">🟢 常備現貨庫存 (Stock)</option>
+                            <option value="mold">🔵 免開模現有模具 (Mold)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="specFormNo">規格編號 (NO)</label>
+                        <input type="text" id="specFormNo" class="input-control" placeholder="例：1 或留空自動配號">
+                    </div>
+                    <div class="form-group full" style="grid-column: 1 / -1; margin-bottom: 0;">
+                        <label for="specFormCategory">規格分類名稱 *</label>
+                        <input type="text" id="specFormCategory" class="input-control" list="categoryDatalist" required placeholder="例：6061 鋁圓棒現貨 或 自訂新分類">
+                        <datalist id="categoryDatalist"></datalist>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="specFormMaterial">合金材質與調質 (Material) *</label>
+                        <input type="text" id="specFormMaterial" class="input-control" required placeholder="例：6061-T6, 7075-T651, UACJ 5052">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="specFormDimension">規格尺寸描述 (Dimension) *</label>
+                        <input type="text" id="specFormDimension" class="input-control" required placeholder="例：直徑 Dia. 25.4 mm 或 20 x 4' x 8'">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="specFormSize">長度 / 單重 (Size / Weight)</label>
+                        <input type="text" id="specFormSize" class="input-control" placeholder="例：長度 3010 mm 或 0.44 kg/m">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="specFormNote">庫存狀態與備註 (Note)</label>
+                        <input type="text" id="specFormNote" class="input-control" placeholder="例：現貨庫存, 精抽, A料正T6, 免開模現模">
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 22px;">
+                    <button type="button" id="btnDeleteSpec" class="btn btn-danger btn-sm" style="display:none;" onclick="deleteCurrentSpec()">🗑️ 刪除此規格</button>
+                    <div style="display: flex; gap: 10px; margin-left: auto;">
+                        <button type="button" class="btn" onclick="closeSpecModal()">取消</button>
+                        <button type="submit" id="btnSaveSpec" class="btn btn-primary">💾 儲存規格資料</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         Cloud Persistence, SMTP Email Notification & Password Settings Modal
+         ===================================================================== -->
+    <div id="settingsModal" class="modal-backdrop" onclick="if(event.target===this)closeSettingsModal()">
+        <div class="modal-box" style="max-width: 680px;">
+            <div class="modal-header">
+                <h3 style="font-size: 1.1rem;">⚙️ 雲端永久資料庫、Email 通知與密碼設定</h3>
+                <button class="btn btn-sm" onclick="closeSettingsModal()">✕ 關閉</button>
+            </div>
+
+            <!-- Cloud Database, GitHub Auto-Backup & Google Sheets Sync Section -->
+            <div style="background: rgba(45, 106, 79, 0.08); border: 1px solid rgba(45, 106, 79, 0.3); border-radius: 10px; padding: 14px 16px; margin-bottom: 18px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                    <div style="font-weight:800; color:#21573f; font-size:0.95rem;">
+                        ☁️ 雲端資料永久保存設定（防 Render 休眠 / 重新部署資料消失）
+                    </div>
+                    <span id="cfgStorageBadge" class="badge" style="background:#dcfce7;color:#15803d;font-size:0.78rem;">檢測中...</span>
+                </div>
+
+                <!-- Method 3: GitHub Repository Auto-Backup (Recommended) -->
+                <div style="background:#fffdf8; border:1px solid rgba(45, 106, 79, 0.28); border-radius:8px; padding:12px 14px; margin-bottom:12px;">
+                    <div style="font-weight:800; color:#1f1b16; font-size:0.88rem; margin-bottom:6px;">
+                        🐙 最推薦：自動存回您的 GitHub 儲存庫（免辦新帳號 · 獨立 <code>cloud-backup</code> 分支不衝突）
+                    </div>
+                    <div style="font-size:0.8rem; color:var(--text-dim); margin-bottom:10px; line-height:1.5;">
+                        系統已自動綁定您的專案 <code>Albertyoung22/harvard-ent</code>。只需前往 <a href="https://github.com/settings/tokens/new?description=Fapolu-Render-Cloud-Backup&scopes=repo" target="_blank" style="color:#a62c22;font-weight:800;text-decoration:underline;">🔗 點此一鍵產生 GitHub Token (勾選 repo 權限)</a>，將產生的 <code>ghp_...</code> 金鑰貼入下方（或設於 Render 環境變數 <code>GITHUB_TOKEN</code>），客戶留單與上傳圖檔就會自動備份回 GitHub，Render 休眠或重新上傳時也會自動從 GitHub 100% 還原！
+                    </div>
+                    <div class="detail-grid" style="margin-bottom:8px; gap:10px;">
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label>GitHub 儲存庫 (GITHUB_REPO)</label>
+                            <input type="text" id="cfgGithubRepo" class="input-control" placeholder="Albertyoung22/harvard-ent" value="Albertyoung22/harvard-ent">
+                        </div>
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label>備份專用分支 (GITHUB_BRANCH，不影響 main 推播)</label>
+                            <input type="text" id="cfgGithubBranch" class="input-control" placeholder="cloud-backup" value="cloud-backup">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>GitHub 存取權杖 (GITHUB_TOKEN)</label>
+                        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                            <input type="password" id="cfgGithubToken" class="input-control" style="flex:1; min-width:220px;" placeholder="請貼上 ghp_xxxxxx 或 github_pat_xxxxxx 金鑰">
+                            <button type="button" id="btnSyncGithub" class="btn btn-primary btn-sm" onclick="syncGithubNow()">🐙 測試並立即同步至 GitHub</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optional: Google Sheets or PostgreSQL -->
+                <div class="form-group" style="margin-bottom: 4px;">
+                    <label style="font-size:0.8rem;">選用備援：Google 試算表 Webhook 網址 (GOOGLE_SHEETS_WEBHOOK_URL)</label>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <input type="url" id="cfgGSheetsUrl" class="input-control" style="flex:1; min-width:220px;" placeholder="https://script.google.com/macros/s/xxxxxx/exec">
+                        <button type="button" id="btnSyncGSheets" class="btn btn-emerald btn-sm" onclick="syncGoogleSheetsNow()">🔄 同步 Google 試算表</button>
+                        <button type="button" class="btn btn-sm" onclick="copyGasScript()">📋 複製試算表腳本</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="font-size: 0.82rem; color: var(--text-muted); align-self: center;">快速套用郵件主機：</span>
+                <button type="button" class="btn btn-sm" onclick="applySmtpPreset('smtp.gmail.com', 587)">Gmail (587)</button>
+                <button type="button" class="btn btn-sm" onclick="applySmtpPreset('smtp.office365.com', 587)">Office365 (587)</button>
+                <button type="button" class="btn btn-sm" onclick="applySmtpPreset('msa.hinet.net', 25)">HiNet 企業信箱 (25)</button>
+            </div>
+
+            <div class="detail-grid">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>SMTP 伺服器主機 (SMTP_HOST)</label>
+                    <input type="text" id="cfgHost" class="input-control" placeholder="smtp.gmail.com">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>通訊埠 Port (SMTP_PORT)</label>
+                    <input type="number" id="cfgPort" class="input-control" placeholder="587">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>寄件認證信箱帳號 (SMTP_USER)</label>
+                    <input type="email" id="cfgUser" class="input-control" placeholder="your.account@gmail.com">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>信箱應用程式密碼 (SMTP_PASS)</label>
+                    <input type="password" id="cfgPass" class="input-control" placeholder="Gmail 請填 16 位應用程式密碼">
+                </div>
+                <div class="form-group full" style="grid-column: 1 / -1; margin-bottom: 0;">
+                    <label>接收新詢價通知的業務信箱 (NOTIFY_EMAIL，多組信箱請用逗號分隔)</label>
+                    <input type="text" id="cfgNotify" class="input-control" placeholder="例：taipei@www.harvard-ent.com.tw, taichung@www.harvard-ent.com.tw">
+                </div>
+                <div class="form-group full" style="grid-column: 1 / -1; margin-bottom: 0;">
+                    <label>修改管理後台登入密碼 (留空則維持原密碼)</label>
+                    <input type="password" id="cfgNewAdminPwd" class="input-control" placeholder="若欲變更 /admin 登入密碼請在此輸入新密碼">
+                </div>
+            </div>
+
+            <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 12px 14px; font-size: 0.81rem; color: var(--text-dim); margin: 14px 0;">
+                💡 <b>Gmail 設定小撇步：</b>請至 Google 帳戶 →「安全性」→ 開啟「兩步驟驗證」→ 搜尋「<b>應用程式密碼</b>」產生一組 16 位數密碼填入上方 <code>SMTP_PASS</code>（客戶上傳的工程圖面也會自動變成 Email 附件寄出）。<br>
+                ☁️ <b>Render 環境變數永久保存：</b>建議於 Render 後台 <b>Environment</b> 設定 <code>DATABASE_URL</code>（或 <code>GOOGLE_SHEETS_WEBHOOK_URL</code>）以及 <code>SMTP_USER</code>、<code>SMTP_PASS</code>、<code>NOTIFY_EMAIL</code>。
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 18px; flex-wrap: wrap; gap: 10px;">
+                <button type="button" id="btnTestEmail" class="btn btn-emerald" onclick="sendTestEmail()">📨 發送測試通知信</button>
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="btn" onclick="closeSettingsModal()">取消</button>
+                    <button type="button" id="btnSaveSettings" class="btn btn-primary" onclick="saveSettings()">💾 儲存設定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastBox" class="toast"></div>
+
+    <script>
+        let allInquiries = [];
+        let currentStatusFilter = 'all';
+        let activeTicketId = null;
+
+        const statusMap = {
+            pending:  { text: '🔔 待處理', cls: 'badge-pending' },
+            quoting:  { text: '💬 已報價', cls: 'badge-quoting' },
+            closed:   { text: '✅ 已結案', cls: 'badge-closed' },
+            archived: { text: '🗄️ 已取消', cls: 'badge-archived' }
+        };
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toastBox');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3200);
+        }
+
+        async function fetchInquiries() {
+            try {
+                const res = await fetch('/api/admin/inquiries');
+                if (res.status === 401) { window.location.reload(); return; }
+                const data = await res.json();
+                if (!data.success) return;
+
+                allInquiries = data.items || [];
+                document.getElementById('statTotal').textContent = data.stats.total;
+                document.getElementById('statPending').textContent = data.stats.pending;
+                document.getElementById('statQuoting').textContent = data.stats.quoting;
+                document.getElementById('statClosed').textContent = data.stats.closed;
+
+                const pill = document.getElementById('smtpStatusPill');
+                if (data.smtpEnabled) {
+                    pill.className = 'smtp-pill on';
+                    pill.textContent = `🟢 Email 通知已啟用 (${data.notifyEmail})`;
+                } else {
+                    pill.className = 'smtp-pill off';
+                    pill.textContent = '🟠 Email 通知未啟用 (點擊設定)';
+                }
+
+                const dbPill = document.getElementById('cloudDbStatusPill');
+                const st = data.storage || {};
+                if (st.github_configured) {
+                    dbPill.className = 'smtp-pill on';
+                    dbPill.textContent = `🐙 GitHub 自動備份中 (${st.github_repo})`;
+                } else if (st.postgres_configured) {
+                    dbPill.className = 'smtp-pill on';
+                    dbPill.textContent = '☁️ 雲端 PostgreSQL 永久保存中';
+                } else if (st.gsheets_configured) {
+                    dbPill.className = 'smtp-pill on';
+                    dbPill.textContent = '☁️ Google 試算表雙向同步中';
+                } else {
+                    dbPill.className = 'smtp-pill off';
+                    dbPill.textContent = data.isRender ? '⚠️ 本機暫存 (點擊設定 GitHub 永久保存)' : '💾 本機 SQLite 資料庫';
+                }
+
+                const banner = document.getElementById('renderBanner');
+                banner.style.display = (data.isRender && !st.cloud_persisted && !data.smtpEnabled) ? 'flex' : 'none';
+
+                renderTable();
+            } catch (e) {
+                showToast('載入詢價清單失敗');
+            }
+        }
+
+        function setStatusFilter(status) {
+            currentStatusFilter = status;
+            document.querySelectorAll('#statusChips .chip').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.status === status);
+            });
+            renderTable();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('inquiryTableBody');
+            const branchVal = document.getElementById('branchFilter').value;
+            const q = document.getElementById('searchInput').value.trim().toLowerCase();
+
+            const filtered = allInquiries.filter(item => {
+                if (currentStatusFilter !== 'all' && item.status !== currentStatusFilter) return false;
+                if (branchVal !== 'all' && (item.branch || '未指派') !== branchVal) return false;
+                if (q) {
+                    const hay = [
+                        item.id, item.companyName, item.contactPerson,
+                        item.contactPhone, item.contactEmail,
+                        item.inquiryMaterial, item.inquiryMessage, item.adminNote
+                    ].join(' ').toLowerCase();
+                    if (!hay.includes(q)) return false;
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="empty-state">目前沒有符合篩選條件的詢價單紀錄</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(item => {
+                const st = statusMap[item.status] || statusMap.pending;
+                const emailIcon = item.emailSent
+                    ? '<span style="color:#21573f;font-size:0.82rem;font-weight:600;">✓ 已寄出</span>'
+                    : (item.emailError
+                        ? `<span style="color:#b42318;font-size:0.8rem;font-weight:600;" title="${escapeHtml(item.emailError)}">⚠ 失敗</span>`
+                        : '<span style="color:var(--text-muted);font-size:0.8rem;">—</span>');
+                const noteHtml = item.adminNote
+                    ? `<div class="note-preview">📝 ${escapeHtml(item.adminNote)}</div>`
+                    : '';
+
+                return `
+                    <tr class="inq-row" onclick="openDetailModal('${escapeHtml(item.id)}')">
+                        <td>
+                            <div class="ticket-id">${escapeHtml(item.id)}</div>
+                            <div class="time-sub">${escapeHtml(item.timestamp)}</div>
+                        </td>
+                        <td>
+                            <div class="company-title">${escapeHtml(item.companyName || '—')}</div>
+                            <div class="person-sub">👤 ${escapeHtml(item.contactPerson || '—')}</div>
+                        </td>
+                        <td onclick="event.stopPropagation()">
+                            <a class="contact-link" href="tel:${escapeHtml(item.contactPhone)}">📞 ${escapeHtml(item.contactPhone || '—')}</a>
+                            <a class="contact-link" href="mailto:${escapeHtml(item.contactEmail)}">✉️ ${escapeHtml(item.contactEmail || '—')}</a>
+                        </td>
+                        <td>
+                            <div class="material-tag">${escapeHtml(item.inquiryMaterial || '（未填寫規格）')}</div>
+                            ${item.drawingUrl ? `<div style="margin-top:4px;"><span class="badge" style="background:rgba(43,84,126,0.12);color:#2b547e;border:1px solid rgba(43,84,126,0.25);font-size:0.75rem;">📎 附圖面/說明</span></div>` : ''}
+                            <div class="msg-preview">${escapeHtml(item.inquiryMessage || '')}</div>
+                            ${noteHtml}
+                        </td>
+                        <td><span style="font-size:0.84rem;color:var(--text-dim);">📍 ${escapeHtml(item.branch || '未指派')}</span></td>
+                        <td><span class="badge ${st.cls}">${st.text}</span></td>
+                        <td>${emailIcon}</td>
+                        <td onclick="event.stopPropagation()">
+                            <div style="display:flex; gap:6px;">
+                                <button class="btn btn-sm" onclick="openDetailModal('${escapeHtml(item.id)}')">檢視 / 處理</button>
+                                <a class="btn btn-sm" href="/quotation/${encodeURIComponent(item.id)}" target="_blank" style="background:#1e293b; color:#ffffff; display:inline-flex; align-items:center;" title="產出正式報價單 (PDF)">📄 報價單</a>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function openDetailModal(ticketId) {
+            const item = allInquiries.find(i => i.id === ticketId);
+            if (!item) return;
+            activeTicketId = ticketId;
+
+            document.getElementById('mTicketId').textContent = item.id;
+            document.getElementById('mTimestamp').textContent = `送出時間：${item.timestamp}`;
+            document.getElementById('mCompany').textContent = item.companyName || '—';
+            document.getElementById('mPerson').textContent = item.contactPerson || '—';
+
+            const quotePdfBtn = document.getElementById('mQuotationPdfBtn');
+            if (quotePdfBtn) {
+                quotePdfBtn.href = '/quotation/' + encodeURIComponent(item.id);
+            }
+
+            const phoneEl = document.getElementById('mPhoneLink');
+            phoneEl.textContent = item.contactPhone || '—';
+            phoneEl.href = item.contactPhone ? `tel:${item.contactPhone}` : '#';
+
+            const emailEl = document.getElementById('mEmailLink');
+            emailEl.textContent = item.contactEmail || '—';
+            emailEl.href = item.contactEmail ? `mailto:${item.contactEmail}` : '#';
+
+            document.getElementById('mMaterial').textContent = item.inquiryMaterial || '（未指定材料型號）';
+            
+            const drawingBlock = document.getElementById('mDrawingBlock');
+            const drawingEl = document.getElementById('mDrawing');
+            if (item.drawingUrl) {
+                drawingBlock.style.display = 'block';
+                const dUrl = item.drawingUrl.trim();
+                if (dUrl.includes('/static/uploads/drawings/')) {
+                    const match = dUrl.match(/\/static\/uploads\/drawings\/[^\s|]+/);
+                    const fileUrl = match ? match[0] : dUrl;
+                    const fname = fileUrl.split('/').pop();
+                    drawingEl.innerHTML = `
+                        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:4px;">
+                            <a href="${escapeHtml(fileUrl)}" target="_blank" download class="btn btn-sm btn-emerald" style="text-decoration:none;">📥 下載工程圖面 (${escapeHtml(fname)})</a>
+                            <a href="${escapeHtml(fileUrl)}" target="_blank" class="btn btn-sm" style="text-decoration:none;">👁️ 線上開啟預覽</a>
+                        </div>
+                        ${dUrl.includes('雲端連結') ? `<div style="font-size:0.8rem; color:#475569; margin-top:4px;">${escapeHtml(dUrl)}</div>` : ''}
+                    `;
+                } else if (dUrl.startsWith('http://') || dUrl.startsWith('https://')) {
+                    drawingEl.innerHTML = `<a href="${escapeHtml(dUrl)}" target="_blank" rel="noopener" style="color:#2b547e;font-weight:700;text-decoration:underline;">🔗 點擊開啟雲端圖面連結</a>`;
+                } else {
+                    drawingEl.textContent = dUrl;
+                }
+            } else {
+                drawingBlock.style.display = 'none';
+            }
+
+            document.getElementById('mMessage').textContent = item.inquiryMessage || '（無額外說明）';
+
+            document.getElementById('mStatus').value = item.status || 'pending';
+            document.getElementById('mBranch').value = item.branch || '未指派';
+            document.getElementById('mAdminNote').value = item.adminNote || '';
+
+            const subject = encodeURIComponent(`【賀華實業報價回覆】${item.id} - ${item.inquiryMaterial || '鋁合金材料諮詢'}`);
+            const body = encodeURIComponent(
+                `${item.companyName} ${item.contactPerson} 您好：\n\n感謝您對賀華實業股份有限公司的詢價支持（單號：${item.id}）。\n針對您詢問的材料規格「${item.inquiryMaterial || ''}」，以下為本司業務報價與交期說明：\n\n1. 材料規格：\n2. 報價單價：\n3. 預計交期：\n\n若有任何裁切或精密加工需求，歡迎隨時回覆此信或來電洽詢！\n\n賀華實業股份有限公司 業務部 敬上`
+            );
+            document.getElementById('mMailtoReply').href = `mailto:${item.contactEmail || ''}?subject=${subject}&body=${body}`;
+
+            document.getElementById('detailModal').classList.add('open');
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detailModal').classList.remove('open');
+            activeTicketId = null;
+        }
+
+        async function saveCurrentInquiry() {
+            if (!activeTicketId) return;
+            const btn = document.getElementById('btnSaveInquiry');
+            btn.disabled = true;
+            btn.textContent = '儲存中...';
+            try {
+                const res = await fetch(`/api/admin/inquiries/${encodeURIComponent(activeTicketId)}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        status: document.getElementById('mStatus').value,
+                        branch: document.getElementById('mBranch').value,
+                        adminNote: document.getElementById('mAdminNote').value
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast(`✅ 已更新單號 ${activeTicketId}`);
+                    closeDetailModal();
+                    fetchInquiries();
+                } else {
+                    showToast('儲存失敗：' + data.error);
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '💾 儲存處理狀態';
+            }
+        }
+
+        async function deleteCurrentInquiry() {
+            if (!activeTicketId) return;
+            if (!confirm(`確定要永久刪除詢價單 ${activeTicketId} 嗎？此操作無法復原。`)) return;
+            const res = await fetch(`/api/admin/inquiries/${encodeURIComponent(activeTicketId)}`, { method: 'DELETE' });
+            const data = await res.json();
+            if (data.success) {
+                showToast(`🗑️ 已刪除 ${activeTicketId}`);
+                closeDetailModal();
+                fetchInquiries();
+            } else {
+                showToast('刪除失敗：' + data.error);
+            }
+        }
+
+        async function resendEmailCurrent() {
+            if (!activeTicketId) return;
+            showToast('📨 正在寄送通知信...');
+            const res = await fetch(`/api/admin/inquiries/${encodeURIComponent(activeTicketId)}/resend-email`, { method: 'POST' });
+            const data = await res.json();
+            if (data.success) {
+                showToast('✅ ' + data.message);
+                fetchInquiries();
+            } else {
+                showToast('⚠ 寄送失敗：' + data.error);
+            }
+        }
+
+        function exportCsv() {
+            window.location.href = `/api/admin/inquiries/export?status=${encodeURIComponent(currentStatusFilter)}`;
+        }
+
+        /* Settings Modal */
+        async function openSettingsModal() {
+            const res = await fetch('/api/admin/settings');
+            const data = await res.json();
+            if (data.success) {
+                document.getElementById('cfgHost').value = data.smtp_host || 'smtp.gmail.com';
+                document.getElementById('cfgPort').value = data.smtp_port || 587;
+                document.getElementById('cfgUser').value = data.smtp_user || '';
+                document.getElementById('cfgPass').value = '';
+                document.getElementById('cfgPass').placeholder = data.has_smtp_pass
+                    ? '（已儲存密碼，若不修改請留空）'
+                    : 'Gmail 請填 16 位應用程式密碼';
+                document.getElementById('cfgNotify').value = data.notify_email || '';
+                document.getElementById('cfgNewAdminPwd').value = '';
+                document.getElementById('cfgGithubRepo').value = data.github_repo || 'Albertyoung22/harvard-ent';
+                document.getElementById('cfgGithubBranch').value = data.github_branch || 'cloud-backup';
+                document.getElementById('cfgGithubToken').value = '';
+                document.getElementById('cfgGithubToken').placeholder = data.has_github_token
+                    ? '（已儲存 GitHub Token，若不修改請留空）'
+                    : '請貼上 ghp_xxxxxx 或 github_pat_xxxxxx 金鑰';
+                document.getElementById('cfgGSheetsUrl').value = data.google_sheets_webhook_url || '';
+
+                const badge = document.getElementById('cfgStorageBadge');
+                const st = data.storage || {};
+                if (st.github_configured) {
+                    badge.textContent = `🟢 已啟用 GitHub 自動備份 (${st.github_repo}@${st.github_branch})`;
+                    badge.style.background = '#dcfce7';
+                    badge.style.color = '#15803d';
+                } else if (st.postgres_configured) {
+                    badge.textContent = '🟢 已連線外部 PostgreSQL 雲端資料庫';
+                    badge.style.background = '#dcfce7';
+                    badge.style.color = '#15803d';
+                } else if (st.gsheets_configured) {
+                    badge.textContent = '🟢 已啟用 Google 試算表雲端雙向備份';
+                    badge.style.background = '#dcfce7';
+                    badge.style.color = '#15803d';
+                } else {
+                    badge.textContent = '🟠 尚未設定 GITHUB_TOKEN (目前為本機 SQLite)';
+                    badge.style.background = '#fef3c7';
+                    badge.style.color = '#b45309';
+                }
+            }
+            document.getElementById('settingsModal').classList.add('open');
+        }
+
+        function closeSettingsModal() {
+            document.getElementById('settingsModal').classList.remove('open');
+        }
+
+        function applySmtpPreset(host, port) {
+            document.getElementById('cfgHost').value = host;
+            document.getElementById('cfgPort').value = port;
+        }
+
+        async function saveSettings() {
+            const btn = document.getElementById('btnSaveSettings');
+            btn.disabled = true;
+            btn.textContent = '儲存中...';
+            try {
+                const res = await fetch('/api/admin/settings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        smtp_host: document.getElementById('cfgHost').value,
+                        smtp_port: document.getElementById('cfgPort').value,
+                        smtp_user: document.getElementById('cfgUser').value,
+                        smtp_pass: document.getElementById('cfgPass').value,
+                        notify_email: document.getElementById('cfgNotify').value,
+                        new_admin_password: document.getElementById('cfgNewAdminPwd').value,
+                        github_repo: document.getElementById('cfgGithubRepo').value,
+                        github_branch: document.getElementById('cfgGithubBranch').value,
+                        github_token: document.getElementById('cfgGithubToken').value,
+                        google_sheets_webhook_url: document.getElementById('cfgGSheetsUrl').value
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('✅ 設定已成功儲存！');
+                    closeSettingsModal();
+                    fetchInquiries();
+                } else {
+                    showToast('儲存失敗：' + (data.error || ''));
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '💾 儲存設定';
+            }
+        }
+
+        async function syncGithubNow() {
+            const btn = document.getElementById('btnSyncGithub');
+            const repoVal = document.getElementById('cfgGithubRepo').value.trim() || 'Albertyoung22/harvard-ent';
+            const branchVal = document.getElementById('cfgGithubBranch').value.trim() || 'cloud-backup';
+            const tokenVal = document.getElementById('cfgGithubToken').value.trim();
+            btn.disabled = true;
+            btn.textContent = '⏳ 正在同步至 GitHub...';
+            try {
+                const res = await fetch('/api/admin/sync-github', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        github_repo: repoVal,
+                        github_branch: branchVal,
+                        github_token: tokenVal
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('🐙 ' + data.message);
+                    fetchInquiries();
+                } else {
+                    alert(data.error || 'GitHub 同步失敗');
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🐙 測試並立即同步至 GitHub';
+            }
+        }
+
+        async function syncGoogleSheetsNow() {
+            const btn = document.getElementById('btnSyncGSheets');
+            const urlVal = document.getElementById('cfgGSheetsUrl').value.trim();
+            if (!urlVal) {
+                alert('請先填入 Google Apps Script 部署後的網頁應用程式網址 (https://script.google.com/macros/s/.../exec)');
+                return;
+            }
+            btn.disabled = true;
+            btn.textContent = '⏳ 雙向同步中...';
+            try {
+                const res = await fetch('/api/admin/sync-gsheets', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ google_sheets_webhook_url: urlVal })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('✅ ' + data.message);
+                    fetchInquiries();
+                } else {
+                    alert(data.error || '同步失敗');
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🔄 測試並立即雙向同步';
+            }
+        }
+
+        function copyGasScript() {
+            const gasCode = `// 賀華實業 RFQ 詢價系統 — Google 試算表雙向雲端同步與自動還原腳本
+// 使用方式：
+// 1. 建立一份新的 Google 試算表，點擊上方選單「擴充功能」→「Apps Script」
+// 2. 貼上此段程式碼並儲存，點擊右上角「部署」→「新增部署作業」
+// 3. 類型選擇「網頁應用程式」，誰可以存取選擇「所有人 (Anyone)」，複製產生的網址貼回賀華實業後台即可！
+
+function getOrCreateSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('詢價單紀錄') || ss.getSheets()[0];
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['id','timestamp','updatedAt','status','branch','companyName','contactPerson','contactPhone','contactEmail','inquiryMaterial','inquiryMessage','drawingUrl','adminNote','emailSent']);
+  }
+  return sheet;
+}
+
+function doGet(e) {
+  var sheet = getOrCreateSheet();
+  var rows = sheet.getDataRange().getValues();
+  var headers = rows[0] || [];
+  var items = [];
+  for (var i = 1; i < rows.length; i++) {
+    var obj = {};
+    for (var j = 0; j < headers.length; j++) {
+      obj[headers[j]] = rows[i][j];
+    }
+    if (obj.id) items.push(obj);
+  }
+  return ContentService.createTextOutput(JSON.stringify({success: true, items: items})).setMimeType(ContentService.MimeType.JSON);
+}
+
+function doPost(e) {
+  var sheet = getOrCreateSheet();
+  var data = JSON.parse(e.postData.contents);
+  var cols = ['id','timestamp','updatedAt','status','branch','companyName','contactPerson','contactPhone','contactEmail','inquiryMaterial','inquiryMessage','drawingUrl','adminNote','emailSent'];
+  
+  function upsertOne(item) {
+    var rows = sheet.getDataRange().getValues();
+    var rowData = cols.map(function(k) { return item[k] !== undefined ? String(item[k]) : ''; });
+    for (var i = 1; i < rows.length; i++) {
+      if (String(rows[i][0]) === String(item.id)) {
+        sheet.getRange(i + 1, 1, 1, cols.length).setValues([rowData]);
+        return;
+      }
+    }
+    sheet.appendRow(rowData);
+  }
+
+  if (data.action === 'upsert_inquiry' && data.item) {
+    upsertOne(data.item);
+  } else if (data.action === 'sync_all_inquiries' && data.items) {
+    for (var k = 0; k < data.items.length; k++) upsertOne(data.items[k]);
+  } else if (data.action === 'delete_inquiry' && data.id) {
+    var rows = sheet.getDataRange().getValues();
+    for (var r = rows.length - 1; r >= 1; r--) {
+      if (String(rows[r][0]) === String(data.id)) sheet.deleteRow(r + 1);
+    }
+  }
+  return ContentService.createTextOutput(JSON.stringify({success: true})).setMimeType(ContentService.MimeType.JSON);
+}`;
+            navigator.clipboard.writeText(gasCode).then(() => {
+                showToast('📋 已複製 Google 試算表 Apps Script 程式碼！請貼至 Google 試算表「擴充功能 → Apps Script」部署。');
+            });
+        }
+
+        async function sendTestEmail() {
+            const btn = document.getElementById('btnTestEmail');
+            btn.disabled = true;
+            btn.textContent = '⏳ 寄送測試中...';
+            try {
+                const res = await fetch('/api/admin/test-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        smtp_host: document.getElementById('cfgHost').value,
+                        smtp_port: document.getElementById('cfgPort').value,
+                        smtp_user: document.getElementById('cfgUser').value,
+                        smtp_pass: document.getElementById('cfgPass').value,
+                        notify_email: document.getElementById('cfgNotify').value
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('✅ ' + data.message);
+                } else {
+                    alert(data.error);
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '📨 發送測試通知信';
+            }
+        }
+
+        async function logoutAdmin() {
+            await fetch('/api/admin/logout', { method: 'POST' });
+            window.location.reload();
+        }
+
+        // =====================================================================
+        //  Admin Tab Switching (Inquiries vs Specs CRUD)
+        // =====================================================================
+        let currentAdminTab = 'inquiries';
+
+        function switchAdminTab(tab) {
+            currentAdminTab = tab;
+            const btnInq = document.getElementById('tabBtnInquiries');
+            const btnSpecs = document.getElementById('tabBtnSpecs');
+            const pnlInq = document.getElementById('panelInquiries');
+            const pnlSpecs = document.getElementById('panelSpecs');
+
+            if (tab === 'specs') {
+                btnInq.classList.remove('active');
+                btnSpecs.classList.add('active');
+                pnlInq.style.display = 'none';
+                pnlSpecs.style.display = 'block';
+                loadSpecsAdmin(specsCurrentPage);
+            } else {
+                btnSpecs.classList.remove('active');
+                btnInq.classList.add('active');
+                pnlSpecs.style.display = 'none';
+                pnlInq.style.display = 'block';
+                fetchInquiries();
+            }
+        }
+
+        // =====================================================================
+        //  Specs CRUD & SQLite Database Management Logic
+        // =====================================================================
+        let specsCurrentPage = 1;
+        let specsTotalPages = 1;
+        let specsDebounceTimer = null;
+        let allCategoriesList = [];
+        let editingSpecId = null;
+
+        function setSpecsGroupFilter(grp) {
+            document.getElementById('specsGroupFilter').value = grp;
+            loadSpecsAdmin(1);
+        }
+
+        function debounceSpecsSearch() {
+            clearTimeout(specsDebounceTimer);
+            specsDebounceTimer = setTimeout(() => loadSpecsAdmin(1), 260);
+        }
+
+        function changeSpecsPage(delta) {
+            const nextP = specsCurrentPage + delta;
+            if (nextP >= 1 && nextP <= specsTotalPages) {
+                loadSpecsAdmin(nextP);
+            }
+        }
+
+        async function loadSpecsAdmin(page = 1) {
+            specsCurrentPage = page;
+            const q = document.getElementById('specsSearchInput').value.trim();
+            const grp = document.getElementById('specsGroupFilter').value;
+            const cat = document.getElementById('specsCategoryFilter').value;
+            const tbody = document.getElementById('specsTableBody');
+
+            tbody.innerHTML = '<tr><td colspan="7" class="empty-state">🔍 正在檢索 SQLite 規格資料庫...</td></tr>';
+
+            try {
+                const res = await fetch(`/api/admin/specs?q=${encodeURIComponent(q)}&group=${encodeURIComponent(grp)}&category=${encodeURIComponent(cat)}&page=${page}&per_page=25`);
+                const data = await res.json();
+
+                if (!data.success) {
+                    tbody.innerHTML = `<tr><td colspan="7" class="empty-state">載入失敗：${escapeHtml(data.error || '伺服器錯誤')}</td></tr>`;
+                    return;
+                }
+
+                specsTotalPages = data.total_pages || 1;
+                document.getElementById('specsCountInfo').textContent = `共 ${data.total.toLocaleString()} 筆資料（第 ${data.page} / ${specsTotalPages} 頁）`;
+                document.getElementById('specsPageIndicator').textContent = `${data.page} / ${specsTotalPages}`;
+                document.getElementById('btnSpecsPrev').disabled = data.page <= 1;
+                document.getElementById('btnSpecsNext').disabled = data.page >= specsTotalPages;
+                document.getElementById('tabSpecsBadge').textContent = data.total.toLocaleString();
+
+                // Update category filters if not populated
+                if (data.categories && data.categories.length > 0 && allCategoriesList.length === 0) {
+                    allCategoriesList = data.categories;
+                    populateCategoryOptions(data.categories);
+                }
+
+                // Render table rows
+                if (!data.items || data.items.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="empty-state">查無符合條件的規格資料，可點擊上方「➕ 新增規格項目」建立新規格。</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = data.items.map(item => {
+                    const isMold = item.group === 'mold';
+                    const grpTag = isMold
+                        ? '<span class="badge" style="background:#e0f2fe;color:#0369a1;border:1px solid #bae6fd;font-size:0.75rem;">模具</span>'
+                        : '<span class="badge" style="background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;font-size:0.75rem;">現貨</span>';
+
+                    return `
+                    <tr class="inq-row">
+                        <td><b style="color:var(--accent-cyan);">#${escapeHtml(item.no || item.id)}</b></td>
+                        <td>
+                            ${grpTag}
+                            <span style="font-weight:700;color:var(--text-main);margin-left:4px;">${escapeHtml(item.category || '—')}</span>
+                        </td>
+                        <td>
+                            <span class="chip" style="color:var(--accent-amber);font-weight:800;background:rgba(168,88,20,0.08);">${escapeHtml(item.material || '—')}</span>
+                        </td>
+                        <td><b style="color:var(--text-main);">${escapeHtml(item.dimension || '—')}</b></td>
+                        <td><span style="color:var(--text-dim);font-size:0.86rem;">${escapeHtml(item.size || '—')}</span></td>
+                        <td><span class="badge-stock" style="font-size:0.78rem;">${escapeHtml(item.note || '現貨庫存')}</span></td>
+                        <td style="text-align:center;">
+                            <div class="action-btn-group">
+                                <button class="btn btn-sm" onclick='openSpecModal(${JSON.stringify(item)})' title="編輯修改此規格">✏️ 編輯</button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteSpecDirect(${item.id}, '${escapeHtml(item.no || '')} - ${escapeHtml(item.material || '')}')" title="自資料庫永久刪除">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    `;
+                }).join('');
+
+            } catch (err) {
+                console.error(err);
+                tbody.innerHTML = '<tr><td colspan="7" class="empty-state">網路連線或伺服器錯誤</td></tr>';
+            }
+        }
+
+        function populateCategoryOptions(categories) {
+            const selectEl = document.getElementById('specsCategoryFilter');
+            const datalistEl = document.getElementById('categoryDatalist');
+
+            categories.forEach(cat => {
+                const opt1 = document.createElement('option');
+                opt1.value = cat;
+                opt1.textContent = cat;
+                selectEl.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = cat;
+                datalistEl.appendChild(opt2);
+            });
+        }
+
+        function handleSpecGroupChange() {
+            const grp = document.getElementById('specFormGroup').value;
+            const noteEl = document.getElementById('specFormNote');
+            if (!noteEl.value || noteEl.value === '現貨庫存' || noteEl.value === '免開模現有模具') {
+                noteEl.value = (grp === 'stock') ? '現貨庫存' : '免開模現有模具';
+            }
+        }
+
+        function openSpecModal(item = null) {
+            const modal = document.getElementById('specModal');
+            const titleEl = document.getElementById('specModalTitle');
+            const delBtn = document.getElementById('btnDeleteSpec');
+
+            if (item) {
+                // Edit mode
+                editingSpecId = item.id;
+                titleEl.textContent = `✏️ 編輯規格項目 (ID: #${item.id})`;
+                document.getElementById('specFormId').value = item.id;
+                document.getElementById('specFormGroup').value = item.group || 'stock';
+                document.getElementById('specFormNo').value = item.no || '';
+                document.getElementById('specFormCategory').value = item.category || '';
+                document.getElementById('specFormMaterial').value = item.material || '';
+                document.getElementById('specFormDimension').value = item.dimension || '';
+                document.getElementById('specFormSize').value = item.size || '';
+                document.getElementById('specFormNote').value = item.note || '';
+                delBtn.style.display = 'inline-block';
+            } else {
+                // Add mode
+                editingSpecId = null;
+                titleEl.textContent = '➕ 新增現貨/模具規格';
+                document.getElementById('specForm').reset();
+                document.getElementById('specFormId').value = '';
+                document.getElementById('specFormGroup').value = 'stock';
+                document.getElementById('specFormNote').value = '現貨庫存';
+                delBtn.style.display = 'none';
+            }
+
+            modal.classList.add('open');
+        }
+
+        function closeSpecModal() {
+            document.getElementById('specModal').classList.remove('open');
+            editingSpecId = null;
+        }
+
+        async function saveSpecForm(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnSaveSpec');
+            btn.disabled = true;
+            btn.textContent = '儲存中...';
+
+            const payload = {
+                group: document.getElementById('specFormGroup').value,
+                no: document.getElementById('specFormNo').value,
+                category: document.getElementById('specFormCategory').value,
+                material: document.getElementById('specFormMaterial').value,
+                dimension: document.getElementById('specFormDimension').value,
+                size: document.getElementById('specFormSize').value,
+                note: document.getElementById('specFormNote').value
+            };
+
+            const specId = document.getElementById('specFormId').value;
+            const isEdit = Boolean(specId);
+            const url = isEdit ? `/api/admin/specs/${encodeURIComponent(specId)}` : '/api/admin/specs';
+            const method = isEdit ? 'PUT' : 'POST';
+
+            try {
+                const res = await fetch(url, {
+                    method: method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    showToast(isEdit ? '✅ 規格已成功更新！' : '🎉 新規格已成功建立並儲存至資料庫！');
+                    closeSpecModal();
+                    loadSpecsAdmin(specsCurrentPage);
+                } else {
+                    alert('儲存失敗：' + (data.error || '請確認欄位'));
+                }
+            } catch (err) {
+                console.error(err);
+                alert('網路或伺服器錯誤，請稍候重試');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '💾 儲存規格資料';
+            }
+        }
+
+        async function deleteSpecDirect(specId, label) {
+            if (!confirm(`確定要永久刪除規格【${label}】嗎？\n此操作將從 SQLite 資料庫永久移除該筆規格，且前台將立即同步移除。`)) {
+                return;
+            }
+            try {
+                const res = await fetch(`/api/admin/specs/${encodeURIComponent(specId)}`, { method: 'DELETE' });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('🗑️ 規格已成功刪除');
+                    loadSpecsAdmin(specsCurrentPage);
+                } else {
+                    alert('刪除失敗：' + (data.error || ''));
+                }
+            } catch (err) {
+                console.error(err);
+                alert('刪除時發生錯誤');
+            }
+        }
+
+        async function deleteCurrentSpec() {
+            if (!editingSpecId) return;
+            const noVal = document.getElementById('specFormNo').value;
+            const matVal = document.getElementById('specFormMaterial').value;
+            closeSpecModal();
+            deleteSpecDirect(editingSpecId, `#${noVal} ${matVal}`);
+        }
+
+        // Initialize inquiries on load
+        fetchInquiries();
+    </script>
+{% endif %}
+
+</body>
+</html>
+
