@@ -1,0 +1,28 @@
+.table01,.css-table{
+	width: 99.9%;
+	background-color: #ffffff;
+	border-collapse: collapse;
+	margin-top: 20px;
+	font-size: 1rem;
+}
+
+.table01 td, .table01 th,
+.css-table .td, .css-table .th{
+	padding: 10px;
+}
+
+.table01 td,
+.css-table .td{
+	color: #666666;
+	border: #999 1px solid;
+
+}
+
+.table01 th,
+.css-table .th{
+	background-color: #666;
+	color:#ffffff;
+	border: #999 1px solid;
+	text-align: center;
+	min-width: 100%;
+}

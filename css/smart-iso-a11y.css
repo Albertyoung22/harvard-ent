@@ -1,0 +1,695 @@
+/* ==========================================================================
+   賀華實業股份有限公司 (HARVARD ENTERPRISES INC.)
+   現代化、智慧化 (OR-Tools CP-SAT)、ISO 標準與 WCAG 2.1 AAA 無障礙增強樣式表
+   ========================================================================== */
+
+:root {
+    --hv-primary: #0f3d68;
+    --hv-primary-dark: #082644;
+    --hv-accent: #e65100;
+    --hv-accent-light: #ff6a00;
+    --hv-teal: #00897b;
+    --hv-bg: #f8fafc;
+    --hv-card-bg: #ffffff;
+    --hv-text: #1e293b;
+    --hv-text-muted: #475569;
+    --hv-border: #cbd5e1;
+    --hv-focus: #ffab00;
+    --hv-font-scale: 1;
+}
+
+html {
+    font-size: calc(16px * var(--hv-font-scale));
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--hv-text);
+    background-color: var(--hv-bg);
+    font-family: "Noto Sans TC", "Microsoft JhengHei", "微軟正黑體", Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* 1. 無障礙跳至主要內容 (Skip Link) & 導盲磚 (Accesskey) */
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 16px;
+    z-index: 100000;
+    background: #000000;
+    color: #ffff00 !important;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 3px solid #ffff00;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 16px;
+    outline: 4px solid #ff6a00;
+}
+
+.accesskey-brick {
+    display: inline-block;
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--hv-accent);
+    background: rgba(230, 81, 0, 0.1);
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-right: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.accesskey-brick:focus {
+    outline: 3px solid var(--hv-focus);
+    background: #000;
+    color: #ffff00 !important;
+}
+
+/* 強化鍵盤焦點指示器 (WCAG 2.4.7 / 2.4.11) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--hv-focus) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 4px rgba(15, 61, 104, 0.35) !important;
+}
+
+/* 2. 頂部 ISO 與無障礙狀態列 */
+.hv-iso-topbar {
+    background: linear-gradient(90deg, #071d33 0%, #0f3d68 60%, #134e5e 100%);
+    color: #f1f5f9;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    z-index: 1050;
+}
+
+.hv-iso-topbar .topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.hv-iso-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.hv-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.78rem;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hv-badge.badge-cpsat {
+    background: linear-gradient(135deg, #e65100, #ff8f00);
+    color: #fff;
+    border-color: #ffb74d;
+}
+
+.hv-badge.badge-a11y {
+    background: #00695c;
+    border-color: #4db6ac;
+}
+
+.hv-a11y-quickbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.hv-a11y-btn {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hv-a11y-btn:hover,
+.hv-a11y-btn[aria-pressed="true"] {
+    background: #ffab00;
+    color: #000000;
+    border-color: #ffab00;
+}
+
+/* 3. 導覽列現代化改進 (確保高對比與清晰度) */
+header .header_top {
+    background: rgba(8, 28, 51, 0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.navbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 1020;
+    padding: 0.8rem 2rem !important;
+    background: rgba(8, 28, 51, 0.95) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #f8fafc !important;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem !important;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .active > .nav-link {
+    color: #ffab00 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-link-cpsat {
+    background: linear-gradient(135deg, #e65100, #ff8f00) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(230, 81, 0, 0.4);
+    margin-left: 4px;
+}
+
+.nav-link-cpsat:hover {
+    background: linear-gradient(135deg, #ff6d00, #ffab00) !important;
+    color: #000 !important;
+}
+
+/* 4. 智慧搜尋與快速導覽面板 */
+.hv-smart-search-bar {
+    background: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 12px 20px;
+    box-shadow: 0 2px 10px rgba(15, 61, 104, 0.06);
+}
+
+.hv-smart-search-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.hv-search-input-wrap {
+    flex: 1;
+    min-width: 240px;
+    position: relative;
+}
+
+.hv-search-input {
+    width: 100%;
+    padding: 9px 14px 9px 38px;
+    border: 2px solid #94a3b8;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #0f172a;
+    background: #f8fafc;
+}
+
+.hv-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #475569;
+}
+
+/* 5. CP-SAT 智慧最佳化中心卡片與介面 */
+.hv-cpsat-hub {
+    background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+    border-top: 4px solid var(--hv-primary);
+    border-bottom: 4px solid var(--hv-teal);
+    padding: 3.5rem 0;
+    margin: 2rem 0;
+}
+
+.hv-hub-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+}
+
+.hv-hub-header h2 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--hv-primary-dark);
+    margin-bottom: 0.75rem;
+}
+
+.hv-hub-header p {
+    font-size: 1.05rem;
+    color: #334155;
+    line-height: 1.75;
+}
+
+.hv-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+}
+
+.hv-tab-btn {
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: 2px solid var(--hv-primary);
+    background: #ffffff;
+    color: var(--hv-primary);
+    font-weight: 700;
+    font-size: 0.98rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hv-tab-btn:hover {
+    background: #e0f2fe;
+}
+
+.hv-tab-btn[aria-selected="true"] {
+    background: var(--hv-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(15, 61, 104, 0.3);
+}
+
+.hv-tab-panel {
+    display: none;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(15, 61, 104, 0.08);
+}
+
+.hv-tab-panel.active {
+    display: block;
+}
+
+.hv-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.hv-field label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.hv-field input,
+.hv-field select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 2px solid #94a3b8;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #0f172a;
+    background: #fff;
+}
+
+.hv-btn-solve {
+    background: linear-gradient(135deg, #0f3d68 0%, #00897b 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.02rem;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 137, 123, 0.3);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hv-btn-solve:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 137, 123, 0.4);
+}
+
+.hv-btn-secondary {
+    background: #f1f5f9;
+    color: #1e293b;
+    border: 2px solid #64748b;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hv-btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+.hv-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.hv-kpi-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid var(--hv-primary);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.hv-kpi-card.kpi-green {
+    border-left-color: #00897b;
+    background: #f0fdf4;
+}
+
+.hv-kpi-card.kpi-orange {
+    border-left-color: #e65100;
+    background: #fff7ed;
+}
+
+.hv-kpi-label {
+    font-size: 0.82rem;
+    color: #475569;
+    font-weight: 600;
+}
+
+.hv-kpi-value {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 4px;
+}
+
+/* 1D 分條視覺條 */
+.hv-slit-bar-wrap {
+    margin-bottom: 14px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+.hv-slit-bar {
+    display: flex;
+    width: 100%;
+    height: 38px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid #334155;
+    background: #e2e8f0;
+}
+
+.hv-slit-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* 6. 表格現代化與無障礙增強 (保留原站所有 table01 內容並強化互動) */
+.hv-table-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #e2e8f0;
+    padding: 10px 14px;
+    border-radius: 8px 8px 0 0;
+    margin-top: 1.5rem;
+    border: 1px solid #94a3b8;
+    border-bottom: none;
+}
+
+.hv-table-toolbar input {
+    padding: 6px 12px;
+    border: 2px solid #64748b;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    min-width: 220px;
+}
+
+.hv-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid #94a3b8;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+table.table01 {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff;
+    color: #0f172a;
+    margin: 0 !important;
+}
+
+table.table01 th {
+    background: #0f3d68 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    padding: 10px 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    text-align: center;
+}
+
+table.table01 td {
+    padding: 9px 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #1e293b !important;
+    font-weight: 500;
+}
+
+table.table01 tbody tr:nth-child(even) td {
+    background-color: #f8fafc;
+}
+
+table.table01 tbody tr:hover td {
+    background-color: #e0f2fe !important;
+}
+
+table.table01 tr.hv-row-hidden {
+    display: none !important;
+}
+
+/* 7. ISO 國際標準認證與品質追溯專區 */
+.hv-iso-section {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 3.5rem 0;
+}
+
+.hv-iso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.hv-iso-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-top: 4px solid var(--hv-primary);
+    border-radius: 12px;
+    padding: 22px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hv-iso-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(15, 61, 104, 0.12);
+}
+
+.hv-iso-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--hv-primary-dark);
+    margin-bottom: 10px;
+}
+
+/* 8. 高對比模式 (WCAG 2.1 AAA High Contrast) & 深色模式 (Dark Mode) */
+body.hv-high-contrast {
+    background: #000000 !important;
+    color: #ffff00 !important;
+}
+
+body.hv-high-contrast section,
+body.hv-high-contrast div:not(.carousel-item):not(.style-image-1):not(.style-image-2),
+body.hv-high-contrast header,
+body.hv-high-contrast nav,
+body.hv-high-contrast .hv-tab-panel,
+body.hv-high-contrast .hv-iso-card,
+body.hv-high-contrast .hv-kpi-card,
+body.hv-high-contrast .icon_info,
+body.hv-high-contrast .grid_sec_info,
+body.hv-high-contrast .address-info,
+body.hv-high-contrast .company-info {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+    border-color: #ffff00 !important;
+}
+
+body.hv-high-contrast h1,
+body.hv-high-contrast h2,
+body.hv-high-contrast h3,
+body.hv-high-contrast h4,
+body.hv-high-contrast h5,
+body.hv-high-contrast h6,
+body.hv-high-contrast p,
+body.hv-high-contrast li,
+body.hv-high-contrast span,
+body.hv-high-contrast label,
+body.hv-high-contrast td,
+body.hv-high-contrast th {
+    color: #ffff00 !important;
+}
+
+body.hv-high-contrast a,
+body.hv-high-contrast button {
+    color: #00ffff !important;
+    border-color: #00ffff !important;
+}
+
+body.hv-high-contrast table.table01 th,
+body.hv-high-contrast table.table01 td {
+    background: #000000 !important;
+    border: 2px solid #ffff00 !important;
+    color: #ffff00 !important;
+}
+
+body.hv-dark-mode {
+    background: #0f172a !important;
+    color: #f1f5f9 !important;
+}
+
+body.hv-dark-mode section,
+body.hv-dark-mode .hv-cpsat-hub,
+body.hv-dark-mode .hv-iso-section,
+body.hv-dark-mode .grid_sec_info,
+body.hv-dark-mode .icon_info,
+body.hv-dark-mode .hv-tab-panel,
+body.hv-dark-mode .hv-iso-card,
+body.hv-dark-mode .hv-kpi-card,
+body.hv-dark-mode .address-info,
+body.hv-dark-mode .company-info {
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+}
+
+body.hv-dark-mode h1,
+body.hv-dark-mode h2,
+body.hv-dark-mode h3,
+body.hv-dark-mode h4,
+body.hv-dark-mode h5,
+body.hv-dark-mode h6,
+body.hv-dark-mode p,
+body.hv-dark-mode li {
+    color: #f1f5f9 !important;
+}
+
+body.hv-dark-mode table.table01 td {
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #475569 !important;
+}
+
+body.hv-readable-spacing,
+body.hv-readable-spacing p,
+body.hv-readable-spacing li,
+body.hv-readable-spacing td {
+    letter-spacing: 0.12em !important;
+    line-height: 2.1 !important;
+    word-spacing: 0.16em !important;
+}
+
+body.hv-reduce-motion *,
+body.hv-reduce-motion *::before,
+body.hv-reduce-motion *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+}
+
+/* 9. 圖片網格優化 */
+.bottom-sub-grid img.img-fluid {
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    margin-bottom: 16px;
+    transition: transform 0.25s ease;
+}
+
+.bottom-sub-grid img.img-fluid:hover {
+    transform: scale(1.02);
+}
+
+.hv-img-caption {
+    font-size: 0.88rem;
+    color: #334155;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+/* 頁尾無障礙與 ISO 標章區 */
+.copyright {
+    background: #07192b !important;
+    color: #f8fafc !important;
+    padding: 2.5rem 0 !important;
+}
+
+.copyright p,
+.copyright a {
+    color: #e2e8f0 !important;
+    font-size: 0.95rem !important;
+}
+
+.copyright a:hover {
+    color: #ffab00 !important;
+    text-decoration: underline !important;
+}
