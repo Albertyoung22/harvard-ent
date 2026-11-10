@@ -894,63 +894,63 @@
       "id": "tour-welcome",
       "section_id": "hero",
       "title": "賀華實業 · 企業總覽",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_welcome.mp3",
       "script": "歡迎蒞臨賀華實業股份有限公司智慧科技互動系統。賀華實業創立於西元 1973 年 4 月 25 日，深耕台灣逾五十載，專營中鋼鋁業全系列鋁合金、日本古河電工 UACJ、住友輕金屬、池內原廠鋁材，以及零零鋁箔、鋁捲分條、平片整平與 600 毫米特厚鋁板精密裁切，是您最堅實的輕金屬供應鏈夥伴。"
     },
     {
       "id": "tour-about",
       "section_id": "about",
       "title": "關於賀華 · 沿革與關係企業",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_about.mp3",
       "script": "賀華實業自 1973 年創立以來，先後成立關係企業安達磨光鋼棒與永旭材料股份有限公司，並與日本住友輕金屬、古河電工及株式會社池內技術合作，整合德國分條機、日本四重式冷軋壓延機與 600 毫米立式裁切機，服務橫跨半導體、航太、電動車與光學電子等十一大產業。"
     },
     {
       "id": "tour-network",
       "section_id": "network",
       "title": "全台五大廠區智慧網絡",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_network.mp3",
       "script": "為即時服務全台客戶，賀華實業建構了五大廠區網絡：包含新北五股台北廠與八里大型倉庫、新竹湖口永旭材料廠、台中大肚一廠、台中神岡二廠分條中心，以及台南永康廠，並透過 Google OR-Tools CP-SAT 智慧產能排程系統，實現跨廠區最佳化派工與快速配送。"
     },
     {
       "id": "tour-products",
       "section_id": "products",
       "title": "精選旗艦鋁材與特殊輕金屬",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_products.mp3",
       "script": "在材料供應方面，我們常備 1085、1070、1050 純鋁與零零鋁箔，5052 雙面貼膜精平板、5083 船用與真空腔體厚板、6061 與瑞士美鋁 6063S 半導體專用板，以及 7075、2024 航太級超硬鋁板、圓棒與鋁擠型材，全數隨貨附原廠材質證明書。"
     },
     {
       "id": "tour-specs",
       "section_id": "specs",
       "title": "現貨規格與模具檢索系統",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_specs.mp3",
       "script": "在規格檢索專區，系統完整收錄賀華實業鋁捲、鋁平片、600毫米特厚板、圓棒、鋁管與超過三千項標準鋁擠型規格資料庫。您可隨時輸入合金編號或尺寸即時篩選，並一鍵加入詢價單或匯出 ISO 9001 CSV 規格表。"
     },
     {
       "id": "tour-machining",
       "section_id": "machining",
       "title": "高階裁切分條與 CP-SAT 排料工作台",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_machining.mp3",
       "script": "賀華實業具備頂尖的加工設備，涵蓋 600 毫米特厚板立式鋸切、紅外線雷射直角度裁板、RB21 張力鋁捲分條整平與全自動雙面貼膜。更於本頁內建 Google OR-Tools CP-SAT 智慧排料工作台，0.1 秒為您算出 1D 分條、2D 鋁板排樣與五廠排程之全域最佳解。"
     },
     {
       "id": "tour-cases",
       "section_id": "cases",
       "title": "半導體、特厚板與分條代表實績",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_cases.mp3",
       "script": "從竹科半導體真空腔體 6063S 專用板、600 毫米特厚固溶鋁板立式鋸切，到電動車散熱鋁捲精密分條，賀華實業以微米級公差控制與高達百分之九十五以上的材料利用率，協助國內外指標大廠創造卓越競爭力。"
     },
     {
       "id": "tour-tech",
       "section_id": "tech",
       "title": "鋁材工程知識庫與重量硬度試算",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_tech.mp3",
       "script": "在工程知識庫中，我們提供 ISO 9001 與 ISO 14001 品質環保體系說明、鋁材重量與材積即時試算器、15 大鋁合金物理特性、化學成分表，以及國際標準硬度換算器與熱處理調質辭典。"
     },
     {
       "id": "tour-closing",
       "section_id": "contact",
       "title": "即時諮詢與線上圖面估價",
-      "audio_file": "",
+      "audio_file": "/static/audio/tour_closing.mp3",
       "script": "感謝您體驗賀華實業智慧科技系統。如需特殊規格調料、鋁捲分條、特厚板裁切或上傳 CAD 圖面估價，歡迎直接填寫本頁線上詢價單，或致電台北、新竹、台中、台南五大廠區，我們將竭誠為您服務！"
     }
   ],
