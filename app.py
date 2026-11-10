@@ -471,21 +471,37 @@ def api_tts():
         rate = '+0%'
         pitch = '+0Hz'
         speak_text = clean_text
-    elif voice_key in ('zen-male', 'zh-TW-YunJheNeural'):
-        actual_voice = 'zh-TW-YunJheNeural'
-        rate = '-18%'
-        pitch = '-10Hz'
-        speak_text = clean_text.replace('。', '。…… ').replace('；', '；… ')
-    elif voice_key == 'zen-female':
+    elif voice_key in ('zen-male', 'zh-TW-YunJheNeural', 'male', 'zh-male'):
+        actual_voice = 'zh-CN-YunxiNeural'
+        rate = '+0%'
+        pitch = '+0Hz'
+        speak_text = clean_text
+    elif voice_key in ('zen-female', 'zh-TW-HsiaoYuNeural'):
+        actual_voice = 'zh-TW-HsiaoYuNeural'
+        rate = '+0%'
+        pitch = '+0Hz'
+        speak_text = clean_text
+    elif voice_key in ('zh-TW-HsiaoChenNeural', 'zh-TW', 'zh', 'default'):
         actual_voice = 'zh-TW-HsiaoChenNeural'
-        rate = '-15%'
-        pitch = '-4Hz'
-        speak_text = clean_text.replace('。', '。…… ').replace('；', '；… ')
+        rate = '+0%'
+        pitch = '+0Hz'
+        speak_text = clean_text
     else:
         actual_voice = 'zh-TW-HsiaoChenNeural'
         rate = '+0%'
         pitch = '+0Hz'
         speak_text = clean_text
+
+    # Guard against language mismatch (e.g. English neural voice asked to pronounce pure Chinese text)
+    has_cjk = bool(re.search(r'[\u4e00-\u9fff]', speak_text))
+    has_hangul = bool(re.search(r'[\uac00-\ud7af]', speak_text))
+    has_kana = bool(re.search(r'[\u3040-\u30ff]', speak_text))
+    if actual_voice.startswith('en-') and has_cjk and not re.search(r'[a-zA-Z]{3,}', speak_text):
+        actual_voice = 'zh-TW-HsiaoChenNeural'
+    elif actual_voice.startswith('ko-') and not has_hangul and has_cjk:
+        actual_voice = 'zh-TW-HsiaoChenNeural'
+    elif actual_voice.startswith('ja-') and not has_kana and has_cjk:
+        actual_voice = 'zh-TW-HsiaoChenNeural'
 
     # Generate unique cache hash including prosody parameters
     text_hash = hashlib.md5(f"{actual_voice}_{rate}_{pitch}_{speak_text}".encode('utf-8')).hexdigest()
@@ -505,8 +521,10 @@ def api_tts():
         alt_voice = 'ja-JP-KeitaNeural' if actual_voice == 'ja-JP-NanamiNeural' else 'ja-JP-NanamiNeural'
     elif actual_voice.startswith('ko-'):
         alt_voice = 'ko-KR-InJoonNeural' if actual_voice == 'ko-KR-SunHiNeural' else 'ko-KR-SunHiNeural'
+    elif actual_voice.startswith('zh-CN-'):
+        alt_voice = 'zh-CN-XiaoxiaoNeural' if actual_voice != 'zh-CN-XiaoxiaoNeural' else 'zh-CN-YunxiNeural'
     else:
-        alt_voice = 'zh-TW-HsiaoChenNeural' if actual_voice == 'zh-TW-YunJheNeural' else 'zh-TW-YunJheNeural'
+        alt_voice = 'zh-TW-HsiaoChenNeural' if actual_voice != 'zh-TW-HsiaoChenNeural' else 'zh-CN-YunxiNeural'
 
     attempts = [
         (speak_text, actual_voice, rate, pitch),
@@ -538,12 +556,12 @@ def _sanitize_tts_text(text):
     return t[:800]
 
 
-def _synthesize_tts_to_file(text, voice, rate, pitch, final_path):
+def _synthesize_tts_to_file(text, voice, rate, pitch, final_path, timeout=10):
     tmp_path = final_path + '.part'
     try:
         async def do_tts():
             tts = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
-            await tts.save(tmp_path)
+            await asyncio.wait_for(tts.save(tmp_path), timeout=timeout)
 
         asyncio.run(do_tts())
         if os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 500:
