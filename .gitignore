@@ -12,6 +12,7 @@ Thumbs.db
 
 bin/cloudflared.exe
 data/*.db
+data/public_url.txt
 crash_log.txt
 static/audio/cache/
 

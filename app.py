@@ -73,7 +73,7 @@ os.makedirs(DRAWINGS_DIR, exist_ok=True)
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
 
 # Load data
-DATA_PATH = os.path.join(BASE_DIR, 'data', 'fapolu_complete_data.json')
+DATA_PATH = os.path.join(BASE_DIR, 'data', 'harvard_complete_data.json')
 SPECS_PATH = os.path.join(BASE_DIR, 'data', 'inventory_specs.json')
 
 with open(DATA_PATH, 'r', encoding='utf-8') as f:
@@ -225,26 +225,26 @@ PAGE_META = {
     'hero': {
         'path': '/',
         'label': '首頁總覽',
-        'title': '賀華實業股份有限公司 | HARVARD ENTERPRISES INC. - 全方位鋁合金材料供應鏈與精密加工整合首選',
-        'desc': '賀華實業股份有限公司創立於1973年，深耕台灣近40年。專營日本UACJ 5052貼膜鋁板、7075航太鋁、6061、5083船用鋁板、3,081項現貨與模具規格及CNC精密加工一站式服務。'
+        'title': '賀華實業股份有限公司 | HARVARD ENTERPRISES INC. - 鋁合金特殊輕金屬材料與精密加工領航者',
+        'desc': '賀華實業股份有限公司創立於1973年，深耕台灣逾50年。專營中鋼鋁業全系列鋁合金、零零鋁箔、鋁捲片、平片、600mm特厚鋁板、圓棒及擠型精密分條裁切加工。'
     },
     'about': {
         'path': '/about',
-        'label': '關於我們 · 成立概要與願景',
-        'title': '關於我們 · 成立概要、經營理念與九大營業項目 | 賀華實業股份有限公司',
-        'desc': '賀華實業創立於1973年，秉持誠信立基、整合共榮，橫跨鋁材、不鏽鋼、鎂合金、銅材與精密加工九大營業範疇，服務半導體與航太十一大產業。'
+        'label': '關於賀華 · 成立概要與經營理念',
+        'title': '關於賀華 · 成立概要、基本資料與經營理念 | 賀華實業股份有限公司',
+        'desc': '賀華實業創立於1973年，秉持「創新求是、追求卓越，互勉互惠、同享繁榮」理念，整合中鋼鋁業與日本住友輕金屬、日本大東工機等原廠資源，建構完整材料與設備服務體系。'
     },
     'network': {
         'path': '/network',
-        'label': '全台北中南服務網絡',
-        'title': '全台服務據點 · 台北總公司、台中廠、台南雙廠區 | 賀華實業股份有限公司',
-        'desc': '賀華實業於台北松山總公司、台中西屯物流裁切中心、台南佳里一廠與麻豆二廠建立緊密物流網絡，常備千噸鋁材迅速調撥配送。'
+        'label': '全台服務網絡與廠區據點',
+        'title': '全台營運據點 · 台北總公司、八里廠、新竹廠永旭材料、台中一廠、台中二廠、台南廠 | 賀華實業股份有限公司',
+        'desc': '賀華實業立足全台六大營運及加工據點：台北總公司、台北八里倉儲中心、新竹廠永旭材料、台中一廠、台中二廠（Coil Slitting）及台南廠，提供即時裁切與物流調撥。'
     },
     'products': {
         'path': '/products',
-        'label': '精選旗艦材料與壓花板圖鑑',
-        'title': '精選旗艦鋁材、日本UACJ 5052貼膜鋁板與壓花板圖鑑 | 賀華實業股份有限公司',
-        'desc': '供應日本UACJ 5052低應力貼膜鋁板、7075航太超硬鋁、6061結構板、5083船用鋁板、鏡面鋁與五爪鑽石壓花鋁板，附原廠材質證明。'
+        'label': '核心產品與旗艦材料系列',
+        'title': '零零鋁箔、鋁捲片、平片、600mm特厚鋁板、圓棒與擠型 | 賀華實業股份有限公司',
+        'desc': '常備1000至7000系列鋁合金板、捲、片、零零鋁箔、圓棒、擠型及精密分條機刀具配件，附原廠檢驗證明書。'
     },
     'specs': {
         'path': '/specs',
@@ -254,27 +254,27 @@ PAGE_META = {
     },
     'machining': {
         'path': '/machining',
-        'label': '高階精密加工與實品圖鑑',
-        'title': '高階CNC精密加工、五軸聯動、龍門銑削與實品展示 | 賀華實業股份有限公司',
-        'desc': '整合CNC高速銑床、精密車床、航太五軸同動、大型龍門銑削、微細孔加工與表面陽極處理，提供毛胚鋸切至成品出貨一站式製造服務。'
+        'label': '工廠設備與精密加工能量',
+        'title': '工廠設備 · 600mm特厚板立式裁切機、紅外線裁切機、精密分條機與貼膜壓平 | 賀華實業股份有限公司',
+        'desc': '配備600mm特厚板立式裁切機、高精準直角度紅外線裁切機、台中二廠薄板分條機、永旭材料冷軋壓延機、退火熱處理爐與自動化倉儲設備。'
     },
     'cases': {
         'path': '/cases',
-        'label': '半導體與航太代表實績',
-        'title': '代表實績案例 · 半導體真空腔體、航太與光電設備 | 賀華實業股份有限公司',
-        'desc': '賀華實業協助半導體設備大廠、航太結構件與自動化機械客戶克服內應力變形與輕量化挑戰之成功實績解析。'
+        'label': '代表實績與應用領域',
+        'title': '代表實績案例 · 半導體、精密機械、光電與航太結構 | 賀華實業股份有限公司',
+        'desc': '賀華實業以高品質鋁合金材料與高精度分條裁切技術，深耕半導體、航太、光電、車用電子與精密機械等各領域大廠客戶。'
     },
     'tech': {
         'path': '/tech',
-        'label': '國際硬度換算與熱處理辭典',
-        'title': '金屬硬度即時換算器 (HB/HRC/HRB/HV) 與鋁合金調質辭典 | 賀華實業股份有限公司',
-        'desc': '線上即時換算布氏HB、洛氏HRC/HRB、維氏HV、肖氏HS硬度與抗拉強度，並提供鋁合金F/O/H/W/T6/T651熱處理代號技術定義。'
+        'label': '鋁的世界 · 特性選用與規範',
+        'title': '鋁的世界 · 15大材料特性、選用原則、產品分類與常用標準規範 | 賀華實業股份有限公司',
+        'desc': '深入解析鋁之輕量性、耐蝕性、導電導熱性等15大基本特性，提供耐蝕、強度、成型、切削、熔接選用原則與CNS/JIS/ASTM常用規範對照。'
     },
     'contact': {
         'path': '/contact',
-        'label': '即時諮詢與線上圖面估價',
-        'title': '即時諮詢與線上規格圖面估價單 | 賀華實業股份有限公司',
-        'desc': '歡迎線上提交鋁合金材料規格或CNC加工圖面需求，賀華實業台北、台中、台南專業業務工程師將於24小時內提供報價與技術建議。'
+        'label': '聯絡我們與線上估價諮詢',
+        'title': '聯絡我們 · 台北總公司、八里廠、新竹廠、台中廠、台南廠 | 賀華實業股份有限公司',
+        'desc': '賀華實業全台六大營運據點，歡迎透過線上表單、電話或傳真諮詢各類鋁合金材料、零零鋁箔、分條整平與特厚板裁切需求。'
     }
 }
 
@@ -1247,10 +1247,23 @@ import cpsat_optimizer
 
 @app.route('/images/<path:filename>')
 def serve_harvard_images(filename):
-    img_dir = os.path.join(BASE_DIR, 'images')
-    if os.path.exists(os.path.join(img_dir, filename)):
-        return send_from_directory(img_dir, filename)
-    return send_from_directory(os.path.join(BASE_DIR, 'static', 'images'), filename)
+    clean_name = os.path.basename(filename)
+    search_dirs = [
+        os.path.join(BASE_DIR, 'images'),
+        os.path.join(BASE_DIR, 'static', 'images'),
+        os.path.join(BASE_DIR, 'static', 'img_crawled'),
+        os.path.join(BASE_DIR, 'ch', 'images'),
+        os.path.join(BASE_DIR, 'en', 'images'),
+        os.path.join(BASE_DIR, 'jp', 'images')
+    ]
+    for d in search_dirs:
+        p1 = os.path.join(d, filename)
+        if os.path.isfile(p1):
+            return send_from_directory(d, filename)
+        p2 = os.path.join(d, clean_name)
+        if os.path.isfile(p2):
+            return send_from_directory(d, clean_name)
+    return send_from_directory(os.path.join(BASE_DIR, 'static', 'images'), 'logo_brand.png')
 
 @app.route('/api/alloys', methods=['GET'])
 def api_get_alloys():

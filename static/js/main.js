@@ -118,8 +118,8 @@ function initMobileUI() {
 }
 
 /* ==========================================================================
-   1. Ink-Wash Mountain Mist & Golden Bodhi Light Canvas
-      (水墨宣紙遠山雲霧 · 蓮華背光暗紋 · 飄落金色菩提微光特效)
+   1. High-Tech Precision Alloy Quantum Lattice & Telemetry Canvas
+      (明亮高科技精密合金晶格與量子遙測動態天際線畫布)
    ========================================================================== */
 function initLatticeCanvas() {
     const canvas = document.getElementById('latticeCanvas');
@@ -148,7 +148,7 @@ function initLatticeCanvas() {
         const now = performance.now();
         if (now - lastPulseTime > 220) {
             lastPulseTime = now;
-            pulses.push({ x, y, r: 6, alpha: 0.55 });
+            pulses.push({ x, y, r: 6, alpha: 0.5 });
             if (pulses.length > 8) pulses.shift();
         }
     }
@@ -174,7 +174,7 @@ function initLatticeCanvas() {
         vy: (Math.random() - 0.5) * 0.48,
         r: Math.random() * 2.2 + 1.2,
         phase: Math.random() * Math.PI * 2,
-        color: i % 4 === 0 ? '#fbbf24' : (i % 2 === 0 ? '#00e5ff' : '#38bdf8')
+        color: i % 4 === 0 ? '#f59e0b' : (i % 2 === 0 ? '#0284c7' : '#0ea5e9')
     }));
 
     let hudAngle = 0;
@@ -187,15 +187,15 @@ function initLatticeCanvas() {
 
         // Subtle horizon glow
         const hGrad = ctx.createLinearGradient(0, horizonY - 40, 0, bottomY);
-        hGrad.addColorStop(0, 'rgba(0, 229, 255, 0)');
-        hGrad.addColorStop(0.15, 'rgba(0, 229, 255, 0.08)');
-        hGrad.addColorStop(1, 'rgba(2, 132, 199, 0.14)');
+        hGrad.addColorStop(0, 'rgba(2, 132, 199, 0)');
+        hGrad.addColorStop(0.15, 'rgba(2, 132, 199, 0.05)');
+        hGrad.addColorStop(1, 'rgba(3, 105, 161, 0.09)');
         ctx.fillStyle = hGrad;
         ctx.fillRect(0, horizonY - 40, width, bottomY - horizonY + 40);
 
         // Perspective radial lines from vanishing point
         const vpX = width * 0.5 + (mouse.x - width * 0.5) * 0.08;
-        ctx.strokeStyle = 'rgba(0, 229, 255, 0.14)';
+        ctx.strokeStyle = 'rgba(2, 132, 199, 0.12)';
         ctx.lineWidth = 1;
         const numCols = 18;
         for (let i = -numCols; i <= numCols; i++) {
@@ -211,8 +211,8 @@ function initLatticeCanvas() {
         for (let j = 0; j < 10; j++) {
             const t = (j + gridOffset) / 10;
             const y = horizonY + Math.pow(t, 1.85) * (bottomY - horizonY);
-            const alpha = Math.min(0.28, t * 0.32);
-            ctx.strokeStyle = `rgba(0, 229, 255, ${alpha.toFixed(3)})`;
+            const alpha = Math.min(0.24, t * 0.28);
+            ctx.strokeStyle = `rgba(2, 132, 199, ${alpha.toFixed(3)})`;
             ctx.beginPath();
             ctx.moveTo(0, y);
             ctx.lineTo(width, y);
@@ -228,7 +228,7 @@ function initLatticeCanvas() {
         // Outer rotating telemetry ring
         ctx.save();
         ctx.rotate(hudAngle);
-        ctx.strokeStyle = 'rgba(0, 229, 255, 0.16)';
+        ctx.strokeStyle = 'rgba(2, 132, 199, 0.18)';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([12, 8, 4, 8]);
         ctx.beginPath();
@@ -239,7 +239,7 @@ function initLatticeCanvas() {
         // Counter-rotating precision scale ring
         ctx.save();
         ctx.rotate(-hudAngle * 1.4);
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.14)';
+        ctx.strokeStyle = 'rgba(14, 165, 233, 0.16)';
         ctx.lineWidth = 1.2;
         ctx.setLineDash([4, 10]);
         ctx.beginPath();
@@ -248,7 +248,7 @@ function initLatticeCanvas() {
 
         // Hexagonal FCC Aluminum Crystal Lattice Core
         ctx.setLineDash([]);
-        ctx.strokeStyle = 'rgba(0, 229, 255, 0.13)';
+        ctx.strokeStyle = 'rgba(2, 132, 199, 0.15)';
         ctx.lineWidth = 1.3;
         const hexR = maxR * 0.42;
         ctx.beginPath();
@@ -297,7 +297,7 @@ function initLatticeCanvas() {
             }
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(0, 229, 255, ${p.alpha.toFixed(3)})`;
+            ctx.strokeStyle = `rgba(2, 132, 199, ${p.alpha.toFixed(3)})`;
             ctx.lineWidth = 1.4;
             ctx.stroke();
         }
@@ -321,7 +321,7 @@ function initLatticeCanvas() {
                 ctx.moveTo(n.x, n.y);
                 ctx.lineTo(mouse.x, mouse.y);
                 const mAlpha = (1 - distM / mouse.radius) * 0.28;
-                ctx.strokeStyle = `rgba(0, 229, 255, ${mAlpha.toFixed(3)})`;
+                ctx.strokeStyle = `rgba(2, 132, 199, ${mAlpha.toFixed(3)})`;
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }
@@ -333,18 +333,18 @@ function initLatticeCanvas() {
                 const dy = n.y - n2.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < 135) {
-                    const lAlpha = (1 - dist / 135) * 0.20;
+                    const lAlpha = (1 - dist / 135) * 0.22;
                     ctx.beginPath();
                     ctx.moveTo(n.x, n.y);
                     ctx.lineTo(n2.x, n2.y);
-                    ctx.strokeStyle = `rgba(56, 189, 248, ${lAlpha.toFixed(3)})`;
-                    ctx.lineWidth = 0.9;
+                    ctx.strokeStyle = `rgba(2, 132, 199, ${lAlpha.toFixed(3)})`;
+                    ctx.lineWidth = 1;
                     ctx.stroke();
                 }
             }
 
             // Draw glowing node
-            const glowAlpha = 0.55 + Math.sin(n.phase) * 0.3;
+            const glowAlpha = 0.65 + Math.sin(n.phase) * 0.3;
             ctx.beginPath();
             ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
             ctx.fillStyle = n.color;
@@ -539,7 +539,7 @@ const TOUR_CHAPTERS_I18N = {
     'zh-TW': [
         { title: "賀華實業 · 企業簡介", script: "歡迎蒞臨賀華實業股份有限公司。賀華實業創立於 1973 年，深耕台灣近四十載。我們致力於建構全方位、彈性且強大的鋁合金材料供應鏈與精密加工一站式平台，秉持以鋁為本、服務為先的理念，是全台高科技產業最堅實的後盾。" },
         { title: "關於我們 · 沿革與願景", script: "賀華實業自 1973 年創立以來，由早期進出口貿易穩健轉型為具備龐大現貨庫存與精密裁切加工能力的綜合材料供應商。我們秉持誠信立基、整合共榮的經營理念，橫跨鋁材、不鏽鋼、鎂合金、銅材與精密加工九大營業範疇，服務涵蓋半導體、航太、醫療與機電等十一大產業，矢志讓台灣精密製造實力在世界舞台發光。" },
-        { title: "北中南服務網絡佈局", script: "為了滿足全台客戶即時調料與加工需求，賀華實業建立了綿密的北中南服務網。包括台北松山總公司、鄰近沙鹿交流道的台中物流裁切中心、以及台南佳里一廠與麻豆二廠雙廠區編制，龐大現貨與專屬車隊，提供最快速的材料調撥與配送。" },
+        { title: "北中南服務網絡佈局", script: "為了滿足全台客戶即時調料與加工需求，賀華實業建立了綿密的北中南服務網。包括台北總公司、八里倉庫、新竹廠（永旭材料）、台中一廠、台中二廠金屬分條加工中心、以及台南廠，龐大現貨儲備與專屬配送車隊，提供最快速的材料調撥與技術服務。" },
         { title: "精選旗艦鋁材介紹", script: "在材料供應方面，我們主力引進日本原裝 UACJ 5052 貼膜鋁板，其獨特壓延工藝有效降低內部殘留應力，切削後絕不翹曲；同時常備 7075 航太級超硬鋁合金、6061 結構鋁板、5083 耐蝕船用板，以及兩千、五千、六千與七千系列鋁擠型型材，現貨規格全台最齊全。" },
         { title: "現貨與模具規格檢索", script: "在現貨與模具規格方面，賀華實業為您建置了超過三千零七十項的即時檢索資料庫，完整涵蓋五百一十四項常備鋁板、圓棒與扁條現貨，以及兩千五百五十七種免開模費的鋁擠型標準斷面模具。您只需輸入材質、尺寸或模具編號，即可即時查詢並一鍵帶入詢價單。" },
         { title: "高階加工與製程實力", script: "賀華實業不僅供應材料，更具備強大的精密加工能量。廠內整合 CNC 高速銑床、精密車床、航太級五軸同動加工、大型龍門銑床、沖剪折床以及表面陽極與拋光拉絲工藝，能從 3D 繪圖開模到微米級精密加工，為您一貫化高效完成。" },
@@ -550,7 +550,7 @@ const TOUR_CHAPTERS_I18N = {
     'en': [
         { title: "HARVARD Enterprises · Corporate Overview", script: "Welcome to HARVARD Enterprises Co., Ltd. Founded in 1973 and rooted in Taiwan for nearly four decades, we are dedicated to building a comprehensive, resilient aluminum alloy supply chain and high-precision CNC machining platform. Embracing our core philosophy of alloy excellence and customer service, HARVARD is a trusted partner for aerospace, semiconductor, and advanced precision manufacturing." },
         { title: "About Us · History & Vision", script: "Since its establishment in 1973, HARVARD Enterprises has steadily evolved from international metals trading into an integrated materials supplier boasting extensive stock inventory and precision CNC machining capabilities. Guided by integrity and mutual growth, we cover nine core service domains across aluminum, stainless steel, and copper alloys, serving eleven major industrial sectors worldwide." },
-        { title: "Nationwide Logistics & Branches", script: "To promptly meet customer demands across Taiwan, HARVARD has built an expansive logistics network. This includes our Taipei Songshan Headquarters, the Taichung Logistics and Precision Cutting Center near Shalu Interchange, and our dual plants in Tainan (Jiali and Madou). With extensive stock and dedicated fleet delivery, we ensure the fastest material dispatch." },
+        { title: "Nationwide Logistics & Branches", script: "To promptly meet customer demands across Taiwan, HARVARD operates an expansive service network. This includes our Taipei Headquarters, Bali Warehouse, Hsinchu Plant (Yongsyu), Taichung Plants 1 & 2 (Coil Slitting Center), and Tainan Plant. With vast inventory and dedicated dispatch fleets, we ensure rapid material delivery." },
         { title: "Flagship Aluminum & Specialty Alloys", script: "In material supply, we specialize in genuine Japanese UACJ 5052 masked aluminum plates, renowned for low residual stress and distortion-free CNC machining. We also maintain extensive stock of 7075 aerospace-grade ultra-hard alloys, 6061 structural plates, 5083 marine corrosion-resistant plates, and a comprehensive range of custom extrusions." },
         { title: "Real-Time Stock & Mold Specs", script: "For inventory specifications, HARVARD provides a real-time database of over 3,080 items, including 514 stock plates, rods, and flat bars, alongside 2,557 standard extrusion mold profiles requiring zero tooling fees. Search by alloy, dimension, or mold number to add items directly to your RFQ inquiry." },
         { title: "High-End Precision Machining", script: "Beyond raw materials, HARVARD delivers robust manufacturing power. Our facilities integrate high-speed CNC milling, multi-axis lathes, aerospace 5-axis simultaneous machining, large gantry milling, and automated anodizing surface treatments, achieving micron-level precision from 3D drawings to final parts." },
@@ -561,7 +561,7 @@ const TOUR_CHAPTERS_I18N = {
     'ja': [
         { title: "賀華実業 · 企業概要", script: "賀華実業有限公司の音声ガイドへようこそ。1973年創立以来、台湾で40年近くの信頼と実績を築いてまいりました。私たちは総合アルミニウム材料サプライチェーンと高度精密加工の一貫体制を確立し、「アルミを原点とし、顧客第一主義」をモットーに、最先端ハイテク産業の確かなパートナーとして貢献しています。" },
         { title: "会社概要 · 沿革と将来ビジョン", script: "1973年の設立以来、賀華実業は国際貿易からスタートし、豊富な常備在庫と高精度CNC切断加工力を兼ね備えた総合材料サプライヤーへと進化しました。誠実と共栄を胸に、アルミニウム、ステンレス、銅、精密加工など9大事業を展開し、半導体・航空宇宙・医療機器など11大産業を力強くサポートしています。" },
-        { title: "台湾全域サービス物流拠点", script: "お客様の緊急な素材需要に応えるため、賀華実業は台湾全土に直営拠点を整備しています。台北本社、台中物流切断センター、そして台南二大工場を連携させ、豊富な常備在庫と自社配送トラック便により、迅速な調達と配送を実現しています。" },
+        { title: "台湾全域サービス物流拠点", script: "お客様の素材需要に応えるため、賀華実業は台湾全土に直営拠点を整備しています。台北本社、八里倉庫、新竹工場（永旭材料）、台中一工場・二工場スリッター加工センター、そして台南工場を連携させ、豊富な常備在庫と自社配送トラック便により、迅速な調達と配送を実現しています。" },
         { title: "旗艦アルミニウム材料紹介", script: "材料供給において、当社は日本原装のUACJ 5052貼合アルミ厚板を主力展開。独自の圧延技術により残留応力を極小化し、切削後の反りを防ぎます。さらに7075航空宇宙用超硬合金、6061構造用厚板、5083耐食海洋板、各種アルミ押出形材を常備しています。" },
         { title: "常備在庫・金型スペック検索", script: "在庫と金型仕様において、賀華実業は3,080件を超えるリアルタイム検索データベースを構築。514項目の常備在庫アルミ板・丸棒・平角棒と、金型代無料の2,557種類の押出型材を網羅。材質や寸法、型番を入力するだけで即座に検索し、お見積もりに追加いただけます。" },
         { title: "高度精密加工と製造技術", script: "材料の供給にとどまらず、賀華実業は高度な精密加工設備を完備。CNC高速フライス盤、精密旋盤、航空機規格の5軸マシニングセンタ、大型門型機、そして表面アルマイト処理までの一貫体制により、3D図面からミクロン単位の精密部品を高効率に仕上げます。" },
@@ -572,7 +572,7 @@ const TOUR_CHAPTERS_I18N = {
     'ko': [
         { title: "하바드실업(賀華實業) · 기업 개요", script: "하바드실업(賀華實業) 유한회사에 오신 것을 환영합니다. 1973년 설립 이래 40여 년간 대만에서 신뢰를 쌓아온 하바드실업(賀華實業)은 종합 알루미늄 소재 공급망과 초정밀 가공 플랫폼을 구축해 왔습니다. 알루미늄의 기본, 고객 최우선의 신념으로 반도체와 항공우주 등 첨단 정밀 산업의 든든한 파트너가 되겠습니다." },
         { title: "회사소개 · 연혁 및 비전", script: "1973년 설립 이래 하바드실업(賀華實業)은 비철금속 무역을 시작으로 방대한 상시 재고와 정밀 CNC 절단 가공 기술을 갖춘 종합 소재 기업으로 발전했습니다. 신뢰와 상생을 바탕으로 알루미늄, 스테인리스, 특수 동합금 및 정밀 가공 등 9대 핵심 사업을 운영하며 반도체와 항공우주를 비롯한 11대 첨단 산업에 필수 소재를 공급합니다." },
-        { title: "대만 전국 물류 거점망", script: "신속한 자재 수급과 가공 수요에 대응하기 위해 하바드실업(賀華實業)은 타이베이 본사, 타이중 물류 절단 센터, 타이난 자리 및 마두 2대 공장을 연결하는 전국 물류망을 구축했습니다. 상시 보유 재고와 전용 직영 운송 시스템으로 신속한 전국 배송을 보장합니다." },
+        { title: "대만 전국 물류 거점망", script: "신속한 자재 수급과 가공 수요에 대응하기 위해 하바드실업(賀華實業)은 타이베이 본사, 팔리 창고, 신주 공장(영욱재료), 타이중 제1·제2공장(슬리터 가공센터), 타이난 공장을 연결하는 전국 물류망을 구축했습니다. 상시 보유 재고와 전용 직영 운송 시스템으로 신속한 전국 배송을 보장합니다." },
         { title: "주요 알루미늄 소재 소개", script: "소재 공급에 있어 일본 정품 UACJ 5052 필름 알루미늄 판재를 주력으로 공급합니다. 내부 잔류 응력을 제거하여 가공 후 뒤틀림이 없으며, 7075 항공우주용 초경질 알루미늄, 6061 구조용 판재, 5083 내식 해양용 판재 및 다양한 압출 형재를 전국 최대 규모로 보유하고 있습니다." },
         { title: "실시간 재고 및 금형 규격", script: "재고 및 금형 규격 시스템을 통해 3,080개 이상의 실시간 데이터베이스를 제공합니다. 514종의 상시 보유 판재/환봉/평철 규격과 금형비가 들지 않는 2,557종의 알루미늄 압출 금형을 손쉽게 검색하여 견적서에 바로 추가할 수 있습니다." },
         { title: "초정밀 가공 및 제조 역량", script: "단순 소재 공급을 넘어 초정밀 가공 역량을 자랑합니다. 고속 CNC 밀링, 정밀 선반, 항공우주용 5축 동시 가공기, 대형 갠트리 밀링 및 아노다이징 표면처리까지 원스톱으로 연동하여 3D 도면 기반의 마이크론 단위 정밀 가공을 신속하게 완수합니다." },
@@ -1096,20 +1096,20 @@ window.getLocalizedSpeech = function(text, lang) {
         if (lang === 'ja') return "経営理念とビジョン：誠実と共栄。スマート物流倉庫と高速CNC加工機への設備投資を強化し、半導体真空チャンバーや航空宇宙専用合金のラインナップを拡充。持続可能なリサイクル供給体制を推進します。";
         if (lang === 'ko') return "경영 이념 및 비전: 신뢰 기반과 동반 성장. 스마트 물류 창고와 초고속 CNC 가공 장비 투자를 확대하여 반도체 및 항공우주 전용 합금을 공급하고 지속 가능한 친환경 순환 공급망을 구축합니다.";
     }
-    if (text.includes('台北總公司') || text.includes('台北市松山區')) {
-        if (lang === 'en') return "Taipei Headquarters: International trade hub, import and export customs clearance, and northern administrative center. Telephone: +886-2-2718-3134.";
-        if (lang === 'ja') return "台北本社：国際貿易ハブ、輸出入通関および北部営業管理センター。電話番号：(02) 2718-3134。";
-        if (lang === 'ko') return "타이베이 본사: 국제 무역 허브, 수출입 통관 및 북부 영업 관리 센터. 전화: (02) 2718-3134.";
+    if (text.includes('台北總公司') || text.includes('中山北路')) {
+        if (lang === 'en') return "Taipei Headquarters: Mutual Building, Zhongshan N. Rd., orchestrating nationwide trade, imports, exports, and executive management. Phone: +886-2-2542-4323.";
+        if (lang === 'ja') return "台北本社：中山北路互助ビル。全台湾の貿易、輸出入業務、営業管理を統括。電話番号：(02) 2542-4323。";
+        if (lang === 'ko') return "타이베이 본사: 중산북로 호조빌딩, 대만 전역 무역, 수출입 업무 및 행정 총괄. 전화: (02) 2542-4323.";
     }
-    if (text.includes('台中物流中心') || text.includes('台中廠')) {
-        if (lang === 'en') return "Taichung Logistics Center: Located near National Highway 1, maintaining extensive inventory of alloy plates, rods, and pipes with large-scale precision sawing. Telephone: +886-4-2258-4931.";
-        if (lang === 'ja') return "台中物流センター：国道1号に隣接し、常備在庫の厚板・棒・パイプと大径精密切断加工を完備。電話番号：(04) 2258-4931。";
-        if (lang === 'ko') return "타이중 물류센터: 국도 1호선 인근, 판재/환봉/파이프 상시 보유 및 대형 정밀 절단 설비 완비. 전화: (04) 2258-4931.";
+    if (text.includes('台中') || text.includes('台中一廠') || text.includes('台中二廠')) {
+        if (lang === 'en') return "Taichung Plants 1 & 2 (Coil Slitting Center): Located in Taichung Industrial Park, equipped with high-precision coil slitting machines and extensive aluminum alloy stock. Phone: +886-4-2350-8800.";
+        if (lang === 'ja') return "台中一工場・二工場（スリッター加工センター）：台中工業区に位置し、高精度金属スリッター設備と豊富なアルミ厚板在庫を完備。電話番号：(04) 2350-8800。";
+        if (lang === 'ko') return "타이중 제1·제2공장 (슬리터 가공센터): 타이중 공업구 소재, 고정밀 코일 슬리터 가공 라인 및 알루미늄 원자재 대규모 비축. 전화: (04) 2350-8800.";
     }
-    if (text.includes('佳里') || text.includes('麻豆') || text.includes('台南')) {
-        if (lang === 'en') return "Tainan Logistics and Manufacturing Plants (Jiali and Madou): Deeply rooted in southern Taiwan's semiconductor corridor, equipped with automated cutting equipment and spacious storage. Telephone: +886-6-726-3666.";
-        if (lang === 'ja') return "台南物流・二大工場（佳里・麻豆）：南部半導体・先端産業クラスターに密着し、最新自動化設備と広大な倉庫を配備。電話番号：(06) 726-3666。";
-        if (lang === 'ko') return "타이난 물류 및 제조 거점 (자리/마두 2대 공장): 남부 반도체 및 첨단 기술 산업단지 지원, 최신 자동화 절단 설비와 대규모 물류 창고 보유. 전화: (06) 726-3666.";
+    if (text.includes('台南') || text.includes('仁德')) {
+        if (lang === 'en') return "Tainan Plant (Rende District): Dedicated facility in Rende District serving southern high-tech and industrial manufacturing clusters. Phone: +886-6-270-2885.";
+        if (lang === 'ja') return "台南工場（仁徳区）：仁徳区に直営工場を構え、南部先端産業クラスターに迅速な材料供給と技術サポートを提供。電話番号：(06) 270-2885。";
+        if (lang === 'ko') return "타이난 공장 (런더구): 런더구 직영 거점을 통해 남부 첨단 산업단지에 신속한 자재 공급 및 현장 기술 지원 제공. 전화: (06) 270-2885.";
     }
     if (text.includes('UACJ') || text.includes('5052') || text.includes('貼膜')) {
         if (lang === 'en') return "Genuine Japanese UACJ 5052 masked aluminum plates: Minimized residual stress through unique rolling process, preventing warpage after extensive CNC milling. Designed for semiconductor vacuum chambers and optoelectronics.";
@@ -1552,7 +1552,7 @@ function initSpecsExplorer() {
     }
 
     // Re-render specs table and category select when language switches
-    window.addEventListener('fapo-language-changed', (e) => {
+    window.addEventListener('harvard-language-changed', (e) => {
         const lang = e.detail ? e.detail.lang : (window.getCurrentLanguage ? window.getCurrentLanguage() : 'zh-TW');
         updateSpecsCatSelectOptions(lang);
         fetchSpecs(currentPage);
@@ -3059,7 +3059,7 @@ function initButtonRipple() {
 }
 
 // Multi-Language Dynamic Dock Voice Adaptation
-window.addEventListener('fapo-language-changed', (e) => {
+window.addEventListener('harvard-language-changed', (e) => {
     const lang = (e.detail && e.detail.lang) || 'zh-TW';
     const voiceSelect = document.getElementById('dockVoiceSelect');
     if (!voiceSelect) return;

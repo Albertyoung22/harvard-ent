@@ -402,11 +402,11 @@ def process_ai_chat(message, inventory_data, lang='zh-TW'):
 
     if not msg or low in ["hello", "hi", "hey", "help", "你好", "您好", "哈囉", "嗨", "こんにちは", "안녕", "안녕하세요"]:
         if is_en:
-            return {"reply": "Hello! I am the **FAPO AI Engineering Assistant**. Would you like to check current stock specifications, get alloy recommendations, or calculate 1D cutting stock optimization?", "specs": [], "cutting_plan": None}
+            return {"reply": "Hello! I am the **Harvard Enterprises AI Engineering Assistant**. Would you like to check current stock specifications, get alloy recommendations, or calculate 1D cutting stock optimization?", "specs": [], "cutting_plan": None}
         elif is_ja:
-            return {"reply": "こんにちは！**法宝実業 AI 営業技術アシスタント**です。在庫規格の検索、材料選定のご相談、または定寸切断の最適化計算をご案内いたします。", "specs": [], "cutting_plan": None}
+            return {"reply": "こんにちは！**賀華実業（HARVARD）AI 営業技術アシスタント**です。在庫規格の検索、材料選定のご相談、または定寸切断の最適化計算をご案内いたします。", "specs": [], "cutting_plan": None}
         elif is_ko:
-            return {"reply": "안녕하십니까! **법보실업 AI 엔지니어링 챗봇**입니다. 재고 규격 검색, 소재 추천, 또는 모재 절단 최적화 계산을 도와드릴까요?", "specs": [], "cutting_plan": None}
+            return {"reply": "안녕하십니까! **하버드실업(HARVARD) AI 엔지니어링 챗봇**입니다. 재고 규격 검색, 소재 추천, 또는 모재 절단 최적화 계산을 도와드릴까요?", "specs": [], "cutting_plan": None}
         return {
             "reply": "您好！我是 **賀華實業 AI 智能工程客服**。請問今天需要查詢現貨規格、鋁合金選料建議，還是進行母材定寸裁切下料最佳化計算呢？",
             "specs": [],
@@ -527,7 +527,7 @@ def process_ai_chat(message, inventory_data, lang='zh-TW'):
                 f"• **Key Advantage**: {prim['desc']}\n"
                 f"• **Performance**: Strength `{prim['strength']}` ｜ Corrosion `{prim['corrosion']}` ｜ Machinability `{prim['machinability']}` ｜ Anodizing `{prim['anodizing']}`\n\n"
                 f"💡 **Secondary Alternatives**: `{alts[0]['alloy']}`, `{alts[1]['alloy']}`\n"
-                f"Real-time stock specs from FAPO have been retrieved below for quick quotation:"
+                f"Real-time stock specs from Harvard Enterprises have been retrieved below for quick quotation:"
             )
             voice_script = f"Our top recommended alloy is {prim['alloy']}. Matching stock inventory is listed below."
         elif is_ja:
@@ -547,7 +547,7 @@ def process_ai_chat(message, inventory_data, lang='zh-TW'):
                 f"• **핵심 장점**：{prim['desc']}\n"
                 f"• **성능 지표**：강도 점수 `{prim['strength']}` ｜ 내식성 `{prim['corrosion']}` ｜ 절삭성 `{prim['machinability']}` ｜ 아노다이징 `{prim['anodizing']}`\n\n"
                 f"💡 **대체 후보 합금**：`{alts[0]['alloy']}`、`{alts[1]['alloy']}`\n"
-                f"법보실업 보유 실시간 재고 규격을 아래에 연동했습니다. 바로 견적에 추가하실 수 있습니다："
+                f"하버드실업 보유 실시간 재고 규격을 아래에 연동했습니다. 바로 견적에 추가하실 수 있습니다："
             )
             voice_script = f"가장 추천하는 합금은 {prim['alloy']}입니다. 아래에서 보유 재고를 확인해 보세요."
         else:
@@ -572,43 +572,55 @@ def process_ai_chat(message, inventory_data, lang='zh-TW'):
         }
 
     # 3. Check if user asks about company branch / contact / delivery / mill certificate
-    if any(k in low for k in ["據點", "電話", "地址", "台北", "台中", "台南", "聯絡", "配送", "送貨", "材質證明", "檢驗", "rohs", "branch", "taipei", "phone", "address", "mtr", "cert", "拠点", "ミルシート", "전화", "주소", "밀시트"]):
+    if any(k in low for k in ["據點", "電話", "地址", "台北", "八里", "新竹", "台中", "台南", "聯絡", "配送", "送貨", "材質證明", "檢驗", "rohs", "branch", "taipei", "phone", "address", "mtr", "cert", "拠点", "ミルシート", "전화", "주소", "밀시트"]):
         if is_en:
             reply = (
-                "📍 **Harvard Enterprises Logistics Hubs & Quality Certifications**:\n\n"
-                "• **Taipei Headquarters**: 3F-5, No. 136, Sec. 3, Minquan E. Rd., Taipei ｜ ☎️ `+886-2-2718-3134`\n"
-                "• **Taichung Logistics**: No. 167, Ln. 5, Sec. 4, Taiwan Blvd., Taichung ｜ ☎️ `+886-4-2258-4931`\n"
-                "• **Tainan Dual Plants**: No. 30, Ln. 70, Sec. 3, Majia Rd., Tainan ｜ ☎️ `+886-6-726-3666`\n\n"
-                "✅ **Certified Quality Assurance**: Original Mill Test Sheets (MTR), RoHS 2.0, and REACH SVHC conformity declarations are supplied with all shipments."
+                "📍 **Harvard Enterprises Nationwide Hubs & Service Network**:\n\n"
+                "• **Taipei Headquarters**: 11F-1, No. 27, Sec. 1, Zhongshan N. Rd., Taipei (Mutual Building) ｜ ☎️ `+886-2-2542-4323`\n"
+                "• **Taipei Plant / Bali Warehouse**: No. 201-28, Sec. 2, Zhonghua Rd., Bali Dist., New Taipei City ｜ ☎️ `+886-2-8630-2258`\n"
+                "• **Hsinchu Plant (Yongsyu)**: No. 56, Zhonghe St., Zhubei City, Hsinchu County ｜ ☎️ `+886-3-656-9699`\n"
+                "• **Taichung Plant 1**: No. 5, Industrial 23rd Rd., Nantun Dist., Taichung City ｜ ☎️ `+886-4-2350-8800`\n"
+                "• **Taichung Plant 2 (Slitting Center)**: No. 3, Industrial 23rd Rd., Nantun Dist., Taichung City ｜ ☎️ `+886-4-2355-8855`\n"
+                "• **Tainan Plant**: No. 58, Zhongyi 1st St., Rende Dist., Tainan City ｜ ☎️ `+886-6-270-2885`\n\n"
+                "✅ **Certified Quality Assurance**: Original Mill Test Sheets (MTR), RoHS 2.0, and REACH conformity declarations are supplied with all shipments."
             )
-            voice_script = "FAPO operates logistics hubs in Taipei, Taichung, and Tainan with dedicated delivery fleets and certified mill sheets."
+            voice_script = "Harvard Enterprises operates direct offices and plants in Taipei, Bali, Hsinchu, Taichung, and Tainan with dedicated delivery fleets and certified mill sheets."
         elif is_ja:
             reply = (
-                "📍 **法宝実業 台湾3大物流拠点と品質保証体制**：\n\n"
-                "• **台北本社**：台北市松山区民権東路三段136号3階之5 ｜ ☎️ `+886-2-2718-3134`\n"
-                "• **台中物流センター**：台中市西屯区台湾大道四段五巷167号 ｜ ☎️ `+886-4-2258-4931`\n"
-                "• **台南二大工場**：台南市佳里区麻佳路三段70巷30号 ｜ ☎️ `+886-6-726-3666`\n\n"
-                "✅ **品質保証と検査証明書**：全出荷材に対して原廠ミルシート（MTR）、RoHS 2.0 / REACH 国際環境基準の適合証明を発行いたします。"
+                "📍 **賀華実業（HARVARD）全台湾6大直営拠点とサービス網**：\n\n"
+                "• **台北本社**：台北市中山区中山北路一段27号11階之1（互助ビル） ｜ ☎️ `+886-2-2542-4323`\n"
+                "• **台北工場／八里倉庫**：新北市八里区中華路二段201-28号 ｜ ☎️ `+886-2-8630-2258`\n"
+                "• **新竹工場（永旭材料）**：新竹県竹北市中和街56号 ｜ ☎️ `+886-3-656-9699`\n"
+                "• **台中一工場**：台中市南屯区工業区二十三路5号 ｜ ☎️ `+886-4-2350-8800`\n"
+                "• **台中二工場（スリッター加工センター）**：台中市南屯区工業区二十三路3号 ｜ ☎️ `+886-4-2355-8855`\n"
+                "• **台南工場**：台南市仁徳区忠義一街58号 ｜ ☎️ `+886-6-270-2885`\n\n"
+                "✅ **品質保証と検査証明書**：全出荷材に対して原廠ミルシート（MTR）、RoHS / REACH 国際環境基準の適合証明を発行いたします。"
             )
-            voice_script = "法宝実業は台北、台中、台南に直営拠点を構え、全品に原廠ミルシートと環境証明書を添付しております。"
+            voice_script = "賀華実業は台北、八里、新竹、台中、台南に直営拠点を構え、全品に原廠ミルシートと環境証明書を添付しております。"
         elif is_ko:
             reply = (
-                "📍 **법보실업 전국 3대 직영 물류 거점 및 품질 보증**：\n\n"
-                "• **타이베이 본사**：타이베이시 쑹산구 민취안동로 3단 136호 3층의 5 ｜ ☎️ `+886-2-2718-3134`\n"
-                "• **타이중 물류센터**：타이중시 시툰구 대만대로 4단 5항 167호 ｜ ☎️ `+886-4-2258-4931`\n"
-                "• **타이난 2대 공장**：타이난시 자리구 마자리 3단 70항 30호 ｜ ☎️ `+886-6-726-3666`\n\n"
-                "✅ **품질 검사 및 인증서 제공**：모든 출하 소재에 대해 정품 밀시트(MTR) 및 RoHS 2.0, REACH 환경 인증서가 동봉됩니다."
+                "📍 **하버드실업(HARVARD) 전국 6대 직영 거점 및 서비스 네트워크**：\n\n"
+                "• **타이베이 본사**：타이베이시 중산구 중산북로 1단 27호 11층의 1 (호조빌딩) ｜ ☎️ `+886-2-2542-4323`\n"
+                "• **타이베이 공장 / 팔리 창고**：신베이시 팔리구 중화로 2단 201-28호 ｜ ☎️ `+886-2-8630-2258`\n"
+                "• **신주 공장 (영욱재료)**：신주현 주베이시 중화가 56호 ｜ ☎️ `+886-3-656-9699`\n"
+                "• **타이중 제1공장**：타이중시 난툰구 공업구 23로 5호 ｜ ☎️ `+886-4-2350-8800`\n"
+                "• **타이중 제2공장 (슬리터 가공센터)**：타이중시 난툰구 공업구 23로 3호 ｜ ☎️ `+886-4-2355-8855`\n"
+                "• **타이난 공장**：타이난시 런더구 중의1가 58호 ｜ ☎️ `+886-6-270-2885`\n\n"
+                "✅ **품질 검사 및 인증서 제공**：모든 출하 소재에 대해 정품 밀시트(MTR) 및 RoHS, REACH 환경 인증서가 동봉됩니다."
             )
-            voice_script = "법보실업은 타이베이, 타이중, 타이난 거점을 통해 정품 밀시트와 함께 신속한 전국 배송을 제공합니다."
+            voice_script = "하버드실업은 타이베이, 팔리, 신주, 타이중, 타이난 거점을 통해 정품 밀시트와 함께 신속한 전국 배송을 제공합니다."
         else:
             reply = (
-                "📍 **賀華實業全台三大直營樞紐與品質保證**：\n\n"
-                "• **台北總公司**：台北市松山區民權東路三段136號3樓之5 ｜ ☎️ `(02) 2718-3134`\n"
-                "• **台中物流中心**：台中市西屯區台灣大道四段五巷167及167-1號 ｜ ☎️ `(04) 2258-4931`\n"
-                "• **台南雙廠區**：台南市佳里區麻佳路三段70巷30號 ｜ ☎️ `(06) 726-3666`\n\n"
+                "📍 **賀華實業全台直營樞紐與服務據點（官方真實資料）**：\n\n"
+                "• **台北總公司**：104 台北市中山區中山北路一段27號11樓之1（互助大樓） ｜ ☎️ `(02) 2542-4323`\n"
+                "• **台北廠／八里倉庫**：249 新北市八里區中華路二段201-28號 ｜ ☎️ `(02) 8630-2258`\n"
+                "• **新竹廠（永旭材料）**：302 新竹縣竹北市中和街56號 ｜ ☎️ `(03) 656-9699`\n"
+                "• **台中一廠**：408 台中市南屯區工業區二十三路5號 ｜ ☎️ `(04) 2350-8800`\n"
+                "• **台中二廠（分條加工中心）**：408 台中市南屯區工業區二十三路3號 ｜ ☎️ `(04) 2355-8855`\n"
+                "• **台南廠**：717 台南市仁德區忠義一街58號 ｜ ☎️ `(06) 270-2885`\n\n"
                 "✅ **隨貨檢附證明**：每批出廠鋁材皆可提供原廠材質證明書（Mill Sheet / MTR）、RoHS / REACH 國際無毒環保檢驗報告。"
             )
-            voice_script = "賀華實業在台北、台中、台南皆設有直營倉儲發貨中心，全台專車配送。每批出廠鋁材均可檢附原廠材質分析證明單及環保認證！"
+            voice_script = "賀華實業在台北、八里、新竹、台中及台南皆設有直營廠區與分條加工中心，全台專車配送。每批出廠鋁材均可檢附原廠材質分析證明單及環保認證！"
 
         return {"reply": reply, "specs": [], "cutting_plan": None, "voice_script": voice_script}
 
@@ -650,7 +662,7 @@ def process_ai_chat(message, inventory_data, lang='zh-TW'):
     if is_en:
         return {
             "reply": (
-                "Hello! I am the FAPO AI Engineering Assistant. You can try asking:\n"
+                "Hello! I am the Harvard Enterprises AI Engineering Assistant. You can try asking:\n"
                 "1️⃣ **Stock & Mold Specs**: \"`6061 Round Bar Dia 50mm`\", \"`7075 Plate Thk 20mm`\", \"`Flat Bar`\"\n"
                 "2️⃣ **Cutting Stock Optimizer**: \"`Raw stock 3000mm cut 800*3, 550*4, 420*5`\" or open the **\"🧮 Cutting Stock Optimizer\"** tab\n"
                 "3️⃣ **Alloy Advice**: \"`Recommend aluminum for hard anodizing & aerospace`\""
@@ -661,7 +673,7 @@ def process_ai_chat(message, inventory_data, lang='zh-TW'):
     elif is_ja:
         return {
             "reply": (
-                "こんにちは！法宝実業 AI 営業技術アシスタントです。以下のようなご質問にお答えできます：\n"
+                "こんにちは！賀華実業（HARVARD）AI 営業技術アシスタントです。以下のようなご質問にお答えできます：\n"
                 "1️⃣ **在庫・金型検索**：「`6061 丸棒 直径 50mm`」、「`7075 アルミ板 厚さ 20mm`」\n"
                 "2️⃣ **定寸切断最適化**：「`母材 3000mm 切断 800*3, 550*4, 420*5`」または上部の **「🧮 定寸切断最適化」** タブ\n"
                 "3️⃣ **合金選定相談**：「`硬質アルマイトと高強度に適したアルミ材`」"
@@ -672,7 +684,7 @@ def process_ai_chat(message, inventory_data, lang='zh-TW'):
     elif is_ko:
         return {
             "reply": (
-                "안녕하십니까! 법보실업 AI 엔지니어링 챗봇입니다. 다음과 같이 질문해 보세요：\n"
+                "안녕하십니까! 하버드실업(HARVARD) AI 엔지니어링 챗봇입니다. 다음과 같이 질문해 보세요：\n"
                 "1️⃣ **재고/금형 검색**：「`6061 환봉 직경 50mm`」、「`7075 알루미늄 판재 20mm`」\n"
                 "2️⃣ **모재 절단 최적화**：「`원자재 3000mm 절단 800*3, 550*4, 420*5`」 또는 상단 **「🧮 절단 최적화」** 탭\n"
                 "3️⃣ **합금 소재 추천**：「`하드 아노다이징 및 고강도에 적합한 알루미늄`」"

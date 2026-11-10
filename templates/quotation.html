@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="quote.title">產品需求估價單 - 賀華實業股份有限公司 HARVARD ENTERPRISES</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img_crawled/favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img_crawled/fapo_logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo_brand.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -350,17 +350,17 @@
         <!-- Header -->
         <header class="sheet-header">
             <div class="brand-logo-wrap">
-                <img src="{{ url_for('static', filename='img_crawled/fapo_logo.png') }}" alt="賀華實業 Logo" class="brand-logo" onerror="this.style.display='none'">
+                <img src="{{ url_for('static', filename='images/logo_brand_navy.png') }}" alt="賀華實業 Logo" class="brand-logo" onerror="this.style.display='none'" style="max-height: 48px; width: auto;">
                 <div>
                     <h1 class="brand-title">賀華實業股份有限公司</h1>
                     <div class="brand-en">HARVARD ENTERPRISES INC.</div>
                 </div>
             </div>
             <div class="company-meta">
-                <div>統一編號：23891042</div>
-                <div>服務據點：台北總部 · 龜山倉儲中心 · 台中機械廠 · 台南物流</div>
-                <div>電話：(02) 2992-8888 · 傳真：(02) 2992-8899</div>
-                <div>網址：https://fapolu.com · Email：service@fapolu.com</div>
+                <div>設立年份：1973年 · 資本額：壹億元</div>
+                <div>服務據點：台北總公司 · 八里倉庫 · 新竹廠(永旭材料) · 台中一二廠 · 台南廠</div>
+                <div>電話：(02) 2542-4323 · 傳真：(02) 2536-1945</div>
+                <div>網址：https://www.harvard-ent.com.tw · Email：judy@harvard-ent.com.tw</div>
             </div>
         </header>
 
@@ -503,7 +503,7 @@
                 <div class="stamp-mark">
                     <span>賀華實業</span>
                     <span style="font-size:8px;">★ 專用章 ★</span>
-                    <span style="font-size:7px;">FAPO ENT.</span>
+                    <span style="font-size:7px;">HARVARD ENT.</span>
                 </div>
             </div>
 
@@ -535,7 +535,7 @@
             var sel = document.getElementById('quoteLangSelect');
             if (sel) sel.value = curLang;
         });
-        window.addEventListener('fapo-language-changed', function(e) {
+        window.addEventListener('harvard-language-changed', function(e) {
             var sel = document.getElementById('quoteLangSelect');
             if (sel) sel.value = e.detail.language;
         });

@@ -189,7 +189,7 @@ def get_github_config():
 def _github_api_request(url, method='GET', token='', payload=None, timeout=20):
     headers = {
         'Accept': 'application/vnd.github+json',
-        'User-Agent': 'FAPO-Enterprise-GitHubSync/1.0',
+        'User-Agent': 'HARVARD-Enterprise-GitHubSync/1.0',
         'X-GitHub-Api-Version': '2022-11-28'
     }
     if token:
@@ -474,7 +474,7 @@ def _push_to_google_sheets_async(action, payload):
             req = urllib.request.Request(
                 url,
                 data=body,
-                headers={'Content-Type': 'application/json; charset=utf-8', 'User-Agent': 'FAPO-CloudSync/1.0'},
+                headers={'Content-Type': 'application/json; charset=utf-8', 'User-Agent': 'HARVARD-CloudSync/1.0'},
                 method='POST'
             )
             with urllib.request.urlopen(req, timeout=15) as resp:
@@ -503,7 +503,7 @@ def sync_all_to_google_sheets(custom_url=None):
     req = urllib.request.Request(
         url,
         data=body,
-        headers={'Content-Type': 'application/json; charset=utf-8', 'User-Agent': 'FAPO-CloudSync/1.0'},
+        headers={'Content-Type': 'application/json; charset=utf-8', 'User-Agent': 'HARVARD-CloudSync/1.0'},
         method='POST'
     )
     with urllib.request.urlopen(req, timeout=20) as resp:
@@ -535,7 +535,7 @@ def restore_inquiries_from_google_sheets(custom_url=None):
         fetch_url = f"{url}{sep}action=list_inquiries"
         req = urllib.request.Request(
             fetch_url,
-            headers={'User-Agent': 'FAPO-CloudSync/1.0'},
+            headers={'User-Agent': 'HARVARD-CloudSync/1.0'},
             method='GET'
         )
         with urllib.request.urlopen(req, timeout=15) as resp:

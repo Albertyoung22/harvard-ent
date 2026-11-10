@@ -6,4 +6,15 @@ echo   🖥️ 正在啟動 賀華實業 HARVARD ENTERPRISES 智慧科技桌面�
 echo   ⚡ 核心：Windows WebView2 + Waitress + Flask + OR-Tools CP-SAT + Edge-TTS
 echo =====================================================================
 echo.
-python desktop_app.py
+
+set "PY_EXE=C:\Users\USER\AppData\Local\Programs\Python\Python313\python.exe"
+if not exist "%PY_EXE%" (
+    py -3.13 --version >nul 2>&1 && (
+        set "PY_EXE=py -3.13"
+    ) || (
+        set "PY_EXE=python"
+    )
+)
+
+%PY_EXE% desktop_app.py
+pause

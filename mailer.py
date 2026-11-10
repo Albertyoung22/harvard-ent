@@ -52,7 +52,7 @@ def get_admin_password():
     if env_pwd:
         return env_pwd
     local_cfg = load_local_config()
-    return str(local_cfg.get('admin_password', '')).strip() or 'fapolu8888'
+    return str(local_cfg.get('admin_password', '')).strip() or 'harvard8888'
 
 
 def get_smtp_config():

@@ -173,7 +173,7 @@ def main():
         min_size=(1024, 680),
         text_select=True,
         confirm_close=False,
-        background_color='#040914'
+        background_color='#ffffff'
     )
 
     def on_window_ready():
@@ -232,8 +232,8 @@ def main():
     threading.Thread(target=icon_enforcer, daemon=True).start()
 
     print("  🚀 正在開啟桌面視窗...")
-    # gui='edgechromium' uses Microsoft Edge Chromium runtime on Windows with custom icon
-    webview.start(gui='edgechromium', debug=False, icon=icon_ico_path)
+    # gui='edgechromium' uses Microsoft Edge Chromium runtime on Windows
+    webview.start(gui='edgechromium', debug=False)
     print("  桌面視窗已關閉，感謝使用！")
 
 if __name__ == '__main__':

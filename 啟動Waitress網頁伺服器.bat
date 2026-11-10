@@ -1,11 +1,21 @@
 @echo off
 chcp 65001 >nul
-title 賀華實業股份有限公司 - Flask + Waitress + OR-Tools CP-SAT 伺服器
-cd /d "%~dp0"
-echo ============================================================================
-echo  正在啟動 賀華實業股份有限公司 Flask + Waitress 網頁伺服器 (Port 8080)...
-echo ============================================================================
-start "" "http://127.0.0.1:8080"
-python app.py
-pause
+title 賀華實業股份有限公司 - 智慧科技互動官方網站 (Waitress + Flask + CP-SAT)
+echo =====================================================================
+echo   🚀 正在啟動 賀華實業 HARVARD ENTERPRISES 智慧科技互動伺服器...
+echo   ⚡ 架構：Waitress (多執行緒生產伺服器) + Flask + OR-Tools CP-SAT + Edge-TTS
+echo   🌐 瀏覽器請造訪：http://localhost:5000
+echo =====================================================================
+echo.
 
+set "PY_EXE=C:\Users\USER\AppData\Local\Programs\Python\Python313\python.exe"
+if not exist "%PY_EXE%" (
+    py -3.13 --version >nul 2>&1 && (
+        set "PY_EXE=py -3.13"
+    ) || (
+        set "PY_EXE=python"
+    )
+)
+
+%PY_EXE% run.py
+pause

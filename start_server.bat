@@ -7,5 +7,15 @@ echo   ⚡ 架構：Waitress (多執行緒生產伺服器) + Flask + OR-Tools CP
 echo   🌐 瀏覽器請造訪：http://localhost:5000
 echo =====================================================================
 echo.
-python run.py
+
+set "PY_EXE=C:\Users\USER\AppData\Local\Programs\Python\Python313\python.exe"
+if not exist "%PY_EXE%" (
+    py -3.13 --version >nul 2>&1 && (
+        set "PY_EXE=py -3.13"
+    ) || (
+        set "PY_EXE=python"
+    )
+)
+
+%PY_EXE% run.py
 pause

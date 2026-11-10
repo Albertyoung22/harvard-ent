@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>賀華實業股份有限公司 | 詢價單管理後台 (RFQ Admin CRM)</title>
     <link rel="icon" type="image/png" href="/static/img_crawled/favicon.png?v=11.0">
-    <link rel="apple-touch-icon" href="/static/img_crawled/fapo_logo.png?v=11.0">
+    <link rel="apple-touch-icon" href="/images/logo_brand.png">
     <!-- PWA Web App Manifest -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#c99b3b">
@@ -640,13 +640,9 @@
     <div class="login-wrap">
         <div class="login-card">
             <div class="brand-row">
-                <span class="logo-emblem-fx">
-                    <span class="logo-halo-ring" aria-hidden="true"></span>
-                    <span class="logo-shine-mask">
-                        <img src="/static/img_crawled/fapo_logo.png?v=10.0" alt="賀華實業 LOGO" class="logo-img">
-                    </span>
-                    <span class="logo-glint-star" aria-hidden="true">✦</span>
-                </span>
+                <div style="display:flex; align-items:center;">
+                    <img src="/images/logo_brand_navy.png" alt="賀華實業 LOGO" style="height:38px; width:auto; max-width:180px; object-fit:contain;">
+                </div>
                 <div>
                     <h2 style="font-size: 1.2rem; font-weight: 800;">賀華實業 · 詢價管理後台</h2>
                     <p style="font-size: 0.78rem; color: var(--text-muted);">HARVARD ENTERPRISES RFQ ADMIN</p>
@@ -710,13 +706,9 @@
          ===================================================================== -->
     <header class="topbar">
         <div class="brand-row" style="margin-bottom: 0;">
-            <span class="logo-emblem-fx">
-                <span class="logo-halo-ring" aria-hidden="true"></span>
-                <span class="logo-shine-mask">
-                    <img src="/static/img_crawled/fapo_logo.png?v=10.0" alt="賀華實業 LOGO" class="logo-img">
-                </span>
-                <span class="logo-glint-star" aria-hidden="true">✦</span>
-            </span>
+            <div style="display:flex; align-items:center;">
+                <img src="/images/logo_brand_navy.png" alt="賀華實業 LOGO" style="height:36px; width:auto; max-width:180px; object-fit:contain;">
+            </div>
             <div>
                 <h1 style="font-size: 1.1rem; font-weight: 800;">賀華實業 · 客戶詢價管理後台</h1>
                 <p style="font-size: 0.76rem; color: var(--text-muted);">北中南業務報價追蹤與 Email 即時通知中心</p>
@@ -969,9 +961,12 @@
                     <label for="mBranch">指派負責廠區據點</label>
                     <select id="mBranch" class="input-control">
                         <option value="未指派">未指派</option>
-                        <option value="台北總公司">🏢 台北總公司</option>
-                        <option value="台中廠">🏭 台中廠 (沙鹿物流裁切)</option>
-                        <option value="台南雙廠區">🏭 台南雙廠區 (佳里/麻豆)</option>
+                        <option value="台北總公司">🏢 台北總公司 (中山北路)</option>
+                        <option value="台北八里倉庫">🏭 台北八里倉庫</option>
+                        <option value="新竹永旭材料">🏭 新竹廠 (永旭材料)</option>
+                        <option value="台中一廠">🏭 台中一廠 (工業區23路5號)</option>
+                        <option value="台中二廠分條中心">🏭 台中二廠 (分條加工中心)</option>
+                        <option value="台南廠">🏭 台南廠 (仁德忠義一街)</option>
                     </select>
                 </div>
                 <div class="form-group full" style="grid-column: 1 / -1; margin-bottom: 6px;">
@@ -1077,7 +1072,7 @@
                         🐙 最推薦：自動存回您的 GitHub 儲存庫（免辦新帳號 · 獨立 <code>cloud-backup</code> 分支不衝突）
                     </div>
                     <div style="font-size:0.8rem; color:var(--text-dim); margin-bottom:10px; line-height:1.5;">
-                        系統已自動綁定您的專案 <code>Albertyoung22/harvard-ent</code>。只需前往 <a href="https://github.com/settings/tokens/new?description=Fapolu-Render-Cloud-Backup&scopes=repo" target="_blank" style="color:#a62c22;font-weight:800;text-decoration:underline;">🔗 點此一鍵產生 GitHub Token (勾選 repo 權限)</a>，將產生的 <code>ghp_...</code> 金鑰貼入下方（或設於 Render 環境變數 <code>GITHUB_TOKEN</code>），客戶留單與上傳圖檔就會自動備份回 GitHub，Render 休眠或重新上傳時也會自動從 GitHub 100% 還原！
+                        系統已自動綁定您的專案 <code>Albertyoung22/harvard-ent</code>。只需前往 <a href="https://github.com/settings/tokens/new?description=Harvard-Render-Cloud-Backup&scopes=repo" target="_blank" style="color:#0284c7;font-weight:800;text-decoration:underline;">🔗 點此一鍵產生 GitHub Token (勾選 repo 權限)</a>，將產生的 <code>ghp_...</code> 金鑰貼入下方（或設於 Render 環境變數 <code>GITHUB_TOKEN</code>），客戶留單與上傳圖檔就會自動備份回 GitHub，Render 休眠或重新上傳時也會自動從 GitHub 100% 還原！
                     </div>
                     <div class="detail-grid" style="margin-bottom:8px; gap:10px;">
                         <div class="form-group" style="margin-bottom:0;">
