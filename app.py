@@ -461,6 +461,16 @@ def api_tts():
         rate = '+0%'
         pitch = '+0Hz'
         speak_text = clean_text
+    elif voice_key in ('zh-CN', 'zh-Hans', 'zh-CN-XiaoxiaoNeural', 'zh-female'):
+        actual_voice = 'zh-CN-XiaoxiaoNeural'
+        rate = '+0%'
+        pitch = '+0Hz'
+        speak_text = clean_text
+    elif voice_key in ('zh-CN-male', 'zh-CN-YunjianNeural'):
+        actual_voice = 'zh-CN-YunjianNeural'
+        rate = '+0%'
+        pitch = '+0Hz'
+        speak_text = clean_text
     elif voice_key in ('zen-male', 'zh-TW-YunJheNeural'):
         actual_voice = 'zh-TW-YunJheNeural'
         rate = '-18%'

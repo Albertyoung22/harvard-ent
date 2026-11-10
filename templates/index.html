@@ -197,6 +197,9 @@
                         <li role="option" data-lang="zh-TW" class="lang-opt active" onclick="switchLanguage('zh-TW')">
                             <span>🇹🇼</span> 繁體中文
                         </li>
+                        <li role="option" data-lang="zh-CN" class="lang-opt" onclick="switchLanguage('zh-CN')">
+                            <span>🇨🇳</span> 简体中文
+                        </li>
                         <li role="option" data-lang="en" class="lang-opt" onclick="switchLanguage('en')">
                             <span>🇺🇸</span> English
                         </li>
@@ -227,6 +230,8 @@
             <div class="mobile-lang-strip">
                 <button type="button" class="mobile-lang-btn active" data-lang="zh-TW"
                     onclick="switchLanguage('zh-TW')">🇹🇼 繁中</button>
+                <button type="button" class="mobile-lang-btn" data-lang="zh-CN"
+                    onclick="switchLanguage('zh-CN')">🇨🇳 简中</button>
                 <button type="button" class="mobile-lang-btn" data-lang="en" onclick="switchLanguage('en')">🇺🇸
                     EN</button>
                 <button type="button" class="mobile-lang-btn" data-lang="ja" onclick="switchLanguage('ja')">🇯🇵
@@ -2778,9 +2783,9 @@
         window.ALL_PAGES_META = {{ (all_pages_meta or { }) | tojson }};
     </script>
     <!-- Internationalization (i18n) Multi-Language Engine -->
-    <script src="{{ url_for('static', filename='js/i18n.js', v='14.0') }}"></script>
+    <script src="{{ url_for('static', filename='js/i18n.js', v='15.0') }}"></script>
     <!-- Main Interactive Script -->
-    <script src="{{ url_for('static', filename='js/main.js', v='36.0') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js', v='37.0') }}"></script>
 </body>
 
 </html>

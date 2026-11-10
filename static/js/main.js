@@ -1162,10 +1162,11 @@ window.readAloudText = function(text, btnElement) {
     const curLang = window.getCurrentLanguage ? window.getCurrentLanguage() : 'zh-TW';
     const speechText = window.getLocalizedSpeech(text, curLang);
     let voice = audioTourState.voice;
-    if (!voice || (curLang === 'en' && !voice.startsWith('en-')) || (curLang === 'ja' && !voice.startsWith('ja-')) || (curLang === 'ko' && !voice.startsWith('ko-')) || (curLang === 'zh-TW' && !voice.startsWith('zh-') && !voice.startsWith('zen-'))) {
+    if (!voice || (curLang === 'en' && !voice.startsWith('en-')) || (curLang === 'ja' && !voice.startsWith('ja-')) || (curLang === 'ko' && !voice.startsWith('ko-')) || (curLang === 'zh-CN' && !voice.startsWith('zh-CN-')) || (curLang === 'zh-TW' && !voice.startsWith('zh-') && !voice.startsWith('zen-'))) {
         if (curLang === 'en') voice = 'en-US-JennyNeural';
         else if (curLang === 'ja') voice = 'ja-JP-NanamiNeural';
         else if (curLang === 'ko') voice = 'ko-KR-SunHiNeural';
+        else if (curLang === 'zh-CN') voice = 'zh-CN-XiaoxiaoNeural';
         else voice = 'zen-male';
         audioTourState.voice = voice;
     }
