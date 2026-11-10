@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git
+.github
+.venv/
+venv/
+*.log
+bin/cloudflared.exe
+data/*.db
+data/public_url.txt
+crash_log.txt
+static/audio/cache/
